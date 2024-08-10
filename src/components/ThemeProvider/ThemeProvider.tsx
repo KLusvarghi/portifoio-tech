@@ -1,0 +1,65 @@
+import { ReactNode } from 'react';
+import { ThemeProvider } from 'styled-components';
+
+interface AuxProps {
+  children: ReactNode;
+}
+
+const theme = {
+  cores: {
+    branco: '#FFF',
+    atencao: '#FF0E0E',
+    focus: '#225E84',
+    stackIcon: 'rgba(34,94,132,80)',
+    overlay: 'rgba(0,0,0,29)',
+    light: '#EBEAF9',
+    formColor: '#F7F7F8',
+    form: '#11213F',
+    tecnologyStrokeLight: '#FCFCFC',
+    tecnologyStrokeDark: '#122442',
+    bgGradient: 'linear-gradient(to left, #081324, #162849)',
+    buttonGradientDark: 'linear-gradient(to left, #081324, #091426, #0E1E37',
+    gradientLigthButton: 'linear-gradient(to left, #FFFFFF, #CAD2E0, #AFBACC)',
+    primarias: {
+      a: '#225E84',
+    },
+    secundaria: {
+      b: '#FDF8F8',
+      c: '#EBFCF9',
+    },
+    neutras: {
+      c0: '#FFFFFF',
+      c1: '#F4F5F6',
+      c2: '#E8EBED',
+      c3: '#DEE0E2',
+      c4: '#C1C4C8',
+      c5: '#AAAEB6',
+      c6: '#999CA4',
+      c7: '#73777D ',
+      c8: '#5D616B',
+      c9: '#404447',
+      c10: '#242526',
+      c11: '#121212',
+      c12: '#000000',
+    },
+    dark: {
+      a: '#0D1E39',
+      b: '#B61B00',
+    },
+  },
+  espacamentos: {
+    xxs: '4px',
+    xs: '8px',
+    s: '16px',
+    l: '32px',
+    xl: '48px',
+    xxl: '64px',
+  },
+  fontMon: "'Montserrat', sans-serif",
+  fontPop: "'Poppins', sans-serif",
+  fontRob: "'Roboto', sans-serif",
+};
+
+export const ProvedorTema = ({ children }: AuxProps) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
