@@ -29,7 +29,7 @@ const Pagina404 = () => {
             uma olhada na que você está procurando.
           </Typography>
           <div style={{ textAlign: 'center' }}>
-            <Link to="..">
+            <Link to="/pagina-inicial">
               <Button variant="secundaria">Voltar ao inicio</Button>
             </Link>
           </div>

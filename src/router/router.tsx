@@ -1,34 +1,23 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Pagina404 from './error/Page404';
-
-
+import BaseLayout from '../paginas/BaseLayout';
+import Home from '../paginas/Home/Home';
+import Certificates from '../paginas/Certificates/Certificates';
 
 // sendo o "router" nosso provedor
 export const router = createBrowserRouter([
   {
-    path: '/',
-    // element: <LayoutBase />,
+    path: '/pagina-inicial',
+    element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [
       {
-        path: 'cadastro',
-        // element: <LayoutBaseCadastro />,
+        path: '',
+        element: <Home />,
         children: [
           {
-            path: '',
-            // element: <SelecaoCliente />,
-          },
-          {
-            path: 'interesses',
-            // element: <Interesses />,
-          },
-          {
-            path: 'dados-pessoais',
-            // element: <DadosPessoais />,
-          },
-          {
-            path: 'concluido',
-            // element: <Concluido />,
+            path: 'certificates',
+            element: <Certificates />,
           },
         ],
       },

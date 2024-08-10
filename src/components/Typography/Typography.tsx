@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
+// Define a interface para as propriedades do componente estilizado
+interface StyledComponentProps {
+  $fontFamily?: string;
+}
+
 const components = {
   h1: 'h1',
   h2: 'h2',
@@ -11,11 +16,12 @@ const components = {
   body2Bold: 'strong',
 };
 
-const estilos = {
+const styles = {
   h1: `
     font-size: 40px; 
     font-weight: 600; 
     line-height: 48px; 
+    font-family: ${(props: StyledComponentProps) => props.$fontFamily};
   `,
   h2: `
     font-size: 32px; 
@@ -61,15 +67,25 @@ const estilos = {
 };
 
 interface TypographerProps {
-  variant?: keyof typeof estilos;
+  fontFamily?: string;
+  variant?: keyof typeof styles;
   component?: keyof typeof components;
   children: ReactNode;
 }
+
 // sendo o component é o que será renderizado e 'variant' o que será exibido de fato
-export const Typography  = ({ variant = 'h1', component = 'h1', children }: TypographerProps) => {
-  const tag = components[component];
-  const ComponentUsed = styled(tag)`
-    ${estilos[variant]}
+export const Typography = ({
+  fontFamily = 'fontPop',
+  variant = 'h1',
+  component = 'h1',
+  children,
+}: TypographerProps) => {
+  const Tag = components[component] as keyof JSX.IntrinsicElements;
+
+  // Define o tipo do componente utilizado, incluindo as propriedades estilizadas
+  const ComponentUsed = styled(Tag)<StyledComponentProps>`
+    ${styles[variant]}
   `;
-  return <ComponentUsed>{children}</ComponentUsed>;
+
+  return <ComponentUsed $fontFamily={fontFamily}>{children}</ComponentUsed>;
 };

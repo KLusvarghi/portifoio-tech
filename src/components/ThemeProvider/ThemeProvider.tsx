@@ -1,12 +1,8 @@
-import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
-
-interface AuxProps {
-  children: ReactNode;
-}
+import { AuxProps } from '../../types/auxProps';
 
 const theme = {
-  cores: {
+  colors: {
     branco: '#FFF',
     atencao: '#FF0E0E',
     focus: '#225E84',
@@ -17,17 +13,35 @@ const theme = {
     form: '#11213F',
     tecnologyStrokeLight: '#FCFCFC',
     tecnologyStrokeDark: '#122442',
-    bgGradient: 'linear-gradient(to left, #081324, #162849)',
-    buttonGradientDark: 'linear-gradient(to left, #081324, #091426, #0E1E37',
-    gradientLigthButton: 'linear-gradient(to left, #FFFFFF, #CAD2E0, #AFBACC)',
-    primarias: {
+    // bgGradient: 'linear-gradient(to left, #081324, #162849)',
+    bgGradient: {
+      a: '#081324',
+      b: '#162849',
+    },
+    // gradientLigthButton: 'linear-gradient(to left, #FFFFFF, #CAD2E0, #AFBACC)',
+    gradientLigthButton: {
+      a: '#FFFFFF',
+      b: '#CAD2E0',
+      c: '#AFBACC',
+    },
+    buttonGradientDark: {
+      a: '#081324',
+      b: '#091426',
+      c: '#0E1E37',
+    },
+    buttonGradientLight: {
+      a: '#',
+      b: '#',
+      c: '#',
+    },
+    primaries: {
       a: '#225E84',
     },
-    secundaria: {
+    secondary: {
       b: '#FDF8F8',
       c: '#EBFCF9',
     },
-    neutras: {
+    neutral: {
       c0: '#FFFFFF',
       c1: '#F4F5F6',
       c2: '#E8EBED',
@@ -47,7 +61,7 @@ const theme = {
       b: '#B61B00',
     },
   },
-  espacamentos: {
+  spacing: {
     xxs: '4px',
     xs: '8px',
     s: '16px',
@@ -55,11 +69,11 @@ const theme = {
     xl: '48px',
     xxl: '64px',
   },
-  fontMon: "'Montserrat', sans-serif",
   fontPop: "'Poppins', sans-serif",
   fontRob: "'Roboto', sans-serif",
+  fontMon: "'Montserrat', sans-serif",
 };
 
-export const ProvedorTema = ({ children }: AuxProps) => {
+export const ProviderTheme = ({ children }: AuxProps) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
