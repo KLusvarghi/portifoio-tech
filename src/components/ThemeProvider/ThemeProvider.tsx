@@ -5,7 +5,6 @@ const theme = {
   colors: {
     branco: '#FFF',
     atencao: '#FF0E0E',
-    focus: '#225E84',
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
     light: '#EBEAF9',
@@ -13,12 +12,10 @@ const theme = {
     form: '#11213F',
     tecnologyStrokeLight: '#FCFCFC',
     tecnologyStrokeDark: '#122442',
-    // bgGradient: 'linear-gradient(to left, #081324, #162849)',
     bgGradient: {
       a: '#081324',
       b: '#162849',
     },
-    // gradientLigthButton: 'linear-gradient(to left, #FFFFFF, #CAD2E0, #AFBACC)',
     gradientLigthButton: {
       a: '#FFFFFF',
       b: '#CAD2E0',
@@ -69,9 +66,11 @@ const theme = {
     xl: '48px',
     xxl: '64px',
   },
-  fontPop: "'Poppins', sans-serif",
-  fontRob: "'Roboto', sans-serif",
-  fontMon: "'Montserrat', sans-serif",
+  font: {
+    poppins: "'Poppins', sans-serif",
+    roboto: "'Roboto', sans-serif",
+    montserrat: "'Montserrat', sans-serif",
+  },
 };
 
 export const ProviderTheme = ({ children }: AuxProps) => {

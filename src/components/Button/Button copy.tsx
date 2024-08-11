@@ -1,19 +1,19 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { ArrowNext } from '../Icons/ArrowNext';
+import arrow from './assets/arrow-next.svg';
 
-const StyledArrow = styled.svg`
-  /* width: 100%; */
-  /* height: auto; */
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const StyledArrow = styled.img`
+//   max-width: 100%;
+//   margin-left: 10px;
+//   flex: 1;
+//   &:hover {
+//     color: ${(props) => props.theme.colors.dark.a};
+//   }
+// `;
 
 interface AuxProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'transparent' | 'header';
+  variant?: 'primary' | 'secound' | 'outline' | 'transparent' | 'header';
   icon?: boolean;
 }
 
@@ -32,27 +32,30 @@ const StyledButton = styled.button`
 `;
 
 const PrimaryButton = styled(StyledButton)<StyledButtonProps>`
-  background: ${(props) => props.theme.colors.primaries.a};
-  border: 2px solid ${(props) => props.theme.colors.primaries.a};
-
   ${(props) => {
     switch (props.$icon) {
       case true:
         return css`
+          background: ${(props) => props.theme.colors.primaries.a} url(${arrow})
+          no-repeat right 16px center;
           padding-right: 52px;
         `;
       default:
-        return css``;
+        return css`
+          background: ${(props) => props.theme.colors.primaries.a};
+        `;
     }
   }}
+  border: 2px solid ${(props) => props.theme.colors.primaries.a};
 
   &:hover {
     box-shadow: inset 500px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
+
   }
 `;
 
-const SecondaryButton = styled(StyledButton)`
+const SecoundButton = styled(StyledButton)`
   background: ${(props) => props.theme.colors.dark.a};
 
   &:hover {
@@ -93,20 +96,11 @@ export const Button = ({
   children,
   icon = false,
 }: AuxProps) => {
-  const [strokes, setStrokes] = useState('#E8EBED');
-
   if (variant === 'primary') {
     return (
       <PrimaryButton $icon={icon}>
         {children}
-        {icon ? (
-          <StyledArrow
-            onMouseEnter={() => setStrokes('#225E84')}
-            onMouseLeave={() => setStrokes('#E8EBED')}
-          >
-            <ArrowNext stroke={strokes} />
-          </StyledArrow>
-        ) : null}
+        {/* {icon ? <StyledArrow src={arrow} alt="Flecha para a direita" /> : null} */}
       </PrimaryButton>
     );
   } else if (variant === 'outline') {
@@ -116,5 +110,5 @@ export const Button = ({
   } else if (variant === 'header') {
     return <HeaderButton>{children}</HeaderButton>;
   }
-  return <SecondaryButton>{children}</SecondaryButton>;
+  return <SecoundButton>{children}</SecoundButton>;
 };

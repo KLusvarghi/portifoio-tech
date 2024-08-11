@@ -1,11 +1,9 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-const StyleIntroduction = styled.div``
+const StyleIntroduction = styled.div``;
 
 const Introduction = () => {
-  return (
-    <StyleIntroduction>Introduction</StyleIntroduction>
-  )
-}
+  return <StyleIntroduction>Introduction</StyleIntroduction>;
+};
 
-export default Introduction
+export default Introduction;

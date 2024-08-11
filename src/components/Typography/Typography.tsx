@@ -1,91 +1,72 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
-// Define a interface para as propriedades do componente estilizado
-interface StyledComponentProps {
-  $fontFamily?: string;
-}
-
+//  sendo o component é o que será renderizado e
 const components = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  body: 'p',
-  bodyBold: 'strong',
-  body2: 'p',
-  body2Bold: 'strong',
-};
-
-const styles = {
-  h1: `
-    font-size: 40px; 
-    font-weight: 600; 
-    line-height: 48px; 
-    font-family: ${(props: StyledComponentProps) => props.$fontFamily};
+  h1: styled.h1`
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 600;
+    font-family: ${(props) => props.theme.font.poppins};
   `,
-  h2: `
-    font-size: 32px; 
-    font-weight: 600; 
-    line-height: 40px; 
+  h2: styled.h2`
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    font-family: ${(props) => props.theme.font.poppins};
   `,
-  h3: `
-    font-size: 24px; 
-    font-weight: 500; 
-    line-height: 36px; 
+  h3: styled.h3`
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 500;
+    font-family: ${(props) => props.theme.font.poppins};
   `,
-  body: `
-    font-size: 20px; 
-    font-weight: 400; 
-    line-height: 26px; 
+  body: styled.p`
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 400;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
-  bodyBold: `
-    font-size: 20px; 
-    font-weight: 700; 
-    line-height: 26px; 
+  bodyBold: styled.strong`
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
-  body2: `
-    font-size: 16px; 
-    font-weight: 400; 
-    line-height: 24px; 
+  body2: styled.p`
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
-  body2Bold: `
-    font-size: 16px; 
-    font-weight: 700; 
-    line-height: 24px; 
+  body2Bold: styled.strong`
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
-  subtitle: `
-    font-size: 14px; 
-    font-weight: 400; 
-    line-height: 20px; 
+  subtitle: styled.p`
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
-  subtitle2: `
-    font-size: 14px; 
-    font-weight: 400; 
-    line-height: 17px; 
+  subtitle2: styled.p`
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
     text-decoration: underline;
+    font-family: ${(props) => props.theme.font.roboto};
   `,
 };
 
 interface TypographerProps {
-  fontFamily?: string;
-  variant?: keyof typeof styles;
-  component?: keyof typeof components;
+  variant?: keyof typeof components;
   children: ReactNode;
 }
 
-// sendo o component é o que será renderizado e 'variant' o que será exibido de fato
-export const Typography = ({
-  fontFamily = 'fontPop',
-  variant = 'h1',
-  component = 'h1',
-  children,
-}: TypographerProps) => {
-  const Tag = components[component] as keyof JSX.IntrinsicElements;
-
-  // Define o tipo do componente utilizado, incluindo as propriedades estilizadas
-  const ComponentUsed = styled(Tag)<StyledComponentProps>`
-    ${styles[variant]}
-  `;
-
-  return <ComponentUsed $fontFamily={fontFamily}>{children}</ComponentUsed>;
+// 'variant' o que será exibido de fato
+export const Typography = ({ variant = 'h1', children }: TypographerProps) => {
+  const ComponentUsed = components[variant];
+  return <ComponentUsed>{children}</ComponentUsed>;
 };

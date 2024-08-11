@@ -30,7 +30,7 @@ const Pagina404 = () => {
           </Typography>
           <div style={{ textAlign: 'center' }}>
             <Link to="/pagina-inicial">
-              <Button variant="secundaria">Voltar ao inicio</Button>
+              <Button variant="secondary">Voltar ao inicio</Button>
             </Link>
           </div>
         </Col>
