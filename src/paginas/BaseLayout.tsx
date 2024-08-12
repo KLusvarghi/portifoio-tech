@@ -15,7 +15,7 @@ const BaseLayout = ({ children }: AuxProps) => {
             <Col md={4}>
               <PortifolioLogo />
             </Col>
-            <Col md={8}>
+            <Col md={8} >
               <ul>
                 <li><Button variant="header">Home</Button></li>
                 <li>
