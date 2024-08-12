@@ -3,14 +3,13 @@ import styled from 'styled-components';
 export const Header = styled.header`
   background: ${(props) => props.theme.colors.bgGradient.a};
   padding: ${(props) => props.theme.spacing.l};
-  display: flex;
+  /* display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   ul {
     display: flex;
-    gap: ${(props) => props.theme.spacing.l};
 
     /* aplcia a opacidade nos itens não selecionados */
     &:hover {

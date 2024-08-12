@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { AuxProps } from '../../types/auxProps';
 
 const StyledBackground = styled.div`
-  background: ${(props) => props.theme.colors.primaries.a};
   background: linear-gradient(
     ${(props) => props.theme.colors.buttonGradientDark.a},
     ${(props) => props.theme.colors.buttonGradientDark.b},

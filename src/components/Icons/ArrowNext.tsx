@@ -10,9 +10,9 @@ export const ArrowNext = ({ stroke = '#E8EBED' }) => {
       <path
         d="M21.9939 5.92578L1.95223 5.92578M21.9939 5.92578L15.8272 9.92578M21.9939 5.92578L15.8272 1.92578"
         stroke={stroke}
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

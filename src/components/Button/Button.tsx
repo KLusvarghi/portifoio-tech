@@ -1,24 +1,11 @@
 import { ReactNode, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
-
-const StyledArrow = styled.svg`
-  /* width: 100%; */
-  /* height: auto; */
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 interface AuxProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'transparent' | 'header';
   icon?: boolean;
-}
-
-interface StyledButtonProps {
-  $icon?: boolean;
 }
 
 const StyledButton = styled.button`
@@ -29,22 +16,20 @@ const StyledButton = styled.button`
   font-weight: 500;
   border-radius: 5px;
   transition: ease-in-out 0.3s;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 1em 2em;
 `;
 
-const PrimaryButton = styled(StyledButton)<StyledButtonProps>`
+const StyledArrow = styled.svg`
+  width: 23px;
+  height: 11px;
+  padding-left: 10px;
+`;
+
+const PrimaryButton = styled(StyledButton)`
   background: ${(props) => props.theme.colors.primaries.a};
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
-
-  ${(props) => {
-    switch (props.$icon) {
-      case true:
-        return css`
-          padding-right: 52px;
-        `;
-      default:
-        return css``;
-    }
-  }}
 
   &:hover {
     box-shadow: inset 500px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
@@ -86,6 +71,7 @@ const TransparentButton = styled(StyledButton)`
 const HeaderButton = styled(StyledButton)`
   background: transparent;
   color: ${(props) => props.theme.colors.neutral.c1};
+  padding: 0 1.2em 0.2em;
 `;
 
 export const Button = ({
@@ -93,28 +79,32 @@ export const Button = ({
   children,
   icon = false,
 }: AuxProps) => {
-  const [strokes, setStrokes] = useState('#E8EBED');
+  const [stroke, setStroke] = useState('#E8EBED');
 
-  if (variant === 'primary') {
-    return (
-      <PrimaryButton $icon={icon}>
-        {children}
-        {icon ? (
-          <StyledArrow
-            onMouseEnter={() => setStrokes('#225E84')}
-            onMouseLeave={() => setStrokes('#E8EBED')}
-          >
-            <ArrowNext stroke={strokes} />
-          </StyledArrow>
-        ) : null}
-      </PrimaryButton>
-    );
-  } else if (variant === 'outline') {
-    return <OutlineButton>{children}</OutlineButton>;
-  } else if (variant === 'transparent') {
-    return <TransparentButton>{children}</TransparentButton>;
-  } else if (variant === 'header') {
-    return <HeaderButton>{children}</HeaderButton>;
+  const renderButton = () => (
+    <PrimaryButton
+      onMouseEnter={() => setStroke('#225E84')}
+      onMouseLeave={() => setStroke('#E8EBED')}
+    >
+      {children}
+      {icon && (
+        <StyledArrow>
+          <ArrowNext stroke={stroke} />
+        </StyledArrow>
+      )}
+    </PrimaryButton>
+  );
+
+  switch (variant) {
+    case 'outline':
+      return <OutlineButton>{children}</OutlineButton>;
+    case 'transparent':
+      return <TransparentButton>{children}</TransparentButton>;
+    case 'header':
+      return <HeaderButton>{children}</HeaderButton>;
+    case 'secondary':
+      return <SecondaryButton>{children}</SecondaryButton>;
+    default:
+      return renderButton();
   }
-  return <SecondaryButton>{children}</SecondaryButton>;
 };

@@ -66,6 +66,10 @@ const theme = {
     xl: '48px',
     xxl: '64px',
   },
+  borderRadius: {
+    xxs: '5px',
+    xs: '8px',
+  },
   font: {
     poppins: "'Poppins', sans-serif",
     roboto: "'Roboto', sans-serif",
