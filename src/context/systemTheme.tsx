@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { AuxProps } from '../types/auxProps';
+import { IChildrenProps } from '../types/auxProps';
 import { DefaultTheme } from 'styled-components/dist/types';
 import dark from '../styles/theme/dark';
 import light from '../styles/theme/light';
@@ -15,7 +15,7 @@ export const SystemThemeContext = createContext<IThemeContextProps>({
   setTheme: () => null,
 });
 
-export const SystemThemeProvider = ({ children }: AuxProps) => {
+export const SystemThemeProvider = ({ children }: IChildrenProps) => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
 
   const handleSetTheme = () => {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { PortifolioLogo } from '../components/Icons/PortifolioLogo';
-import { AuxProps } from '../types/auxProps';
+import { IChildrenProps } from '../types/auxProps';
 import { Button } from '../components/Button/Button';
 import UseWindowSize from '../hooks/useWindowSize';
 import useSystemThemeContext from '../hooks/useSystemThemeContext';
@@ -33,7 +33,7 @@ import {
   StyledWrapperIcons,
 } from './stylesBaseLayout';
 
-const BaseLayout = ({ children }: AuxProps) => {
+const BaseLayout = ({ children }: IChildrenProps) => {
   const [active, setAcive] = useState(false);
   const width = UseWindowSize();
   const { theme, setTheme } = useSystemThemeContext();
@@ -131,12 +131,12 @@ const BaseLayout = ({ children }: AuxProps) => {
             </StyledLiFooter>
           </StyledUlFooter>
           <StyledWrapperIcons>
-            <GitHub theme={theme.title} />
-            <Email theme={theme.title} />
-            <Instagram theme={theme.title} />
-            <Linkedin theme={theme.title} />
-            <WhatsApp theme={theme.title} />
-            <Cv theme={theme.title} />
+            <GitHub theme={theme.title} footer={true} />
+            <Email theme={theme.title} footer={true} />
+            <Instagram theme={theme.title} footer={true} />
+            <Linkedin theme={theme.title} footer={true} />
+            <WhatsApp theme={theme.title} footer={true} />
+            <Cv theme={theme.title} footer={true} />
           </StyledWrapperIcons>
           <StyledSeparator />
           <StayledWrapperFooter>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AuxProps } from '../../types/auxProps';
+import { IChildrenProps } from '../../types/auxProps';
 
 const StyledBackground = styled.div`
   background: linear-gradient(
@@ -13,7 +13,7 @@ const StyledBackground = styled.div`
   overflow-x: hidden;
 `;
 
-const Background = ({ children }: AuxProps) => {
+const Background = ({ children }: IChildrenProps) => {
   return <StyledBackground>{children}</StyledBackground>;
 };
 

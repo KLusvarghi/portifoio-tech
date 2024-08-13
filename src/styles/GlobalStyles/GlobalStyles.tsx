@@ -16,7 +16,24 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     margin: 0;
-    background: #f5f5f5;
+    background: ${(props) => props.theme.colors.scrollbar.a};
+  }
+
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.colors.scrollbar.a};
+
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.colors.scrollbar.b};
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: ${(props) => props.theme.colors.scrollbar.c};
   }
 
   main {

@@ -3,6 +3,7 @@ import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { ModeButton } from '../../components/Icons/ModeButton';
 import UseWindowSize from '../../hooks/useWindowSize';
 import { Rocket } from '../../components/Rocket/Rocket';
+import Introduction from '../Introduction/Introduction';
 
 const StyledRocket = styled.div`
   cursor: pointer;
@@ -14,10 +15,6 @@ const StyledRocket = styled.div`
   &:hover {
     transform: scale(1.04);
   }
-`;
-
-const StyledDiv = styled.div`
-  height: 100vh;
 `;
 
 const StyledMode = styled.div`
@@ -50,14 +47,16 @@ const Home = () => {
   return (
     <>
       {width >= 600 && (
-        <StyledMode onClick={() => setTheme()}>
-          <ModeButton mode={theme.title} />
-        </StyledMode>
+        <>
+          <StyledMode onClick={() => setTheme()}>
+            <ModeButton mode={theme.title} />
+          </StyledMode>
+          <StyledRocket>
+            <Rocket />
+          </StyledRocket>
+        </>
       )}
-      <StyledDiv></StyledDiv>
-      <StyledRocket>
-        <Rocket />
-      </StyledRocket>
+      <Introduction/>
     </>
   );
 };

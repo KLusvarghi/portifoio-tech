@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
 
-export interface AuxProps {
+export interface IChildrenProps {
   children?: ReactNode;
 }
 
 export interface ISvgProps {
-  theme: string;
+  theme?: string;
+  footer?: boolean
 }

@@ -14,6 +14,11 @@ declare module 'styled-components' {
       overlay: string;
       tecnologyStroke: string;
       formBg: string;
+      scrollbar: {
+        a: string;
+        b: string;
+        c: string;
+      };
       footer: {
         a: string;
         b: string;

@@ -5,9 +5,14 @@ export default {
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#FCFCFC',
     formBg: '#F7F7F8',
-    footer: {
+    scrollbar: {
       a: '#AAAEB6',
-      b: '#999CA4',
+      b: '#73777D',
+      c: '#555',
+    },
+    footer: {
+      a: '#74777B',
+      b: '#888C92',
     },
     header: {
       a: '#242526',
