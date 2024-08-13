@@ -1,4 +1,4 @@
-interface AuxProps {
+interface IProtifolioProps {
   width?: number;
   height?: number;
   color?: string;
@@ -8,7 +8,7 @@ export const PortifolioLogo = ({
   width = 231,
   height = 42,
   color = '#F4F5F6',
-}: AuxProps) => {
+}: IProtifolioProps) => {
   return (
     <svg
       width={width}

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
-//  sendo o component é o que será renderizado e
+//  sendo o component é o que será renderizado
 const components = {
   h1: styled.h1`
     font-size: 2.5em;
@@ -60,13 +60,13 @@ const components = {
   `,
 };
 
-interface TypographerProps {
+interface ITypographerProps {
   variant?: keyof typeof components;
   children: ReactNode;
 }
 
 // 'variant' o que será exibido de fato
-export const Typography = ({ variant = 'h1', children }: TypographerProps) => {
+export const Typography = ({ variant = 'h1', children }: ITypographerProps) => {
   const ComponentUsed = components[variant];
   return <ComponentUsed>{children}</ComponentUsed>;
 };

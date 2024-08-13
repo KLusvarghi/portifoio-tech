@@ -17,8 +17,8 @@ interface AuxProps {
   icon?: boolean;
 }
 
-interface StyledButtonProps {
-  icon?: boolean;
+interface IButtonProps {
+  $icon?: boolean;
 }
 
 const StyledButton = styled.button`
@@ -31,9 +31,9 @@ const StyledButton = styled.button`
   transition: ease-in-out 0.3s;
 `;
 
-const PrimaryButton = styled(StyledButton)<StyledButtonProps>`
+const PrimaryButton = styled(StyledButton)<IButtonProps>`
   ${(props) => {
-    switch (props.icon) {
+    switch (props.$icon) {
       case true:
         return css`
           background: ${(props) => props.theme.colors.primaries.a} url(${arrow})
@@ -98,7 +98,7 @@ export const Button = ({
 }: AuxProps) => {
   if (variant === 'primary') {
     return (
-      <PrimaryButton icon={icon}>
+      <PrimaryButton $icon={icon}>
         {children}
         {/* {icon ? <StyledArrow src={arrow} alt="Flecha para a direita" /> : null} */}
       </PrimaryButton>

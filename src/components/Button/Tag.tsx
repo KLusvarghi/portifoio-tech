@@ -1,12 +1,17 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface ITagProps {
-  type: number;
-  mode: 'dark' | 'light';
+  children: ReactNode;
+  capitalize?: boolean;
+  mode?: 'dark' | 'light';
+}
+interface IStyledTagProps {
+  $capitalize: boolean;
 }
 
-const StyledTag = styled.span<ITagProps>`
+const StyledTag = styled.span<IStyledTagProps>`
   padding: 8px 14px;
   /* letter-spacing: 0.8px; */
   transition: 0.3s ease-in-out;
@@ -15,53 +20,29 @@ const StyledTag = styled.span<ITagProps>`
   border-radius: ${(props) => props.theme.borderRadius.xxs};
   cursor: grab;
   text-transform: capitalize;
-  ${({ type }) => type == 1 && `text-transform: uppercase;`}
-  &:hover {
-    ${(props) => {
-      switch (props.mode) {
-        case 'dark':
-          return css`
-            box-shadow: 0 0 0 1px ${(props) => props.theme.colors.bgGradient.b},
-              0 0 0 2px ${(props) => props.theme.colors.bgGradient.a};
-          `;
-        default:
-          return css`
-            box-shadow: 0 0 0 1px ${(props) => props.theme.colors.neutral.c4},
-              0 0 0 2px ${(props) => props.theme.colors.neutral.c3};
-          `;
-      }
-    }}
-  }
+  ${({ $capitalize }) => !$capitalize && `text-transform: uppercase;`}
+
+  /* QUANDO ARRUAMR O THEME VIR AQUI E ARRUMAR PARA QUE FUNCIONE NOS DOIS TEMAS */
+  box-shadow: 0 0 0 1px ${(props) => props.theme.colors.bgGradient.b},
+  0 0 0 2px ${(props) => props.theme.colors.bgGradient.a};
 `;
 
 const TagDark = styled(StyledTag)`
-  border: 2px solid ${(props) => props.theme.colors.tecnologyStrokeDark};
+  border: 2px solid ${(props) => props.theme.colors.tecnologyStroke};
   color: ${(props) => props.theme.colors.neutral.c4};
 `;
 
 const TagLight = styled(StyledTag)`
   color: ${(props) => props.theme.colors.neutral.c6};
-  background: ${(props) => props.theme.colors.tecnologyStrokeLight};
+  background: ${(props) => props.theme.colors.tecnologyStroke};
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
-interface AuxProps {
-  children: ReactNode;
-  type?: number;
-  mode?: 'dark' | 'light';
-}
+export const Tag = ({ children, capitalize = true }: ITagProps) => {
+  const { theme } = useSystemThemeContext();
 
-export const Tag = ({ children, mode = 'dark', type = 1 }: AuxProps) => {
-  if (mode === 'dark') {
-    return (
-      <TagDark mode={mode} type={type}>
-        {children}
-      </TagDark>
-    );
+  if (theme.title === 'dark') {
+    return <TagDark $capitalize={capitalize}>{children}</TagDark>;
   }
-  return (
-    <TagLight mode={mode} type={type}>
-      {children}
-    </TagLight>
-  );
+  return <TagLight $capitalize={capitalize}>{children}</TagLight>;
 };

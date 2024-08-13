@@ -1,4 +1,4 @@
-import { Col, Container, Row } from '../components/Grid/Grid';
+import { Col, Container, Row } from 'react-grid-system';
 import styled, { css } from 'styled-components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,9 +7,8 @@ import { Header } from '../components/Header/Header';
 import { PortifolioLogo } from '../components/Icons/PortifolioLogo';
 import { AuxProps } from '../types/auxProps';
 import { Button } from '../components/Button/Button';
-import UseWindowSize from '../hooks/useWindowSize';
 
-interface IStyledHamburguerProps {
+interface NavHamburguerProps {
   $active: boolean;
 }
 
@@ -21,7 +20,7 @@ const StyledNav = styled.nav`
   gap: 26px;
 `;
 
-const StyledUl = styled.ul<IStyledHamburguerProps>`
+const StyledUl = styled.ul<NavHamburguerProps>`
   @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
     ${(props) => {
       switch (props.$active) {
@@ -93,7 +92,6 @@ const StyledDivButton = styled.div`
 `;
 
 const StyledButtonHamburguer = styled.button`
-  display: none;
   border: none;
   background-color: transparent;
   color: ${(props) => props.theme.colors.neutral.c1};
@@ -105,7 +103,7 @@ const StyledButtonHamburguer = styled.button`
   }
 `;
 
-const StyledHamburguer = styled.span<IStyledHamburguerProps>`
+const StyledHamburguer = styled.span<NavHamburguerProps>`
   @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
     width: 20px;
     border-top: 2px solid;
@@ -125,40 +123,36 @@ const StyledHamburguer = styled.span<IStyledHamburguerProps>`
     ${({ $active }) =>
       $active &&
       `
-        border-top-color: transparent;
-        &::before {
-          transform: rotate(135deg);
-        }
+    border-top-color: transparent;
+    &::before {
+      transform: rotate(135deg);
+    }
 
-        &::after {
-          transform: rotate(-135deg);
-          top: -7px;
-        }
+    &::after {
+      transform: rotate(-135deg);
+      top: -7px;
+    }
     `}
   }
 `;
 
 const BaseLayout = ({ children }: AuxProps) => {
   const [active, setAcive] = useState(false);
-  const width = UseWindowSize();
 
   return (
     <>
       <Header>
         <Container>
-          <Row>
-            <Col>
+          <Row align="center">
+            <Col id="111" md={10} sm={8} lg={2} xl={4}>
               <Link to={'/pagina-inicial'}>
-                <PortifolioLogo
-                  width={width < 1100 ? 201 : 231}
-                  height={width < 1100 ? 36 : 42}
-                />
+                <PortifolioLogo />
               </Link>
             </Col>
-            <Col>
+            <Col id="222" md={2} sm={4} lg={10} xl={8}>
               <StyledNav>
                 {/* passando a props com "$" para que o styled-components filtre essa props e não passse para o DOM, assim não gerando erro no console */}
-                <StyledUl $active={active} onMouseLeave={() => setAcive(false)}>
+                <StyledUl $active={active}>
                   <StyledLi>
                     <Button variant="header">Home</Button>
                   </StyledLi>

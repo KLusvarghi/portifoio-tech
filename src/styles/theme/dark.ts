@@ -1,35 +1,20 @@
-import { ThemeProvider } from 'styled-components';
-import { AuxProps } from '../../types/auxProps';
-
-const theme = {
+export default {
+  title: 'dark',
   colors: {
-    branco: '#FFF',
     atencao: '#FF0E0E',
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
     light: '#EBEAF9',
-    formColor: '#F7F7F8',
-    form: '#11213F',
-    tecnologyStrokeLight: '#FCFCFC',
-    tecnologyStrokeDark: '#122442',
+    formBg: '#11213F',
+    tecnologyStroke: '#122442',
     bgGradient: {
       a: '#081324',
       b: '#162849',
     },
-    gradientLigthButton: {
-      a: '#FFFFFF',
-      b: '#CAD2E0',
-      c: '#AFBACC',
-    },
-    buttonGradientDark: {
+    buttonGradient: {
       a: '#081324',
       b: '#091426',
       c: '#0E1E37',
-    },
-    buttonGradientLight: {
-      a: '#',
-      b: '#',
-      c: '#',
     },
     primaries: {
       a: '#225E84',
@@ -53,7 +38,7 @@ const theme = {
       c11: '#121212',
       c12: '#000000',
     },
-    dark: {
+    hover: {
       a: '#0D1E39',
       b: '#B61B00',
     },
@@ -70,13 +55,14 @@ const theme = {
     xxs: '5px',
     xs: '8px',
   },
+  breakpoint: {
+    mobile: '1015px',
+    mobileGrid: '600px',
+    header: '1100px',
+  },
   font: {
     poppins: "'Poppins', sans-serif",
     roboto: "'Roboto', sans-serif",
     montserrat: "'Montserrat', sans-serif",
   },
-};
-
-export const ProviderTheme = ({ children }: AuxProps) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

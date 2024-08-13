@@ -3,6 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%; 
@@ -10,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     margin: 0;
+    background: #f5f5f5;
   }
 
   main {

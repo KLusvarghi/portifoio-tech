@@ -1,4 +1,4 @@
-export const ArrowNext = ({ stroke = '#E8EBED' }) => {
+export const ArrowNext = ({stroke = '#E8EBED' }) => {
   return (
     <svg
       width="23"

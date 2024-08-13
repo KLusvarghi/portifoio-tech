@@ -2,23 +2,25 @@ import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
 
-interface AuxProps {
+interface IButtonProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'transparent' | 'header';
   icon?: boolean;
+  onClick?: () => void;
 }
 
 const StyledButton = styled.button`
   font-family: ${(props) => props.theme.font.poppins};
   color: ${(props) => props.theme.colors.neutral.c2};
-  line-height: 24px;
-  font-size: 18px;
+  line-height: 22px;
+  font-size: 16px;
   font-weight: 500;
   border-radius: 5px;
   transition: ease-in-out 0.3s;
   cursor: pointer;
   border: 1px solid transparent;
-  padding: 1em 2em;
+  padding: 0.75em 1.5em;
+  white-space: nowrap;
 `;
 
 const StyledArrow = styled.svg`
@@ -38,7 +40,7 @@ const PrimaryButton = styled(StyledButton)`
 `;
 
 const SecondaryButton = styled(StyledButton)`
-  background: ${(props) => props.theme.colors.dark.a};
+  background: ${(props) => props.theme.colors.hover.a};
 
   &:hover {
     background: transparent;
@@ -72,19 +74,23 @@ const HeaderButton = styled(StyledButton)`
   background: transparent;
   color: ${(props) => props.theme.colors.neutral.c1};
   padding: 0 1.2em 0.2em;
+  line-height: 20px;
+  font-size: 14px;
 `;
 
 export const Button = ({
   variant = 'primary',
   children,
   icon = false,
-}: AuxProps) => {
+  onClick,
+}: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
 
   const renderButton = () => (
     <PrimaryButton
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}
+      onClick={onClick}
     >
       {children}
       {icon && (
@@ -97,13 +103,15 @@ export const Button = ({
 
   switch (variant) {
     case 'outline':
-      return <OutlineButton>{children}</OutlineButton>;
+      return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
     case 'transparent':
-      return <TransparentButton>{children}</TransparentButton>;
+      return (
+        <TransparentButton onClick={onClick}>{children}</TransparentButton>
+      );
     case 'header':
-      return <HeaderButton>{children}</HeaderButton>;
+      return <HeaderButton onClick={onClick}>{children}</HeaderButton>;
     case 'secondary':
-      return <SecondaryButton>{children}</SecondaryButton>;
+      return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     default:
       return renderButton();
   }

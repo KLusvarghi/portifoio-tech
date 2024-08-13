@@ -5,8 +5,6 @@ import { Typography } from '../../components/Typography/Typography';
 import { Button } from '../../components/Button/Button';
 import erro404 from './assets/error-404.svg';
 
-// import LayoutBase from "../LayoutBase"
-
 const StylizedImage = styled.img`
   max-width: 100%;
   width: 140px;
@@ -24,13 +22,13 @@ const Pagina404 = () => {
         </Col>
         <Col>
           <Typography>Ops! Não encontramos essa página</Typography>
-          <Typography variant="body" component="body">
+          <Typography variant="body">
             Acho que você escolheu a porta errada, porque eu não consegui dar
             uma olhada na que você está procurando.
           </Typography>
           <div style={{ textAlign: 'center' }}>
             <Link to="/pagina-inicial">
-              <Button variant="secondary">Voltar ao inicio</Button>
+              <Button>Voltar ao inicio</Button>
             </Link>
           </div>
         </Col>

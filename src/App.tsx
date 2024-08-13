@@ -1,18 +1,20 @@
-import './App.css'
 import { RouterProvider } from 'react-router-dom';
-import { ProviderTheme } from './components/ThemeProvider/ThemeProvider';
+import { ThemeProvider } from 'styled-components';
 import { router } from './router/router';
-import GlobalStyles from './components/GlobalStyles/GlobalStyles';
-import Background from './components/Background/Background';
+import GlobalStyles from './styles/GlobalStyles/GlobalStyles';
+import Background from './styles/Background/Background';
+import useSystemThemeContext from './hooks/useSystemThemeContext';
 
 function App() {
+  const { theme } = useSystemThemeContext();
+
   return (
-    <ProviderTheme>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Background>
         <RouterProvider router={router} />
       </Background>
-    </ProviderTheme>
+    </ThemeProvider>
   );
 }
 
