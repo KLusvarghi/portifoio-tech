@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
-  padding-right: 15px;
-  max-width: 540px; */
-`;
+  padding-right: 15px; 
+  width: 100%;
+  `;
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;

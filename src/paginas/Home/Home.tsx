@@ -1,29 +1,30 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { ModeButton } from '../../components/Icons/ModeButton';
-// import { Rocket } from '../../components/Rocket/Rocket';
+import UseWindowSize from '../../hooks/useWindowSize';
+import { Rocket } from '../../components/Rocket/Rocket';
 
-// const StyledRocket = styled.div`
-//   cursor: pointer;
-//   transition: 0.3s ease-in;
-//   position: absolute;
-//   right: 20px;
-//   top: 86%;
-
-//   &:hover {
-//     transform: scale(1.04);
-//   }
-// `;
-
-interface IStyledModeProps {
-  $mode: string;
-}
-
-const StyledMode = styled.div<IStyledModeProps>`
+const StyledRocket = styled.div`
   cursor: pointer;
-  position: absolute;
+  transition: 0.3s ease-in;
+  position: fixed;
+  right: 20px;
+  top: 86%;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+`;
+
+const StyledDiv = styled.div`
+  height: 100vh;
+`;
+
+const StyledMode = styled.div`
+  cursor: pointer;
+  position: fixed;
   right: 0px;
-  top: 16%;
+  top: 22%;
   height: 54px;
   width: 54px;
   display: flex;
@@ -34,42 +35,29 @@ const StyledMode = styled.div<IStyledModeProps>`
     opacity: 0.8;
   }
 
-  ${(props) => {
-    switch (props.$mode) {
-      case 'dark':
-        return css`
-          background: linear-gradient(
-            to left,
-            ${(props) => props.theme.colors.buttonGradient.a},
-            ${(props) => props.theme.colors.buttonGradient.b} 50%,
-            ${(props) => props.theme.colors.buttonGradient.c} 75%
-          );
-        `;
-      default:
-        return css`
-          background: linear-gradient(
-            to left,
-            ${(props) => props.theme.colors.buttonGradient.a} 9%,
-            ${(props) => props.theme.colors.buttonGradient.b} 24%,
-            ${(props) => props.theme.colors.buttonGradient.c} 100%
-          );
-        `;
-    }
-  }}
+  background: linear-gradient(
+    to left,
+    ${(props) => props.theme.colors.bgGradient.a},
+    ${(props) => props.theme.colors.bgGradient.b} 50%,
+    ${(props) => props.theme.colors.bgGradient.c} 75%
+  );
 `;
 
 const Home = () => {
   const { theme, setTheme } = useSystemThemeContext();
-
-  const toggleTheme = () => {
-    setTheme(theme.title == 'dark' ? 'light' : 'dark');
-  };
+  const width = UseWindowSize();
 
   return (
     <>
-      <StyledMode $mode={theme.title} onClick={() => toggleTheme()}>
-        <ModeButton mode={theme.title} />
-      </StyledMode>
+      {width >= 600 && (
+        <StyledMode onClick={() => setTheme()}>
+          <ModeButton mode={theme.title} />
+        </StyledMode>
+      )}
+      <StyledDiv></StyledDiv>
+      <StyledRocket>
+        <Rocket />
+      </StyledRocket>
     </>
   );
 };

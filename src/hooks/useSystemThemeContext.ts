@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { SystemThemeContext, IThemeContext } from '../context/systemTheme';
+import { SystemThemeContext, IThemeContextProps } from '../context/systemTheme';
 
-const useSystemThemeContext = (): IThemeContext => {
+const useSystemThemeContext = (): IThemeContextProps => {
   return useContext(SystemThemeContext);
 };
 

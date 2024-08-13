@@ -5,7 +5,10 @@ export default {
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#122442',
     formBg: '#11213F',
-    footer: '#DEE0E2',
+    footer: {
+      a: '#DEE0E2',
+      b: '#AAAEB6',
+    },
     header: {
       a: '#F4F5F6',
     },
@@ -29,11 +32,12 @@ export default {
       h2: '#E8EBED',
       p: '#C1C4C8',
     },
+    // bgGradient: {
+    //   a: '#081324',
+    //   b: '#11213E',
+    //   c: '#162849',
+    // },
     bgGradient: {
-      a: '#081324',
-      b: '#162849',
-    },
-    buttonGradient: {
       a: '#081324',
       b: '#091426',
       c: '#0E1E37',
@@ -64,6 +68,8 @@ export default {
       a: '#0D1E39',
       b: '#B61B00',
     },
+    btnHeader: '#F4F5F6',
+    btnSecundary: '#0D1E39',
   },
   spacing: {
     xxs: '4px',

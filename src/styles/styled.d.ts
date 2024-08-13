@@ -14,7 +14,10 @@ declare module 'styled-components' {
       overlay: string;
       tecnologyStroke: string;
       formBg: string;
-      footer: string;
+      footer: {
+        a: string;
+        b: string;
+      };
       header: {
         a: string;
       };
@@ -39,10 +42,6 @@ declare module 'styled-components' {
         p: string;
       };
       bgGradient: {
-        a: string;
-        b: string;
-      };
-      buttonGradient: {
         a: string;
         b: string;
         c: string;
@@ -73,6 +72,8 @@ declare module 'styled-components' {
         a: string;
         b: string;
       };
+      btnHeader: string;
+      btnSecundary: string;
     };
     spacing: {
       xxs: string;

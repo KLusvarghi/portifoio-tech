@@ -8,6 +8,7 @@ const components = {
     line-height: 3em;
     font-weight: 600;
     font-family: ${(props) => props.theme.font.poppins};
+    color: ${(props) => props.theme.colors.title.h1};
   `,
   h2: styled.h2`
     font-size: 32px;
@@ -21,11 +22,19 @@ const components = {
     font-weight: 500;
     font-family: ${(props) => props.theme.font.poppins};
   `,
+  h4: styled.h1`
+    font-size: 1.375em;
+    line-height: 1.5em;
+    font-weight: 600;
+    font-family: ${(props) => props.theme.font.poppins};
+    color: ${(props) => props.theme.colors.footer.a};
+  `,
   body: styled.p`
     font-size: 1.25em;
     line-height: 1.62em;
     font-weight: 400;
     font-family: ${(props) => props.theme.font.roboto};
+    color: ${(props) => props.theme.colors.title.p};
   `,
   bodyBold: styled.strong`
     font-size: 1.25em;
@@ -44,6 +53,13 @@ const components = {
     line-height: 1.5em;
     font-weight: 700;
     font-family: ${(props) => props.theme.font.roboto};
+  `,
+  body3: styled.p`
+    font-size: 0.75em;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: ${(props) => props.theme.font.roboto};
+    color: ${(props) => props.theme.colors.footer.a};
   `,
   subtitle: styled.p`
     font-size: 0.88em;

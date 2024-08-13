@@ -1,16 +1,18 @@
 import { ReactNode, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
-import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface IButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'transparent' | 'header';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'outline'
+    | 'transparent'
+    | 'header'
+    | 'footer';
   icon?: boolean;
   onClick?: () => void;
-}
-interface IStyledTransparentBtn {
-  $theme: string;
 }
 
 const StyledButton = styled.button`
@@ -30,13 +32,14 @@ const StyledButton = styled.button`
 const StyledArrow = styled.svg`
   width: 23px;
   height: 11px;
-  padding-left: 10px;
 `;
 
 const PrimaryButton = styled(StyledButton)`
   background: ${(props) => props.theme.colors.primaries.a};
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
-
+  display: flex;
+  align-items: center;
+  gap: 12px;
   &:hover {
     box-shadow: inset 500px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
@@ -44,7 +47,9 @@ const PrimaryButton = styled(StyledButton)`
 `;
 
 const SecondaryButton = styled(StyledButton)`
-  background: ${(props) => props.theme.colors.hover.a};
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.header.a};
+  background: ${(props) => props.theme.colors.btnSecundary};
 
   &:hover {
     background: transparent;
@@ -61,24 +66,13 @@ const OutlineButton = styled(StyledButton)`
   }
 `;
 
-const TransparentButton = styled(StyledButton)<IStyledTransparentBtn>`
+const TransparentButton = styled(StyledButton)`
   background: transparent;
   text-transform: uppercase;
-  color: ${(props) => props.theme.colors.primaries.a};
   letter-spacing: 1px;
   border: 2px solid transparent;
-  ${(props) => {
-    switch (props.$theme) {
-      case 'dark':
-        return css`
-          color: ${(props) => props.theme.colors.neutral.c2};
-        `;
-      default:
-        return css`
-          color: ${(props) => props.theme.colors.neutral.c9};
-        `;
-    }
-  }}
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.primaries.a};
   &:hover {
     border: 2px solid ${(props) => props.theme.colors.primaries.a};
   }
@@ -86,10 +80,20 @@ const TransparentButton = styled(StyledButton)<IStyledTransparentBtn>`
 
 const HeaderButton = styled(StyledButton)`
   background: transparent;
-  color: ${(props) => props.theme.colors.neutral.c1};
+  color: ${(props) => props.theme.colors.btnHeader};
   padding: 0 1.2em 0.2em;
-  line-height: 20px;
-  font-size: 14px;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 500;
+`;
+
+const FooterButton = styled(StyledButton)`
+  background: transparent;
+  color: ${(props) => props.theme.colors.footer.b};
+  padding: 0 1.2em 0.2em;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 500;
 `;
 
 export const Button = ({
@@ -99,7 +103,6 @@ export const Button = ({
   onClick,
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
-  const { theme } = useSystemThemeContext();
 
   const renderButton = () => (
     <PrimaryButton
@@ -117,18 +120,18 @@ export const Button = ({
   );
 
   switch (variant) {
+    case 'secondary':
+      return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
     case 'transparent':
       return (
-        <TransparentButton $theme={theme.title} onClick={onClick}>
-          {children}
-        </TransparentButton>
+        <TransparentButton onClick={onClick}>{children}</TransparentButton>
       );
     case 'header':
       return <HeaderButton onClick={onClick}>{children}</HeaderButton>;
-    case 'secondary':
-      return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
+    case 'footer':
+      return <FooterButton onClick={onClick}>{children}</FooterButton>;
     default:
       return renderButton();
   }
