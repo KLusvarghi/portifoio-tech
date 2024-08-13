@@ -1,12 +1,34 @@
 export default {
   title: 'ligh',
   colors: {
-    atencao: '#FF0E0E',
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
-    light: '#EBEAF9',
-    formBg: '#F7F7F8',
     tecnologyStroke: '#FCFCFC',
+    formBg: '#F7F7F8',
+    footer: '#AAAEB6',
+    header: {
+      a: '#242526',
+    },
+    intro: {
+      a: '#404447',
+      b: '#242526',
+    },
+    about: {
+      a: '#73777D',
+      b: '#404447',
+      xp: {
+        a: '#73777D',
+      },
+    },
+    title: {
+      h1: '#242526',
+      p: '#404447',
+      separator: '#225E84',
+    },
+    project: {
+      h2: '#404447',
+      p: '#5D616B',
+    },
     bgGradient: {
       a: '#FFFFFF',
       b: '#F4F5F6',

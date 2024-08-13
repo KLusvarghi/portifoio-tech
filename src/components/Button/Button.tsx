@@ -1,12 +1,16 @@
 import { ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface IButtonProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'transparent' | 'header';
   icon?: boolean;
   onClick?: () => void;
+}
+interface IStyledTransparentBtn {
+  $theme: string;
 }
 
 const StyledButton = styled.button`
@@ -49,22 +53,32 @@ const SecondaryButton = styled(StyledButton)`
 
 const OutlineButton = styled(StyledButton)`
   background: transparent;
-  color: ${(props) => props.theme.colors.primaries.a};
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
-
+  color: ${(props) => props.theme.colors.primaries.a};
   &:hover {
     box-shadow: inset 300px 0 0 0 ${(props) => props.theme.colors.primaries.a};
     color: ${(props) => props.theme.colors.neutral.c2};
   }
 `;
 
-const TransparentButton = styled(StyledButton)`
+const TransparentButton = styled(StyledButton)<IStyledTransparentBtn>`
   background: transparent;
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.primaries.a};
   letter-spacing: 1px;
   border: 2px solid transparent;
-
+  ${(props) => {
+    switch (props.$theme) {
+      case 'dark':
+        return css`
+          color: ${(props) => props.theme.colors.neutral.c2};
+        `;
+      default:
+        return css`
+          color: ${(props) => props.theme.colors.neutral.c9};
+        `;
+    }
+  }}
   &:hover {
     border: 2px solid ${(props) => props.theme.colors.primaries.a};
   }
@@ -85,6 +99,7 @@ export const Button = ({
   onClick,
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
+  const { theme } = useSystemThemeContext();
 
   const renderButton = () => (
     <PrimaryButton
@@ -106,7 +121,9 @@ export const Button = ({
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
     case 'transparent':
       return (
-        <TransparentButton onClick={onClick}>{children}</TransparentButton>
+        <TransparentButton $theme={theme.title} onClick={onClick}>
+          {children}
+        </TransparentButton>
       );
     case 'header':
       return <HeaderButton onClick={onClick}>{children}</HeaderButton>;

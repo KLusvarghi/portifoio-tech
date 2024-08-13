@@ -8,12 +8,12 @@ import Projects from '../paginas/Projects/Projects';
 export const router = createBrowserRouter([
   {
     path: '/pagina-inicial',
-    element: <Home />,
+    element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [
       {
         path: '',
-        element: <BaseLayout />,
+        element: <Home />,
         children: [
           {
             path: 'projetos/:id',

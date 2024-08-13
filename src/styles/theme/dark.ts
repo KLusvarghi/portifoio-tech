@@ -1,12 +1,34 @@
 export default {
   title: 'dark',
   colors: {
-    atencao: '#FF0E0E',
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
-    light: '#EBEAF9',
-    formBg: '#11213F',
     tecnologyStroke: '#122442',
+    formBg: '#11213F',
+    footer: '#DEE0E2',
+    header: {
+      a: '#F4F5F6',
+    },
+    intro: {
+      a: '#F4F5F6',
+      b: '#C1C4C8',
+    },
+    about: {
+      a: '#E8EBED',
+      b: '#DEE0E2',
+      xp: {
+        a: '#E8EBED',
+      },
+    },
+    title: {
+      h1: '#F4F5F6',
+      p: '#DEE0E2',
+      separator: '#3E80AA',
+    },
+    project: {
+      h2: '#E8EBED',
+      p: '#C1C4C8',
+    },
     bgGradient: {
       a: '#081324',
       b: '#162849',

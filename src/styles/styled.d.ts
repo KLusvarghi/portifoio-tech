@@ -10,12 +10,34 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
     colors: {
-      atencao: string;
       stackIcon: string;
       overlay: string;
-      light: string;
-      formBg: string;
       tecnologyStroke: string;
+      formBg: string;
+      footer: string;
+      header: {
+        a: string;
+      };
+      intro: {
+        a: string;
+        b: string;
+      };
+      about: {
+        a: string;
+        b: string;
+        xp: {
+          a: string;
+        };
+      };
+      title: {
+        h1: string;
+        p: string;
+        separator: string;
+      };
+      project: {
+        h2: string;
+        p: string;
+      };
       bgGradient: {
         a: string;
         b: string;
