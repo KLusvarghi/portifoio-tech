@@ -1,6 +1,8 @@
 import { Col, Container, Row } from '../components/Grid/Grid';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '../components/Link/Link';
+import { Link as LinkScroll } from 'react-scroll';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { PortifolioLogo } from '../components/Icons/PortifolioLogo';
@@ -44,49 +46,84 @@ const BaseLayout = ({ children }: IChildrenProps) => {
         <Container>
           <Row>
             <Col>
-              <Link to={'/pagina-inicial'}>
+              <RouterLink to={'/home'}>
                 <PortifolioLogo
                   width={width < 1100 ? 201 : 231}
                   height={width < 1100 ? 36 : 42}
                   theme={theme.title}
                 />
-              </Link>
+              </RouterLink>
             </Col>
             <Col>
               <StyledNav>
                 {/* passando a props com "$" para que o styled-components filtre essa props e não passse para o DOM, assim não gerando erro no console */}
                 <StyledUl $active={active} onMouseLeave={() => setAcive(false)}>
                   <StyledLi>
-                    <Button onClick={() => setAcive(false)} variant="header">
-                      Home
+                    <Button variant="header">
+                      <LinkScroll
+                        onClick={() => setAcive(false)}
+                        to="intro"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={500}
+                      >
+                        Home
+                      </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
-                    <Button onClick={() => setAcive(false)} variant="header">
-                      Sobre
+                    <Button variant="header">
+                      <LinkScroll
+                        onClick={() => setAcive(false)}
+                        to="about"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={500}
+                      >
+                        Sobre
+                      </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
-                    <Button onClick={() => setAcive(false)} variant="header">
-                      Projetos
+                    <Button variant="header">
+                      <LinkScroll
+                        onClick={() => setAcive(false)}
+                        to="projects"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={500}
+                      >
+                        Projetos
+                      </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
-                    <Link
-                      onClick={() => setAcive(false)}
-                      to={'/pagina-inicial/certificados'}
-                    >
+                    <Button variant="header">
+                      <LinkScroll
+                        onClick={() => setAcive(false)}
+                        to="contact"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={500}
+                      >
+                        Contato
+                      </LinkScroll>
+                    </Button>
+                  </StyledLi>
+                  <StyledLi>
+                    <RouterLink to={'/home/certificados'}>
                       <Button variant="header">Certificados</Button>
-                    </Link>
-                  </StyledLi>
-                  <StyledLi>
-                    <Button onClick={() => setAcive(false)} variant="header">
-                      Contato
-                    </Button>
+                    </RouterLink>
                   </StyledLi>
                 </StyledUl>
                 <StyledDivButton>
-                  <Button variant="secondary">Baixar CV</Button>
+                  <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
+                    <Button variant="secondary">Baixar CV</Button>
+                  </Link>
                 </StyledDivButton>
                 {width <= 600 && (
                   <>
@@ -105,7 +142,6 @@ const BaseLayout = ({ children }: IChildrenProps) => {
       </Header>
       <Outlet />
       {children}
-
       <Footer>
         <StyledContainerFooter>
           <StayledWrapperFooter>
@@ -113,21 +149,61 @@ const BaseLayout = ({ children }: IChildrenProps) => {
           </StayledWrapperFooter>
           <StyledUlFooter>
             <StyledLiFooter>
-              <Button variant="footer">Home</Button>
+              <Button variant="footer">
+              <LinkScroll
+                  to="intro"
+                  spy={true}
+                  smooth={true}
+                  offset={0}
+                  duration={500}
+                >
+                  Home
+                </LinkScroll>
+              </Button>
             </StyledLiFooter>
             <StyledLiFooter>
-              <Button variant="footer">Sobre</Button>
+              <Button variant="footer">
+              <LinkScroll
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  offset={0}
+                  duration={500}
+                >
+                  Sobre
+                </LinkScroll>
+              </Button>
             </StyledLiFooter>
             <StyledLiFooter>
-              <Button variant="footer">Projetos</Button>
+              <Button variant="footer">
+              <LinkScroll
+                  to="project"
+                  spy={true}
+                  smooth={true}
+                  offset={0}
+                  duration={500}
+                >
+                  Projetos
+                </LinkScroll>
+              </Button>
             </StyledLiFooter>
             <StyledLiFooter>
-              <Link to={'/pagina-inicial/certificados'}>
+              <Button variant="footer">
+                <LinkScroll
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={0}
+                  duration={500}
+                >
+                  Contato
+                </LinkScroll>
+              </Button>
+            </StyledLiFooter>
+            <StyledLiFooter>
+              <RouterLink to={'/home/certificados'}>
                 <Button variant="footer">Certificados</Button>
-              </Link>
-            </StyledLiFooter>
-            <StyledLiFooter>
-              <Button variant="footer">Contato</Button>
+              </RouterLink>
             </StyledLiFooter>
           </StyledUlFooter>
           <StyledWrapperIcons>

@@ -142,7 +142,7 @@ export const StyledMode = styled.div`
 
 export const StyledSeparator = styled.span`
   width: 100%;
-  height: 0.5px;
+  height: .5px;
   background: ${(props) => props.theme.colors.footer.a};
   margin-bottom: 12px;
 `;

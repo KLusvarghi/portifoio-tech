@@ -16,6 +16,7 @@ export default {
     },
     header: {
       a: '#F4F5F6',
+      b: '#E8EBED',
     },
     intro: {
       a: '#F4F5F6',

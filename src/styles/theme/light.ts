@@ -16,6 +16,7 @@ export default {
     },
     header: {
       a: '#242526',
+      b: '#E8EBED',
     },
     intro: {
       a: '#404447',
@@ -74,7 +75,7 @@ export default {
       b: '#B61B00',
     },
     btnHeader: '#121212',
-    btnSecundary: '#E8EBED',
+    btnSecundary: '#0D1E39',
   },
   spacing: {
     xxs: '4px',

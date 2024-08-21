@@ -7,7 +7,7 @@ import Projects from '../paginas/Projects/Projects';
 
 export const router = createBrowserRouter([
   {
-    path: '/pagina-inicial',
+    path: '/home',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [

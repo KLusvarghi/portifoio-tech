@@ -4,6 +4,10 @@ import { ModeButton } from '../../components/Icons/ModeButton';
 import UseWindowSize from '../../hooks/useWindowSize';
 import { Rocket } from '../../components/Rocket/Rocket';
 import Introduction from '../Introduction/Introduction';
+import About from '../About/About';
+import { useRef, useState } from 'react';
+import useWindowPositionY from '../../hooks/useWindowPositionY';
+
 
 const StyledRocket = styled.div`
   cursor: pointer;
@@ -40,24 +44,53 @@ const StyledMode = styled.div`
   );
 `;
 
+const StyledContainer = styled.div`
+  padding: 0 112px;
+`;
+
 const Home = () => {
   const { theme, setTheme } = useSystemThemeContext();
+  const [visible, setVisible] = useState(false);
+  const homeRef = useRef<HTMLDivElement | null>(null);
   const width = UseWindowSize();
+  const pageY = useWindowPositionY();
+
+  const handleChange = () => {
+    const introContainer = homeRef.current?.offsetHeight;
+    if (introContainer && pageY >= introContainer) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  };
+  window.addEventListener('scroll', handleChange);
+
+  const scrollToTop = () => {
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setVisible(false);
+  };
 
   return (
-    <>
+    <StyledContainer>
       {width >= 600 && (
         <>
-          <StyledMode onClick={() => setTheme()}>
+          <StyledMode
+            onClick={() => {
+              setTheme();
+            }}
+          >
             <ModeButton mode={theme.title} />
           </StyledMode>
-          <StyledRocket>
-            <Rocket />
-          </StyledRocket>
+          {visible && (
+            <StyledRocket onClick={scrollToTop}>
+              <Rocket />
+            </StyledRocket>
+          )}
         </>
       )}
-      <Introduction/>
-    </>
+      <Introduction homeRef={homeRef} />
+      <About />
+    </StyledContainer>
   );
 };
 

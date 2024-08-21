@@ -11,12 +11,17 @@ export interface IThemeContextProps {
 }
 
 export const SystemThemeContext = createContext<IThemeContextProps>({
-  theme: dark,
+  theme: window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? dark
+    : light,
   setTheme: () => null,
 });
 
 export const SystemThemeProvider = ({ children }: IChildrenProps) => {
-  const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
+  const [theme, setTheme] = usePersistedState<DefaultTheme>(
+    'theme',
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? dark : light,
+  );
 
   const handleSetTheme = () => {
     setTheme(theme.title === 'dark' ? light : dark);

@@ -48,11 +48,13 @@ const PrimaryButton = styled(StyledButton)`
 
 const SecondaryButton = styled(StyledButton)`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.header.a};
+  color: ${(props) => props.theme.colors.header.b};
   background: ${(props) => props.theme.colors.btnSecundary};
 
   &:hover {
     background: transparent;
+    color: ${(props) => props.theme.colors.btnHeader};
+    box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
   }
 `;
 

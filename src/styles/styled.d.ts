@@ -25,6 +25,7 @@ declare module 'styled-components' {
       };
       header: {
         a: string;
+        b: string;
       };
       intro: {
         a: string;

@@ -21,7 +21,7 @@ const StyledNav = styled.nav`
 `;
 
 const StyledUl = styled.ul<NavHamburguerProps>`
-  @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
+  @media (max-width: ${(props) => .theme.breakpoint.mobile}) {
     ${(props) => {
       switch (props.$active) {
         case true:
@@ -145,7 +145,7 @@ const BaseLayout = ({ children }: AuxProps) => {
         <Container>
           <Row align="center">
             <Col id="111" md={10} sm={8} lg={2} xl={4}>
-              <Link to={'/pagina-inicial'}>
+              <Link to={'/home'}>
                 <PortifolioLogo />
               </Link>
             </Col>
@@ -163,7 +163,7 @@ const BaseLayout = ({ children }: AuxProps) => {
                     <Button variant="header">Projetos</Button>
                   </StyledLi>
                   <StyledLi>
-                    <Link to={'/pagina-inicial/certificados'}>
+                    <Link to={'/home/certificados'}>
                       <Button variant="header">Certificados</Button>
                     </Link>
                   </StyledLi>

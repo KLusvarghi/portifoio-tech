@@ -1,6 +1,6 @@
 import { ISvgProps } from '../../types/auxProps';
 
-export const Cv = ({ theme, footer }: ISvgProps) => {
+export const Cv = ({ theme, footer, hover }: ISvgProps) => {
   return (
     <svg
       width="18"
@@ -11,7 +11,15 @@ export const Cv = ({ theme, footer }: ISvgProps) => {
     >
       <path
         d="M9.91733 7.40406H15.5238L9.91733 1.98098V7.40406ZM2.78187 0.501953H10.9367L17.0528 6.41804V18.2502C17.0528 18.7732 16.838 19.2748 16.4557 19.6447C16.0733 20.0145 15.5548 20.2222 15.0141 20.2222H2.78187C2.24117 20.2222 1.72262 20.0145 1.34029 19.6447C0.957955 19.2748 0.743164 18.7732 0.743164 18.2502V2.47398C0.743164 1.37951 1.65039 0.501953 2.78187 0.501953ZM11.956 16.2782V14.3062H2.78187V16.2782H11.956ZM15.0141 12.3341V10.3621H2.78187V12.3341H15.0141Z"
-        fill={footer ? theme === 'dark' ? '#AAAEB6 ' : '#999CA4' : '#225E84'}
+        fill={
+          footer
+            ? theme === 'dark'
+              ? '#AAAEB6 '
+              : '#999CA4'
+            : hover
+            ? '#0D1E39'
+            : '#225E84'
+        }
       />
     </svg>
   );

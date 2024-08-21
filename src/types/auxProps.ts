@@ -7,4 +7,5 @@ export interface IChildrenProps {
 export interface ISvgProps {
   theme?: string;
   footer?: boolean
+  hover?: boolean
 }

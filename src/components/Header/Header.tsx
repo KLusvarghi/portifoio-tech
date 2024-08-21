@@ -9,6 +9,7 @@ export const Header = styled.header`
   position: fixed;
   width: 100vw;
   height: 12%;
+  z-index: 1000;
 
   @media (max-width: ${(props) => props.theme.breakpoint.mobileGrid}) {
     padding: ${(props) => props.theme.spacing.l} 22px;
