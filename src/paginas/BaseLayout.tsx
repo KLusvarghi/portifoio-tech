@@ -31,9 +31,35 @@ import {
   Separator,
 } from './stylesBaseLayout';
 import { HamburguerButton } from '../components/Button/HamburguerButton';
+import { github, linkedin } from '../utils/links';
+import styled from 'styled-components';
+import { css } from 'styled-components';
+
+interface IStyledThoggleThemeMenu {
+  $theme: string;
+}
+
+const WrapperToggleThemeMobile = styled.span<IStyledThoggleThemeMenu>`
+  text-align: center;
+  height: 100%;
+  width: 100%;
+
+  ${(props) => {
+    switch (props.$theme) {
+      case 'dark':
+        return css`
+          background: ${(props) => props.theme.colors.neutral.c8};
+        `;
+      default:
+        return css`
+          background: ${(props) => props.theme.colors.neutral.c5};
+        `;
+    }
+  }}
+`;
 
 const BaseLayout = ({ children }: IChildrenProps) => {
-  const { theme } = useSystemThemeContext();
+  const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
   const [active, setAcive] = useState(false);
   const options = {
@@ -96,22 +122,43 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                       </Button>
                     </RouterLink>
                   </LiHeader>
+
+                  {width <= 1015 && (
+                    <>
+                      <LiHeader>
+                        <Link url={linkedin}>
+                          <Button variant="header" width={width}>
+                            Linkedin
+                          </Button>
+                        </Link>
+                      </LiHeader>
+                      <LiHeader>
+                        <Link url={github}>
+                          <Button variant="header" width={width}>
+                            GitHub
+                          </Button>
+                        </Link>
+                      </LiHeader>
+                      {width < 600 && (
+                        <WrapperToggleThemeMobile
+                          onClick={() => setTheme()}
+                          $theme={theme.title}
+                        >
+                          <Button variant="header" width={width}>
+                            Mudar o tema
+                          </Button>
+                        </WrapperToggleThemeMobile>
+                      )}
+                    </>
+                  )}
                 </UlHeader>
                 <ContainerButton>
                   <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
                     <Button variant="secondary">Baixar CV</Button>
                   </Link>
                 </ContainerButton>
-                {width <= 600 && (
-                  <>
-                    <ToggleThemeButton />
-                  </>
-                )}
-                {width <= 1015 && (
-                  <>
-                    <HamburguerButton active={active} setActive={setAcive} />
-                  </>
-                )}
+                <ToggleThemeButton />
+                <HamburguerButton active={active} setActive={setAcive} />
               </Nav>
             </Col>
           </Row>
@@ -192,9 +239,9 @@ const BaseLayout = ({ children }: IChildrenProps) => {
           </ContainerIcons>
 
           <Separator />
-            <Typography variant="body3">
-              © 2024 by Kauã Lusvarghi | Todos os direitos reservados{' '}
-            </Typography>
+          <Typography variant="body3">
+            © 2024 by Kauã Lusvarghi | Todos os direitos reservados{' '}
+          </Typography>
         </ContainerFooter>
       </Footer>
     </>

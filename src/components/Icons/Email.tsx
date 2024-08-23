@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { IStyledSvgProps, ISvgProps, StyledIcons } from '../../types/auxProps';
-import { Link } from 'react-router-dom';
 import { email } from '../../utils/links';
+import { Link } from '../Link/Link';
 
 const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
   &:hover {
@@ -15,7 +15,7 @@ export const Email = ({ theme = 'dark', footer = false }: ISvgProps) => {
 
   return (
     <StyledSpan $footer={footer} $theme={theme}>
-      <Link target='_blank' to={email}>
+      <Link url={email}>
         <svg
           width="21"
           height="18"
