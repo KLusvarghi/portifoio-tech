@@ -5,6 +5,12 @@ export default {
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#122442',
     formBg: '#11213F',
+    menu: {
+      shadow: 'rgba(228, 228, 228, 30%)',
+      hover: '#0C1C34',
+      bg: '#0B192F',
+      tp: '#F4F5F6',
+    },
     scrollbar: {
       a: '#2B2B2B',
       b: '#0D1E39',
@@ -38,15 +44,15 @@ export default {
       h2: '#E8EBED',
       p: '#C1C4C8',
     },
-    // bgGradient: {
-    //   a: '#081324',
-    //   b: '#11213E',
-    //   c: '#162849',
-    // },
+    themeGradient: {
+      a: '#081324',
+      b: '#0B192F',
+      c: '#112442',
+    },
     bgGradient: {
       a: '#081324',
-      b: '#091426',
-      c: '#0E1E37',
+      b: '#0F1C34',
+      c: '#162849',
     },
     primaries: {
       a: '#225E84',

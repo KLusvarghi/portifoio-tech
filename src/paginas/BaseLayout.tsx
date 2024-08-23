@@ -18,25 +18,23 @@ import { Linkedin } from '../components/Icons/Linkedin';
 import { Email } from '../components/Icons/Email';
 import { Cv } from '../components/Icons/Cv';
 import { Typography } from '../components/Typography/Typography';
-import { ModeButton } from '../components/Icons/ModeButton';
+import { ToggleThemeButton } from '../components/Button/ToggleThemeButton';
 import {
-  StyledNav,
-  StyledUl,
-  StyledLi,
-  StyledDivButton,
-  StyledButtonHamburguer,
-  StyledHamburguer,
-  StyledSeparator,
-  StyledMode,
-  StyledContainerFooter,
-  StayledWrapperFooter,
-  StyledUlFooter,
-  StyledLiFooter,
-  StyledWrapperIcons,
+  Nav,
+  UlHeader,
+  LiHeader,
+  ContainerButton,
+  ContainerFooter,
+  WrapperFooter,
+  UlFooter,
+  LiFooter,
+  WrapperIcons,
+  Separator,
 } from './stylesBaseLayout';
+import { HamburguerButton } from '../components/Button/HamburguerButton';
 
 const BaseLayout = ({ children }: IChildrenProps) => {
-  const { theme, setTheme } = useSystemThemeContext();
+  const { theme } = useSystemThemeContext();
   const width = UseWindowSize();
   const [active, setAcive] = useState(false);
   const options = {
@@ -61,59 +59,61 @@ const BaseLayout = ({ children }: IChildrenProps) => {
               />
             </Col>
             <Col>
-              <StyledNav>
+              <Nav>
                 {/* passando a props com "$" para que o styled-components filtre essa props e não passse para o DOM, assim não gerando erro no console */}
-                <StyledUl $active={active} onMouseLeave={() => setAcive(false)}>
-                  <StyledLi>
-                    <Button variant="header">
-                      <LinkScroll to="intro" {...options}>
+                <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
+                  <LiHeader>
+                    <LinkScroll to="intro" {...options}>
+                      <Button variant="header" width={width}>
                         Home
-                      </LinkScroll>
-                    </Button>
-                  </StyledLi>
-                  <StyledLi>
-                    <Button variant="header">
-                      <LinkScroll to="about" {...options}>
+                      </Button>
+                    </LinkScroll>
+                  </LiHeader>
+                  <LiHeader>
+                    <LinkScroll to="about" {...options}>
+                      <Button variant="header" width={width}>
                         Sobre
-                      </LinkScroll>
-                    </Button>
-                  </StyledLi>
-                  <StyledLi>
-                    <Button variant="header">
-                      <LinkScroll to="projects" {...options}>
+                      </Button>
+                    </LinkScroll>
+                  </LiHeader>
+                  <LiHeader>
+                    <LinkScroll to="projects" {...options}>
+                      <Button variant="header" width={width}>
                         Projetos
-                      </LinkScroll>
-                    </Button>
-                  </StyledLi>
-                  <StyledLi>
-                    <Button variant="header">
-                      <LinkScroll to="contact" {...options}>
+                      </Button>
+                    </LinkScroll>
+                  </LiHeader>
+                  <LiHeader>
+                    <LinkScroll to="contact" {...options}>
+                      <Button variant="header" width={width}>
                         Contato
-                      </LinkScroll>
-                    </Button>
-                  </StyledLi>
-                  <StyledLi>
+                      </Button>
+                    </LinkScroll>
+                  </LiHeader>
+                  <LiHeader>
                     <RouterLink to={'/home/certificados'}>
-                      <Button variant="header">Certificados</Button>
+                      <Button variant="header" width={width}>
+                        Certificados
+                      </Button>
                     </RouterLink>
-                  </StyledLi>
-                </StyledUl>
-                <StyledDivButton>
+                  </LiHeader>
+                </UlHeader>
+                <ContainerButton>
                   <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
                     <Button variant="secondary">Baixar CV</Button>
                   </Link>
-                </StyledDivButton>
+                </ContainerButton>
                 {width <= 600 && (
                   <>
-                    <StyledMode onClick={() => setTheme()}>
-                      <ModeButton mode={theme.title} />
-                    </StyledMode>
+                    <ToggleThemeButton />
                   </>
                 )}
-                <StyledButtonHamburguer onClick={() => setAcive(!active)}>
-                  <StyledHamburguer $active={active}></StyledHamburguer>
-                </StyledButtonHamburguer>
-              </StyledNav>
+                {width <= 1015 && (
+                  <>
+                    <HamburguerButton active={active} setActive={setAcive} />
+                  </>
+                )}
+              </Nav>
             </Col>
           </Row>
         </Container>
@@ -121,12 +121,12 @@ const BaseLayout = ({ children }: IChildrenProps) => {
       <Outlet />
       {children}
       <Footer>
-        <StyledContainerFooter>
-          <StayledWrapperFooter>
+        <ContainerFooter>
+          <WrapperFooter>
             <Typography variant="h4">Navegue até</Typography>
-          </StayledWrapperFooter>
-          <StyledUlFooter>
-            <StyledLiFooter>
+          </WrapperFooter>
+          <UlFooter>
+            <LiFooter>
               <Button variant="footer">
                 <LinkScroll
                   to="intro"
@@ -138,8 +138,8 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                   Home
                 </LinkScroll>
               </Button>
-            </StyledLiFooter>
-            <StyledLiFooter>
+            </LiFooter>
+            <LiFooter>
               <Button variant="footer">
                 <LinkScroll
                   to="about"
@@ -151,8 +151,8 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                   Sobre
                 </LinkScroll>
               </Button>
-            </StyledLiFooter>
-            <StyledLiFooter>
+            </LiFooter>
+            <LiFooter>
               <Button variant="footer">
                 <LinkScroll
                   to="project"
@@ -164,8 +164,8 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                   Projetos
                 </LinkScroll>
               </Button>
-            </StyledLiFooter>
-            <StyledLiFooter>
+            </LiFooter>
+            <LiFooter>
               <Button variant="footer">
                 <LinkScroll
                   to="contact"
@@ -177,28 +177,28 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                   Contato
                 </LinkScroll>
               </Button>
-            </StyledLiFooter>
-            <StyledLiFooter>
+            </LiFooter>
+            <LiFooter>
               <RouterLink to={'/home/certificados'}>
                 <Button variant="footer">Certificados</Button>
               </RouterLink>
-            </StyledLiFooter>
-          </StyledUlFooter>
-          <StyledWrapperIcons>
+            </LiFooter>
+          </UlFooter>
+          <WrapperIcons>
             <GitHub theme={theme.title} footer={true} />
             <Email theme={theme.title} footer={true} />
             <Instagram theme={theme.title} footer={true} />
             <Linkedin theme={theme.title} footer={true} />
             <WhatsApp theme={theme.title} footer={true} />
             <Cv theme={theme.title} footer={true} />
-          </StyledWrapperIcons>
-          <StyledSeparator />
-          <StayledWrapperFooter>
+          </WrapperIcons>
+          <Separator />
+          <WrapperFooter>
             <Typography variant="body3">
               © 2024 by Kauã Lusvarghi | Todos os direitos reservados{' '}
             </Typography>
-          </StayledWrapperFooter>
-        </StyledContainerFooter>
+          </WrapperFooter>
+        </ContainerFooter>
       </Footer>
     </>
   );

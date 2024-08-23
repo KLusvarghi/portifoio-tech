@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
 
 interface IButtonProps {
@@ -13,6 +13,7 @@ interface IButtonProps {
     | 'footer';
   icon?: boolean;
   onClick?: () => void;
+  width?: number;
 }
 
 const StyledButton = styled.button`
@@ -80,13 +81,26 @@ const TransparentButton = styled(StyledButton)`
   }
 `;
 
-const HeaderButton = styled(StyledButton)`
+interface IStyledHeaderButton {
+  $width: number;
+}
+
+const HeaderButton = styled(StyledButton)<IStyledHeaderButton>`
   background: transparent;
   color: ${(props) => props.theme.colors.btnHeader};
   padding: 0 1.2em 0.2em;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;
+
+  ${(props) =>
+    props.$width <= 1015
+      ? css`
+          text-align: start;
+          width: 100%;
+          padding: 12px 36px 12px 22px;
+        `
+      : null}
 `;
 
 const FooterButton = styled(StyledButton)`
@@ -103,6 +117,7 @@ export const Button = ({
   children,
   icon = false,
   onClick,
+  width = 0,
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
 
@@ -131,7 +146,11 @@ export const Button = ({
         <TransparentButton onClick={onClick}>{children}</TransparentButton>
       );
     case 'header':
-      return <HeaderButton onClick={onClick}>{children}</HeaderButton>;
+      return (
+        <HeaderButton onClick={onClick} $width={width}>
+          {children}
+        </HeaderButton>
+      );
     case 'footer':
       return <FooterButton onClick={onClick}>{children}</FooterButton>;
     default:

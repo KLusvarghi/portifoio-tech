@@ -6,26 +6,23 @@ import { Cv } from '../../components/Icons/Cv';
 import { Typography } from '../../components/Typography/Typography';
 import { Button } from '../../components/Button/Button';
 import image from './assets/ilustrationr.svg';
+import { RefProps } from '../../types/auxProps';
 import {
-  StyledMain,
-  StyledWrapper,
-  StyeldContainerIcons,
-  StyledContainerContent,
-  StyledContainerButton,
-  StyleSvgIlustration,
-  StyledNext,
+  Main,
+  Wrapper,
+  ContainerIcons,
+  ContainerContent,
+  ContainerButton,
+  ContainerSvg,
+  ContainerNext,
+  ContainerNextmobile
 } from './styles';
-import { RefObject } from 'react';
 
-interface IntroductionProps {
-  homeRef: RefObject<HTMLDivElement>;
-}
-
-const Introduction = ({ homeRef }: IntroductionProps) => {
+const Introduction = ({ refContainer }: RefProps) => {
   return (
-    <StyledMain ref={homeRef} id="intro">
-      <StyledWrapper>
-        <StyledContainerContent>
+    <Main ref={refContainer} id="intro">
+      <Wrapper>
+        <ContainerContent>
           <Typography variant="body">E ai, eu me chamo</Typography>
           <div style={{ marginBottom: '12px' }}>
             <Typography>Kauã Lusvarghi</Typography>
@@ -36,25 +33,28 @@ const Introduction = ({ homeRef }: IntroductionProps) => {
             por desafios que me permitem criar interfaces intuitivas e
             eficientes a partir de código.
           </Typography>
-          <StyledContainerButton>
+          <ContainerButton>
             <Button variant="outline">Contato</Button>
-            <Button variant="primary"icon={true}>Projetos</Button>
-          </StyledContainerButton>
-        </StyledContainerContent>
-        <StyleSvgIlustration src={image} alt="Imagem ilustrativa" />
-        <StyeldContainerIcons>
+            <Button variant="primary" icon={true}>
+              Projetos
+            </Button>
+          </ContainerButton>
+        </ContainerContent>
+        <ContainerSvg src={image} alt="Imagem ilustrativa" />
+        <ContainerIcons>
           <GitHub />
           <Instagram />
           <Linkedin />
           <Cv />
-        </StyeldContainerIcons>
-      </StyledWrapper>
-      <StyledNext>
+        </ContainerIcons>
+      </Wrapper>
+      <ContainerNext>
         <span></span>
         <span></span>
         <span></span>
-      </StyledNext>
-    </StyledMain>
+      </ContainerNext>
+      <ContainerNextmobile/>
+    </Main>
   );
 };
 

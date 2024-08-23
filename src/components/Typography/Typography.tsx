@@ -70,6 +70,12 @@ const components = {
     font-family: ${(props) => props.theme.font.roboto};
     color: ${(props) => props.theme.colors.footer.a};
   `,
+  bodyMenu: styled.p`
+    font-size: 1em;
+    font-weight: 500;
+    font-family: ${(props) => props.theme.font.poppins};
+    color: ${(props) => props.theme.colors.menu.tp};
+  `,
   subtitle: styled.p`
     font-size: 0.88em;
     /* line-height: 1.25em; */

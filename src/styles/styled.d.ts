@@ -14,6 +14,12 @@ declare module 'styled-components' {
       overlay: string;
       tecnologyStroke: string;
       formBg: string;
+      menu: {
+        shadow: string;
+        hover: string;
+        bg: string;
+        tp: string;
+      };
       scrollbar: {
         a: string;
         b: string;
@@ -46,6 +52,11 @@ declare module 'styled-components' {
       project: {
         h2: string;
         p: string;
+      };
+      themeGradient: {
+        a: string;
+        b: string;
+        c: string;
       };
       bgGradient: {
         a: string;

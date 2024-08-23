@@ -1,10 +1,16 @@
 export default {
-  title: 'ligh',
+  title: 'light',
   colors: {
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#FCFCFC',
     formBg: '#F7F7F8',
+    menu: {
+      shadow: 'rgba(0, 0, 0, 50%)',
+      hover: '#DEE0E2',
+      bg: '#F4F5F6',
+      tp: '#121212',
+    },
     scrollbar: {
       a: '#AAAEB6',
       b: '#73777D',
@@ -38,15 +44,15 @@ export default {
       h2: '#404447',
       p: '#5D616B',
     },
-    // bgGradient: {
-    //   a: '#FFFFFF',
-    //   b: '#F4F5F6',
-    //   c: '#E8EBED',
-    // },
-    bgGradient: {
+    themeGradient: {
       a: '#FFFFFF',
       b: '#CAD2E0',
       c: '#AFBACC',
+    },
+    bgGradient: {
+      a: '#FFFFFF',
+      b: '#F4F5F6',
+      c: '#E8EBED',
     },
     primaries: {
       a: '#225E84',

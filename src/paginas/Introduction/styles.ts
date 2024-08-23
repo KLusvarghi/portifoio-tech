@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export const StyledMain = styled.main`
+export const Main = styled.main`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -12,7 +12,7 @@ export const StyledMain = styled.main`
   }
 `;
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -20,11 +20,11 @@ export const StyledWrapper = styled.div`
   justify-content: center;
 
   @media (max-width: 680px) {
-    margin-top: -112px; 
+    margin-top: -112px;
   }
 
   @media (max-width: 620px) {
-    padding: 0 46px; 
+    padding: 0 46px;
   }
 
   @media (max-width: 460px) {
@@ -32,7 +32,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledContainerContent = styled.div`
+export const ContainerContent = styled.div`
   max-width: 621px;
   padding-left: 62px;
 
@@ -43,7 +43,7 @@ export const StyledContainerContent = styled.div`
 `;
 
 // EFEITO DO HOVER DA IMAGEM EM ANDAMENTO
-export const StyleSvgIlustration = styled.img`
+export const ContainerSvg = styled.img`
   width: 468px;
   height: 352px;
   transition: transform 0.3s ease;
@@ -51,9 +51,7 @@ export const StyleSvgIlustration = styled.img`
 
   /* Inclina a imagem para trás ao passar o mouse */
   &:hover {
-    transform: rotateX(
-      15deg
-    ); 
+    transform: rotateX(15deg);
   }
 
   @media (max-width: 1090px) {
@@ -83,7 +81,7 @@ export const StyleSvgIlustration = styled.img`
 // `;
 
 // assim o icone do menu ficará grudado ao container de texto quando acima de 1536px
-export const StyeldContainerIcons = styled.div`
+export const ContainerIcons = styled.div`
   flex: 0;
   display: flex;
   flex-direction: column;
@@ -106,15 +104,13 @@ export const StyeldContainerIcons = styled.div`
     position: static;
     max-width: 100%;
   }
-
-  
 `;
 
-export const StyledContainerButton = styled.div`
+export const ContainerButton = styled.div`
   margin-top: 40px;
   display: flex;
   gap: 40px;
-  
+
   @media (max-width: 680px) {
     justify-content: flex-start;
   }
@@ -139,7 +135,7 @@ const animate = keyframes`
     }
   `;
 
-export const StyledNext = styled.div`
+export const ContainerNext = styled.div`
   position: absolute;
   bottom: 6%;
   right: 50%;
@@ -165,5 +161,28 @@ export const StyledNext = styled.div`
 
   @media (max-width: 410px) {
     display: none;
+  }
+`;
+
+export const ContainerNextmobile = styled.span`
+  @media (max-width: 410px) {
+    position: relative;
+    height: 40px;
+    width: 25px;
+    border-radius: 60px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      position: absolute;
+      border-radius: 50%;
+      background: #333;
+      animation: scrolling 1s infinite linear;
+    }
   }
 `;
