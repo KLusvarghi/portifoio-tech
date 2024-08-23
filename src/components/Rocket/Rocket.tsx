@@ -1,10 +1,16 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import useWindowPositionY from '../../hooks/useWindowPositionY';
 import { RefProps } from '../../types/auxProps';
 import UseWindowSize from '../../hooks/useWindowSize';
+import { css } from 'styled-components';
+import { Hidden } from 'react-grid-system';
 
-const StyledRocket = styled.div`
+interface IStyledRocketProps {
+  $hidden: boolean;
+}
+
+const StyledRocket = styled.div<IStyledRocketProps>`
   cursor: pointer;
   transition: 0.2s ease-in;
   position: fixed;
@@ -14,6 +20,19 @@ const StyledRocket = styled.div`
   &:hover {
     transform: scale(1.125);
   }
+
+  ${(props) => {
+    switch (props.$hidden) {
+      case true:
+        return css`
+          display: none;
+        `;
+      default:
+        return css`
+          display: none;
+        `;
+    }
+  }}
 `;
 
 export const Rocket = ({ refContainer }: RefProps) => {
@@ -22,12 +41,17 @@ export const Rocket = ({ refContainer }: RefProps) => {
   const pageY = useWindowPositionY();
   const rocketRef = useRef<HTMLDivElement | null>(null);
   const width = UseWindowSize();
+  const [hidden, setHidden] = useState(false);
 
   const handleChange = () => {
     const introContainer = refContainer.current?.offsetHeight;
     if (introContainer && pageY >= introContainer) {
+      setHidden(false);
       if (rocketRef.current) {
         rocketRef.current.style.display = 'block';
+        if (hidden == true) {
+          rocketRef.current.style.display = 'none';
+        }
       }
     } else {
       if (rocketRef.current) {
@@ -37,17 +61,15 @@ export const Rocket = ({ refContainer }: RefProps) => {
   };
 
   const scrollToTop = () => {
+    setHidden(!hidden);
     refContainer.current?.scrollIntoView({ behavior: 'smooth' });
-    if (rocketRef.current) {
-      rocketRef.current.style.display = 'none';
-    }
   };
 
   window.addEventListener('scroll', handleChange);
 
   if (width >= 600) {
     return (
-      <StyledRocket onClick={scrollToTop} ref={rocketRef}>
+      <StyledRocket $hidden={hidden} onClick={scrollToTop} ref={rocketRef}>
         <svg
           width={size}
           height={size}
