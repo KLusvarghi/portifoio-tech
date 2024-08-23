@@ -25,10 +25,9 @@ import {
   LiHeader,
   ContainerButton,
   ContainerFooter,
-  WrapperFooter,
   UlFooter,
   LiFooter,
-  WrapperIcons,
+  ContainerIcons,
   Separator,
 } from './stylesBaseLayout';
 import { HamburguerButton } from '../components/Button/HamburguerButton';
@@ -122,9 +121,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
       {children}
       <Footer>
         <ContainerFooter>
-          <WrapperFooter>
-            <Typography variant="h4">Navegue até</Typography>
-          </WrapperFooter>
+          <Typography variant="h4">Navegue até</Typography>
           <UlFooter>
             <LiFooter>
               <Button variant="footer">
@@ -184,20 +181,20 @@ const BaseLayout = ({ children }: IChildrenProps) => {
               </RouterLink>
             </LiFooter>
           </UlFooter>
-          <WrapperIcons>
+
+          <ContainerIcons>
             <GitHub theme={theme.title} footer={true} />
             <Email theme={theme.title} footer={true} />
             <Instagram theme={theme.title} footer={true} />
             <Linkedin theme={theme.title} footer={true} />
             <WhatsApp theme={theme.title} footer={true} />
             <Cv theme={theme.title} footer={true} />
-          </WrapperIcons>
+          </ContainerIcons>
+
           <Separator />
-          <WrapperFooter>
             <Typography variant="body3">
               © 2024 by Kauã Lusvarghi | Todos os direitos reservados{' '}
             </Typography>
-          </WrapperFooter>
         </ContainerFooter>
       </Footer>
     </>

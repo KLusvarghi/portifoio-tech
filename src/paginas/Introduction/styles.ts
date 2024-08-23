@@ -135,7 +135,7 @@ const animate = keyframes`
     }
   `;
 
-export const ContainerNext = styled.div`
+export const ContainerNextArrow = styled.div`
   position: absolute;
   bottom: 6%;
   right: 50%;
@@ -159,18 +159,35 @@ export const ContainerNext = styled.div`
     animation-delay: -0.4s;
   }
 
-  @media (max-width: 410px) {
+  @media (max-width: 431px) {
     display: none;
   }
 `;
 
+const scrolling = keyframes`
+  0% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+`;
+
 export const ContainerNextmobile = styled.span`
-  @media (max-width: 410px) {
-    position: relative;
+  @media (max-width: 431px) {
+    position: absolute;
+    bottom: 2%;
+    right: 48%;
     height: 40px;
     width: 25px;
     border-radius: 60px;
-    border: 2px solid #333;
+    border: 2px solid ${props => props.theme.colors.neutral.c7};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,8 +198,11 @@ export const ContainerNextmobile = styled.span`
       height: 6px;
       position: absolute;
       border-radius: 50%;
-      background: #333;
-      animation: scrolling 1s infinite linear;
+      background: ${props => props.theme.colors.neutral.c7};
+      animation: ${scrolling} 2s infinite linear;
     }
+  }
+  @media (max-width: 401px) {
+    display: none;
   }
 `;

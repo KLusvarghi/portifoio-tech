@@ -14,8 +14,8 @@ import {
   ContainerContent,
   ContainerButton,
   ContainerSvg,
-  ContainerNext,
-  ContainerNextmobile
+  ContainerNextArrow,
+  ContainerNextmobile,
 } from './styles';
 
 const Introduction = ({ refContainer }: RefProps) => {
@@ -48,12 +48,12 @@ const Introduction = ({ refContainer }: RefProps) => {
           <Cv />
         </ContainerIcons>
       </Wrapper>
-      <ContainerNext>
+      <ContainerNextArrow>
         <span></span>
         <span></span>
         <span></span>
-      </ContainerNext>
-      <ContainerNextmobile/>
+      </ContainerNextArrow>
+      <ContainerNextmobile />
     </Main>
   );
 };

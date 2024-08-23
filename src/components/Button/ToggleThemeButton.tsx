@@ -7,7 +7,7 @@ const StyledToggleTheme = styled.div`
   position: fixed;
   right: 0px;
   top: 22%;
-  padding: 0.5rem;
+  padding: 0.5em;
   display: flex;
   background: linear-gradient(
     to right,
@@ -15,7 +15,7 @@ const StyledToggleTheme = styled.div`
     ${(props) => props.theme.colors.bgGradient.b} 66%,
     ${(props) => props.theme.colors.bgGradient.c} 88%
   );
-
+transition: .2s ease-in;
   &:hover {
     opacity: 0.8;
   }
@@ -24,7 +24,7 @@ const StyledToggleTheme = styled.div`
 export const ToggleThemeButton = () => {
   const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
-  const size = '21';
+  const size = '28';
   const handleToggleTheme = () => {
     setTheme();
   };

@@ -89,25 +89,6 @@ export const ContainerButton = styled.div`
   }
 `;
 
-export const StyledButtonHamburguer = styled.span`
-  display: none;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0.5rem;
-
-  @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
-    display: flex;
-  }
-`;
-
-export const Separator = styled.span`
-  width: 100%;
-  height: 0.5px;
-  background: ${(props) => props.theme.colors.footer.a};
-  margin-bottom: 12px;
-`;
-
 const StyledFooter = styled.div`
   display: flex;
   flex-direction: row;
@@ -119,12 +100,6 @@ const StyledFooter = styled.div`
 export const ContainerFooter = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const WrapperFooter = styled(StyledFooter)``;
-
-export const WrapperIcons = styled(StyledFooter)`
-  margin-bottom: 60px;
 `;
 
 export const UlFooter = styled.ul`
@@ -149,4 +124,16 @@ export const LiFooter = styled.li`
   transition: 0.3s ease-in-out;
   list-style: none;
   color: ${(props) => props.theme.colors.footer.b};
+`;
+
+export const ContainerIcons = styled(StyledFooter)`
+  margin-bottom: 60px;
+`;
+
+export const Separator = styled.span`
+  width: 100%;
+  height: 0.5px;
+  background: ${(props) => props.theme.colors.footer.a};
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 `;
