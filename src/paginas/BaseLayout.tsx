@@ -36,9 +36,9 @@ import {
 } from './stylesBaseLayout';
 
 const BaseLayout = ({ children }: IChildrenProps) => {
-  const [active, setAcive] = useState(false);
-  const width = UseWindowSize();
   const { theme, setTheme } = useSystemThemeContext();
+  const width = UseWindowSize();
+  const [active, setAcive] = useState(false);
   const options = {
     onClick: () => setAcive(false),
     spy: true,

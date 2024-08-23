@@ -17,7 +17,7 @@ export const StyledWrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 54px;
-  justify-content: center; ///modificado no media
+  justify-content: center;
 
   @media (max-width: 680px) {
     margin-top: -112px; 
@@ -46,14 +46,14 @@ export const StyledContainerContent = styled.div`
 export const StyleSvgIlustration = styled.img`
   width: 468px;
   height: 352px;
-  /* flex: 2; */
   transition: transform 0.3s ease;
   transform-origin: center center;
 
+  /* Inclina a imagem para trás ao passar o mouse */
   &:hover {
     transform: rotateX(
       15deg
-    ); /* Inclina a imagem para trás ao passar o mouse */
+    ); 
   }
 
   @media (max-width: 1090px) {
@@ -114,11 +114,6 @@ export const StyledContainerButton = styled.div`
   margin-top: 40px;
   display: flex;
   gap: 40px;
-
-  /* ver COMO DEIXAREI OS BOTÕES (CENTER , START) */
-  @media (max-width: 1090px) {
-    justify-content: center;
-  }
   
   @media (max-width: 680px) {
     justify-content: flex-start;
@@ -168,7 +163,7 @@ export const StyledNext = styled.div`
     animation-delay: -0.4s;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 410px) {
     display: none;
   }
 `;

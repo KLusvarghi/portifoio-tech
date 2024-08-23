@@ -1,38 +1,29 @@
 import styled from 'styled-components';
-import { IStyledSvgProps, ISvgProps } from '../../types/auxProps';
-import { useState } from 'react';
-import { Link } from '../Link/Link';
+import { IStyledSvgProps, ISvgProps, StyledIcons } from '../../types/auxProps';
+import { Link } from 'react-router-dom';
 import { linkedin } from '../../utils/links';
 
-const StyledSpan = styled.span<IStyledSvgProps>`
-  svg path {
-    transition: 0.1s ease-in;
-    fill: ${({ $footer, $theme, $isHovered }) =>
-      $isHovered
-        ? '#0A66C2'
-        : $footer
-        ? $theme === 'dark'
-          ? '#AAAEB6'
-          : '#999CA4'
-        : '#225E84'};
+const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
+  &:hover {
+    svg path {
+      fill: #0a66c2;
+    }
   }
 `;
 
 export const Linkedin = ({ theme = 'dark', footer = false }: ISvgProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <StyledSpan
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      $isHovered={isHovered}
-      $footer={footer}
-      $theme={theme}
-    >
-      <Link url={linkedin}>
-      <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.72951 5.45934C7.72924 5.98236 7.51419 6.48385 7.13167 6.85349C6.74914 7.22313 6.23048 7.43065 5.68979 7.43039C5.14909 7.43013 4.63064 7.22211 4.2485 6.8521C3.86636 6.48208 3.65183 5.98039 3.6521 5.45737C3.65237 4.93436 3.86742 4.43287 4.24994 4.06323C4.63247 3.69358 5.15113 3.48607 5.69182 3.48633C6.23252 3.48659 6.75097 3.69461 7.13311 4.06462C7.51525 4.43463 7.72978 4.93633 7.72951 5.45934ZM7.79067 8.89068H3.71326V21.2356H7.79067V8.89068ZM14.233 8.89068H10.176V21.2356H14.1922V14.7575C14.1922 11.1487 19.0545 10.8134 19.0545 14.7575V21.2356H23.081V13.4165C23.081 7.33277 15.8843 7.55956 14.1922 10.5472L14.233 8.89068Z" fill="#AAAEB6"/>
-</svg>
+    <StyledSpan $footer={footer} $theme={theme}>
+      <Link target="_blank" to={linkedin}>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" />
+        </svg>
       </Link>
     </StyledSpan>
   );

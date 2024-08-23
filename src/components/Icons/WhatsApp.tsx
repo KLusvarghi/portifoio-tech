@@ -1,28 +1,20 @@
 import styled from 'styled-components';
-import { IStyledSvgProps, ISvgProps } from '../../types/auxProps';
-import { useState } from 'react';
-import { Link } from '../Link/Link';
+import { IStyledSvgProps, ISvgProps, StyledIcons } from '../../types/auxProps';
+import { Link } from 'react-router-dom';
 import { whatsapp } from '../../utils/links';
 
-const StyledSpan = styled.span<IStyledSvgProps>`
-  svg path {
-    transition: 0.1s ease-in;
-    fill: ${({ $theme, $isHovered }) =>
-      $isHovered ? '#00E676' : $theme === 'dark' ? '#AAAEB6' : '#999CA4'};
+const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
+  &:hover {
+    svg path {
+      fill: #00e676;
+    }
   }
 `;
 
-export const WhatsApp = ({ theme = 'dark' }: ISvgProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+export const WhatsApp = ({ theme = 'dark', footer = false }: ISvgProps) => {
   return (
-    <StyledSpan
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      $isHovered={isHovered}
-      $theme={theme}
-    >
-      <Link url={whatsapp}>
+    <StyledSpan $footer={footer} $theme={theme}>
+      <Link target="_blank" to={whatsapp}>
         <svg
           width="25"
           height="25"

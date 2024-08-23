@@ -25,8 +25,6 @@ const Introduction = ({ homeRef }: IntroductionProps) => {
   return (
     <StyledMain ref={homeRef} id="intro">
       <StyledWrapper>
-        
-
         <StyledContainerContent>
           <Typography variant="body">E ai, eu me chamo</Typography>
           <div style={{ marginBottom: '12px' }}>
@@ -43,18 +41,14 @@ const Introduction = ({ homeRef }: IntroductionProps) => {
             <Button variant="primary"icon={true}>Projetos</Button>
           </StyledContainerButton>
         </StyledContainerContent>
-
         <StyleSvgIlustration src={image} alt="Imagem ilustrativa" />
-        
         <StyeldContainerIcons>
           <GitHub />
           <Instagram />
           <Linkedin />
           <Cv />
         </StyeldContainerIcons>
-
       </StyledWrapper>
-
       <StyledNext>
         <span></span>
         <span></span>

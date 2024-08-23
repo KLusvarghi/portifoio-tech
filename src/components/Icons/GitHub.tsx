@@ -1,29 +1,20 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import { IStyledSvgProps, ISvgProps } from '../../types/auxProps';
-import { Link } from '../Link/Link';
+import { IStyledSvgProps, ISvgProps, StyledIcons } from '../../types/auxProps';
+import { Link } from 'react-router-dom';
 import { github } from '../../utils/links';
 
-const StyledSpan = styled.span<IStyledSvgProps>`
-  svg path {
-    transition: 0.1s ease-in;
-    fill: ${({ $footer, $theme, $isHovered }) =>
-      $isHovered ? '#0F0F0F' : $footer ? ($theme === 'dark' ? '#AAAEB6' : '#999CA4') : '#225E84'};
+const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
+  &:hover {
+    svg path {
+      fill: #0f0f0f;
+    }
   }
 `;
 
 export const GitHub = ({ theme = 'dark', footer = false }: ISvgProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <StyledSpan
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      $isHovered={isHovered}
-      $footer={footer}
-      $theme={theme}
-    >
-      <Link url={github}>
+    <StyledSpan $footer={footer} $theme={theme}>
+      <Link target="_blank" to={github}>
         <svg
           width="25"
           height="24"
