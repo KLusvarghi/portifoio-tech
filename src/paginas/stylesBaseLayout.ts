@@ -82,7 +82,7 @@ export const StyledDivButton = styled.div`
   }
 `;
 
-export const StyledButtonHamburguer = styled.button`
+export const StyledButtonHamburguer = styled.span`
   display: none;
   border: none;
   background-color: transparent;

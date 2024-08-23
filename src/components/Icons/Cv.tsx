@@ -1,26 +1,47 @@
-import { ISvgProps } from '../../types/auxProps';
+import styled from 'styled-components';
+import { IStyledSvgProps, ISvgProps } from '../../types/auxProps';
+import { useState } from 'react';
+import { Link } from '../Link/Link';
+import { curriculo } from '../../utils/links';
 
-export const Cv = ({ theme, footer, hover }: ISvgProps) => {
+const StyledSpan = styled.span<IStyledSvgProps>`
+  svg path {
+    transition: 0.1s ease-in;
+    fill: ${({ $footer, $theme, $isHovered }) =>
+      $isHovered
+        ? '#5D616B'
+        : $footer
+        ? $theme === 'dark'
+          ? '#AAAEB6'
+          : '#999CA4'
+        : '#225E84'};
+  }
+`;
+
+export const Cv = ({ theme = 'dark', footer = false }: ISvgProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <svg
-      width="18"
-      height="21"
-      viewBox="0 0 18 21"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <StyledSpan
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      $isHovered={isHovered}
+      $footer={footer}
+      $theme={theme}
     >
-      <path
-        d="M9.91733 7.40406H15.5238L9.91733 1.98098V7.40406ZM2.78187 0.501953H10.9367L17.0528 6.41804V18.2502C17.0528 18.7732 16.838 19.2748 16.4557 19.6447C16.0733 20.0145 15.5548 20.2222 15.0141 20.2222H2.78187C2.24117 20.2222 1.72262 20.0145 1.34029 19.6447C0.957955 19.2748 0.743164 18.7732 0.743164 18.2502V2.47398C0.743164 1.37951 1.65039 0.501953 2.78187 0.501953ZM11.956 16.2782V14.3062H2.78187V16.2782H11.956ZM15.0141 12.3341V10.3621H2.78187V12.3341H15.0141Z"
-        fill={
-          footer
-            ? theme === 'dark'
-              ? '#AAAEB6 '
-              : '#999CA4'
-            : hover
-            ? '#0D1E39'
-            : '#225E84'
-        }
-      />
-    </svg>
+      <Link url={curriculo}>
+        <svg
+          width="26"
+          height="25"
+          viewBox="0 0 26 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.8351 9.40406H19.4415L13.8351 3.98098V9.40406ZM6.69959 2.50195H14.8544L20.9705 8.41804V20.2502C20.9705 20.7732 20.7557 21.2748 20.3734 21.6447C19.9911 22.0145 19.4725 22.2222 18.9318 22.2222H6.69959C6.1589 22.2222 5.64034 22.0145 5.25801 21.6447C4.87568 21.2748 4.66089 20.7732 4.66089 20.2502V4.47398C4.66089 3.37951 5.56811 2.50195 6.69959 2.50195ZM15.8738 18.2782V16.3062H6.69959V18.2782H15.8738ZM18.9318 14.3341V12.3621H6.69959V14.3341H18.9318Z"
+          />
+        </svg>
+      </Link>
+    </StyledSpan>
   );
 };

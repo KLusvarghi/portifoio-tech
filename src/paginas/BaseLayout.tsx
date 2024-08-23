@@ -39,6 +39,14 @@ const BaseLayout = ({ children }: IChildrenProps) => {
   const [active, setAcive] = useState(false);
   const width = UseWindowSize();
   const { theme, setTheme } = useSystemThemeContext();
+  const options = {
+    onClick: () => setAcive(false),
+    spy: true,
+    smooth: true,
+    offset: -162,
+    duration: 500,
+    isDynamic: true,
+  };
 
   return (
     <>
@@ -46,13 +54,11 @@ const BaseLayout = ({ children }: IChildrenProps) => {
         <Container>
           <Row>
             <Col>
-              <RouterLink to={'/home'}>
-                <PortifolioLogo
-                  width={width < 1100 ? 201 : 231}
-                  height={width < 1100 ? 36 : 42}
-                  theme={theme.title}
-                />
-              </RouterLink>
+              <PortifolioLogo
+                width={width < 1100 ? 201 : 231}
+                height={width < 1100 ? 36 : 42}
+                theme={theme.title}
+              />
             </Col>
             <Col>
               <StyledNav>
@@ -60,56 +66,28 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                 <StyledUl $active={active} onMouseLeave={() => setAcive(false)}>
                   <StyledLi>
                     <Button variant="header">
-                      <LinkScroll
-                        onClick={() => setAcive(false)}
-                        to="intro"
-                        spy={true}
-                        smooth={true}
-                        offset={0}
-                        duration={500}
-                      >
+                      <LinkScroll to="intro" {...options}>
                         Home
                       </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
                     <Button variant="header">
-                      <LinkScroll
-                        onClick={() => setAcive(false)}
-                        to="about"
-                        spy={true}
-                        smooth={true}
-                        offset={0}
-                        duration={500}
-                      >
+                      <LinkScroll to="about" {...options}>
                         Sobre
                       </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
                     <Button variant="header">
-                      <LinkScroll
-                        onClick={() => setAcive(false)}
-                        to="projects"
-                        spy={true}
-                        smooth={true}
-                        offset={0}
-                        duration={500}
-                      >
+                      <LinkScroll to="projects" {...options}>
                         Projetos
                       </LinkScroll>
                     </Button>
                   </StyledLi>
                   <StyledLi>
                     <Button variant="header">
-                      <LinkScroll
-                        onClick={() => setAcive(false)}
-                        to="contact"
-                        spy={true}
-                        smooth={true}
-                        offset={0}
-                        duration={500}
-                      >
+                      <LinkScroll to="contact" {...options}>
                         Contato
                       </LinkScroll>
                     </Button>
@@ -150,7 +128,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
           <StyledUlFooter>
             <StyledLiFooter>
               <Button variant="footer">
-              <LinkScroll
+                <LinkScroll
                   to="intro"
                   spy={true}
                   smooth={true}
@@ -163,7 +141,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
             </StyledLiFooter>
             <StyledLiFooter>
               <Button variant="footer">
-              <LinkScroll
+                <LinkScroll
                   to="about"
                   spy={true}
                   smooth={true}
@@ -176,7 +154,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
             </StyledLiFooter>
             <StyledLiFooter>
               <Button variant="footer">
-              <LinkScroll
+                <LinkScroll
                   to="project"
                   spy={true}
                   smooth={true}

@@ -45,7 +45,8 @@ const StyledMode = styled.div`
 `;
 
 const StyledContainer = styled.div`
-  padding: 0 112px;
+
+  
 `;
 
 const Home = () => {

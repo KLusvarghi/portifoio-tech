@@ -1,18 +1,39 @@
-import { ISvgProps } from '../../types/auxProps';
+import styled from 'styled-components';
+import { IStyledSvgProps, ISvgProps } from '../../types/auxProps';
+import { useState } from 'react';
+import { Link } from '../Link/Link';
+import { linkedin } from '../../utils/links';
 
-export const Linkedin = ({ theme, footer, hover }: ISvgProps) => {
+const StyledSpan = styled.span<IStyledSvgProps>`
+  svg path {
+    transition: 0.1s ease-in;
+    fill: ${({ $footer, $theme, $isHovered }) =>
+      $isHovered
+        ? '#0A66C2'
+        : $footer
+        ? $theme === 'dark'
+          ? '#AAAEB6'
+          : '#999CA4'
+        : '#225E84'};
+  }
+`;
+
+export const Linkedin = ({ theme = 'dark', footer = false }: ISvgProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <svg
-      width="21"
-      height="19"
-      viewBox="0 0 21 19"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <StyledSpan
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      $isHovered={isHovered}
+      $footer={footer}
+      $theme={theme}
     >
-      <path
-        d="M4.72975 2.45934C4.72948 2.98236 4.51443 3.48385 4.13191 3.85349C3.74939 4.22313 3.23073 4.43065 2.69003 4.43039C2.14933 4.43013 1.63089 4.22211 1.24875 3.8521C0.866606 3.48208 0.652074 2.98039 0.652344 2.45737C0.652614 1.93436 0.867665 1.43287 1.25019 1.06323C1.63271 0.693583 2.15137 0.486067 2.69207 0.486328C3.23277 0.48659 3.75121 0.694607 4.13335 1.06462C4.51549 1.43463 4.73002 1.93633 4.72975 2.45934ZM4.79091 5.89068H0.713505V18.2356H4.79091V5.89068ZM11.2332 5.89068H7.1762V18.2356H11.1924V11.7575C11.1924 8.14865 16.0548 7.81341 16.0548 11.7575V18.2356H20.0812V10.4165C20.0812 4.33277 12.8846 4.55956 11.1924 7.54718L11.2332 5.89068Z"
-        fill={footer ? theme === 'dark' ? '#AAAEB6 ' : '#999CA4' : hover ? '#0D1E39' : '#225E84'}
-      />
-    </svg>
+      <Link url={linkedin}>
+      <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.72951 5.45934C7.72924 5.98236 7.51419 6.48385 7.13167 6.85349C6.74914 7.22313 6.23048 7.43065 5.68979 7.43039C5.14909 7.43013 4.63064 7.22211 4.2485 6.8521C3.86636 6.48208 3.65183 5.98039 3.6521 5.45737C3.65237 4.93436 3.86742 4.43287 4.24994 4.06323C4.63247 3.69358 5.15113 3.48607 5.69182 3.48633C6.23252 3.48659 6.75097 3.69461 7.13311 4.06462C7.51525 4.43463 7.72978 4.93633 7.72951 5.45934ZM7.79067 8.89068H3.71326V21.2356H7.79067V8.89068ZM14.233 8.89068H10.176V21.2356H14.1922V14.7575C14.1922 11.1487 19.0545 10.8134 19.0545 14.7575V21.2356H23.081V13.4165C23.081 7.33277 15.8843 7.55956 14.1922 10.5472L14.233 8.89068Z" fill="#AAAEB6"/>
+</svg>
+      </Link>
+    </StyledSpan>
   );
 };

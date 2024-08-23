@@ -9,3 +9,9 @@ export interface ISvgProps {
   footer?: boolean
   hover?: boolean
 }
+
+export interface IStyledSvgProps {
+  $isHovered: boolean;
+  $footer?: boolean;
+  $theme: string;
+}

@@ -83,7 +83,7 @@ const About = () => {
       const offsetY = -spanElement.offsetHeight / 2 + 10; // +10px para mover mais para baixo
 
       spanElement.style.left = `${e.clientX + offsetX}px`;
-      spanElement.style.top = `${e.clientY + offsetY + 500}px`;
+      spanElement.style.top = `${e.clientY + offsetY + 400}px`;
     }
   }
 
@@ -95,15 +95,16 @@ const About = () => {
         subtitle="Aqui você encontrará mais informações sobre mim, o que faço e minhas habilidades atuais na área de programação e tecnologia"
       />
       <StyledWrapper>
-        <StyledImg src={euImg} />
+        <StyledImg src={euImg} alt="Imagem de Kauã Lusvarghi" />
         <StyledContent>
           <Typography variant="h3">Saudações, um pouco sobre mim!</Typography>
           <Typography variant="body">
             Me chamo Kauã Ortolani Lusvarghi,{' '}
             <StyledAcessibility
+              ref={accRef}
               onMouseMove={handleMouseMove}
-              onMouseLeave={() => setHover(false)}
               onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
             >
               sou um homem de pele branca com cabelos castanhos e cacheado.
             </StyledAcessibility>{' '}

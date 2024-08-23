@@ -1,0 +1,5 @@
+export const linkedin = 'https://www.linkedin.com/in/kau%C3%A3-ortolani-lusvarghi-422b141b4/'
+export const github = 'https://github.com/KLusvarghi'
+export const curriculo = 'https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view'
+export const instagram = 'https://www.instagram.com/lusvarghikaua/'
+export const whatsapp = 'https://web.whatsapp.com/send?phone=5513996068207&text='
