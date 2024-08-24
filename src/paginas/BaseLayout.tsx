@@ -23,6 +23,7 @@ import {
   Nav,
   UlHeader,
   LiHeader,
+  WrapperToggleThemeMobile,
   ContainerButton,
   ContainerFooter,
   UlFooter,
@@ -32,31 +33,6 @@ import {
 } from './stylesBaseLayout';
 import { HamburguerButton } from '../components/Button/HamburguerButton';
 import { github, linkedin } from '../utils/links';
-import styled from 'styled-components';
-import { css } from 'styled-components';
-
-interface IStyledThoggleThemeMenu {
-  $theme: string;
-}
-
-const WrapperToggleThemeMobile = styled.span<IStyledThoggleThemeMenu>`
-  text-align: center;
-  height: 100%;
-  width: 100%;
-
-  ${(props) => {
-    switch (props.$theme) {
-      case 'dark':
-        return css`
-          background: ${(props) => props.theme.colors.primaries.a};
-        `;
-      default:
-        return css`
-          background: ${(props) => props.theme.colors.neutral.c5};
-        `;
-    }
-  }}
-`;
 
 const BaseLayout = ({ children }: IChildrenProps) => {
   const { theme, setTheme } = useSystemThemeContext();

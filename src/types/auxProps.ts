@@ -39,4 +39,10 @@ export const StyledIcons = styled.span<IStyledSvgProps>`
         $footer ? ($theme === 'dark' ? '#AAAEB6' : '#999CA4') : '#225E84'};
     }
   }
+
+  @media (max-width: 480px) {
+    /* min-width: auto; */
+    width: 20px;
+    height: 20px;
+  }
 `;
