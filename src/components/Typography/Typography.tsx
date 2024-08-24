@@ -98,6 +98,6 @@ interface ITypographerProps {
 
 // 'variant' o que será exibido de fato
 export const Typography = ({ variant = 'h1', children }: ITypographerProps) => {
-  const ComponentUsed = components[variant];
-  return <ComponentUsed>{children}</ComponentUsed>;
+  const ContainerTypography = components[variant];
+  return <ContainerTypography>{children}</ContainerTypography>;
 };

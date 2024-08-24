@@ -48,7 +48,7 @@ const WrapperToggleThemeMobile = styled.span<IStyledThoggleThemeMenu>`
     switch (props.$theme) {
       case 'dark':
         return css`
-          background: ${(props) => props.theme.colors.neutral.c8};
+          background: ${(props) => props.theme.colors.primaries.a};
         `;
       default:
         return css`

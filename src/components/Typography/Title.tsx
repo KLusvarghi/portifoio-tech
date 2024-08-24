@@ -6,7 +6,7 @@ interface ITitlePorps {
   subtitle: string;
 }
 
-const StyledContainer = styled.span`
+const ContainerTitle = styled.span`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -24,10 +24,10 @@ const Separator = styled.span`
 
 export const Title = ({ title, subtitle }: ITitlePorps) => {
   return (
-    <StyledContainer>
+    <ContainerTitle>
       <Typography variant="h1">{title}</Typography>
       <Separator />
       <Typography variant="h2">{subtitle}</Typography>
-    </StyledContainer>
+    </ContainerTitle>
   );
 };

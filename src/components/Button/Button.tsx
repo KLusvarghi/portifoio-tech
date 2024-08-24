@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface IButtonProps {
   children: ReactNode;
@@ -35,14 +36,20 @@ const StyledArrow = styled.svg`
   height: 11px;
 `;
 
-const PrimaryButton = styled(StyledButton)`
+interface IStyledPrimaryProps {
+  $theme: string;
+}
+
+const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   background: ${(props) => props.theme.colors.primaries.a};
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
   display: flex;
   align-items: center;
   gap: 12px;
   &:hover {
-    box-shadow: inset 500px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
+    box-shadow: inset 500px 0 0 0
+      ${({ theme, $theme }) =>
+        $theme === 'dark' ? theme.colors.neutral.c3 : theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
   }
 `;
@@ -120,9 +127,11 @@ export const Button = ({
   width = 0,
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
+  const { theme } = useSystemThemeContext();
 
   const renderButton = () => (
     <PrimaryButton
+      $theme={theme.title}
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}
       onClick={onClick}

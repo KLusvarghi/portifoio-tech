@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import UseWindowSize from '../../hooks/useWindowSize';
 
-const StyledToggleTheme = styled.div`
+const ContainerToggleTheme = styled.div`
   cursor: pointer;
   position: fixed;
   right: 0px;
@@ -15,27 +15,28 @@ const StyledToggleTheme = styled.div`
     ${(props) => props.theme.colors.bgGradient.b} 66%,
     ${(props) => props.theme.colors.bgGradient.c} 88%
   );
-transition: .2s ease-in;
+  transition: 0.2s ease-in;
   &:hover {
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    padding-right: 0.8em;
   }
 `;
 
 export const ToggleThemeButton = () => {
   const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
-  const size = '28';
+  const size = '26';
   const handleToggleTheme = () => {
     setTheme();
   };
   if (width >= 600) {
     if (theme.title == 'light') {
       return (
-        <StyledToggleTheme onClick={() => handleToggleTheme()}>
+        <ContainerToggleTheme onClick={() => handleToggleTheme()}>
           <svg
             width={size}
             height={size}
-            viewBox="0 0 28 28"
+            viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -48,15 +49,15 @@ export const ToggleThemeButton = () => {
               fill="#121212"
             />
           </svg>
-        </StyledToggleTheme>
+        </ContainerToggleTheme>
       );
     }
     return (
-      <StyledToggleTheme onClick={() => handleToggleTheme()}>
+      <ContainerToggleTheme onClick={() => handleToggleTheme()}>
         <svg
           width={size}
           height={size}
-          viewBox="0 0 28 28"
+          viewBox="0 0 30 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -65,7 +66,7 @@ export const ToggleThemeButton = () => {
             fill="#FDF5F5"
           />
         </svg>
-      </StyledToggleTheme>
+      </ContainerToggleTheme>
     );
   }
 };

@@ -9,7 +9,7 @@ import UseWindowSize from '../../hooks/useWindowSize';
 //   right: 10%;
 // `;
 
-const StyledHamburguer = styled.div`
+const ContainerHamburguer = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ export const HamburguerButton = ({
   if (width <= 1015) {
     if (active == true) {
       return (
-        <StyledHamburguer onClick={() => toggleSvg()}>
+        <ContainerHamburguer onClick={() => toggleSvg()}>
           <Typography variant="bodyMenu">Fechar</Typography>
           <svg
             width="24"
@@ -68,11 +68,11 @@ export const HamburguerButton = ({
               strokeLinecap="round"
             />
           </svg>
-        </StyledHamburguer>
+        </ContainerHamburguer>
       );
     } else {
       return (
-        <StyledHamburguer onClick={() => toggleSvg()}>
+        <ContainerHamburguer onClick={() => toggleSvg()}>
           <Typography variant="bodyMenu">Menu</Typography>
           <svg
             width="20"
@@ -88,7 +88,7 @@ export const HamburguerButton = ({
               fill={fill}
             />
           </svg>
-        </StyledHamburguer>
+        </ContainerHamburguer>
       );
     }
   }

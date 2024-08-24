@@ -5,7 +5,8 @@ import Introduction from '../Introduction/Introduction';
 import About from '../About/About';
 import { useRef } from 'react';
 
-const Main = styled.div``;
+const Main = styled.div`
+`;
 
 const Home = () => {
   const refContainer = useRef<HTMLDivElement>(null);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { IChildrenProps } from '../../types/auxProps';
 
-const StyledBackground = styled.div`
+const ContainerBackground = styled.div`
   background: linear-gradient(
     ${(props) => props.theme.colors.bgGradient.a},
     ${(props) => props.theme.colors.bgGradient.b}
@@ -14,7 +14,7 @@ const StyledBackground = styled.div`
 `;
 
 const Background = ({ children }: IChildrenProps) => {
-  return <StyledBackground>{children}</StyledBackground>;
+  return <ContainerBackground>{children}</ContainerBackground>;
 };
 
 export default Background;
