@@ -1,11 +1,11 @@
 import { Title } from '../../components/Typography/Title';
 import { Typography } from '../../components/Typography/Typography';
 import euImg from './assets/eu.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { Button } from '../../components/Button/Button';
 import UseWindowSize from '../../hooks/useWindowSize';
-import { instagram, linkedin } from '../../utils/links';
+import { instagram, linkedin, urlgitHub } from '../../utils/links';
 import {
   Main,
   Wrapper,
@@ -25,6 +25,7 @@ const About = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hover, setHover] = useState(false);
+  const [repositoryLenght, setRepositoryLenght] = useState(null);
   const accRef = useRef<HTMLSpanElement | null>(null);
 
   function handleMouseMove(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
@@ -37,6 +38,20 @@ const About = () => {
       spanElement.style.top = `${e.clientY + offsetY + 400}px`;
     }
   }
+
+  useEffect(() => {
+    const fetchRespGit = async () => {
+      try {
+        const repos = await fetch(urlgitHub);
+        const data = await repos.json();
+        setRepositoryLenght(data.length);
+      } catch (err) {
+        console.error('Erro ao carregar os repositórios do github.', err);
+        setRepositoryLenght(null);
+      }
+    };
+    fetchRespGit();
+  }, []);
 
   return (
     <Main id="about">
@@ -93,7 +108,7 @@ const About = () => {
                 </Typography>
               </ContaienrAttribute>
               <ContaienrAttribute>
-                <Typography>35+</Typography>
+                <Typography>{repositoryLenght}+</Typography>
                 <Typography variant="body">
                   Projetos
                   <br /> no GitHub

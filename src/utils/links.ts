@@ -4,3 +4,4 @@ export const curriculo = 'https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGr
 export const instagram = 'https://www.instagram.com/lusvarghikaua/'
 export const whatsapp = 'https://web.whatsapp.com/send?phone=5513996068207&text='
 export const email = 'mailto:kauaolusvarghi@gmail.com'
+export const urlgitHub = 'https://api.github.com/users/KLusvarghi/repos'

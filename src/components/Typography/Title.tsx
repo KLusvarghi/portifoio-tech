@@ -23,7 +23,9 @@ const ContainerTitle = styled.span<IStyledthemeProps>`
         `;
       default:
         return css`
-          align-items: flex-start;
+          h2 {
+            text-align: start !important;
+          }
         `;
     }
   }}
@@ -42,7 +44,6 @@ export const Title = ({
   subtitle,
   position = 'center',
 }: ITitlePorps) => {
-
   return (
     <ContainerTitle $position={position}>
       <Typography variant="title">{title}</Typography>

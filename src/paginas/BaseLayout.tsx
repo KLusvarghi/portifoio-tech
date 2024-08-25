@@ -77,6 +77,13 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                     </LinkScroll>
                   </LiHeader>
                   <LiHeader>
+                    <LinkScroll to="stack" {...options}>
+                      <Button variant="header" width={width}>
+                        Stack
+                      </Button>
+                    </LinkScroll>
+                  </LiHeader>
+                  <LiHeader>
                     <LinkScroll to="projects" {...options}>
                       <Button variant="header" width={width}>
                         Projetos
@@ -127,11 +134,13 @@ const BaseLayout = ({ children }: IChildrenProps) => {
                     </>
                   )}
                 </UlHeader>
-                <ContainerButton>
-                  <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
-                    <Button variant="secondary">Baixar CV</Button>
-                  </Link>
-                </ContainerButton>
+                {width >= 1200 && (
+                  <ContainerButton>
+                    <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
+                      <Button variant="secondary">Baixar CV</Button>
+                    </Link>
+                  </ContainerButton>
+                )}
                 <ToggleThemeButton />
                 <HamburguerButton active={active} setActive={setAcive} />
               </Nav>
