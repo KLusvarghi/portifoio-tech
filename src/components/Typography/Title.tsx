@@ -1,33 +1,53 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Typography } from './Typography';
 
 interface ITitlePorps {
   title: string;
   subtitle: string;
+  position?: 'flex-start' | 'center';
 }
 
-const ContainerTitle = styled.span`
+interface IStyledthemeProps {
+  $position?: 'flex-start' | 'center';
+}
+
+const ContainerTitle = styled.span<IStyledthemeProps>`
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin: 0 auto;
-  /* max-width: 100%; */
+  ${(props) => {
+    switch (props.$position) {
+      case 'center':
+        return css`
+          justify-content: center;
+          align-items: center;
+        `;
+      default:
+        return css`
+          align-items: flex-start;
+        `;
+    }
+  }}
 `;
+
 const Separator = styled.span`
   background: ${(props) => props.theme.colors.primaries.a};
   width: 58px;
-  align-self: center;
   height: 5px;
   border-radius: 5px;
   margin: 10px 0 22px;
 `;
 
-export const Title = ({ title, subtitle }: ITitlePorps) => {
+export const Title = ({
+  title,
+  subtitle,
+  position = 'center',
+}: ITitlePorps) => {
+
   return (
-    <ContainerTitle>
-      <Typography variant="h1">{title}</Typography>
+    <ContainerTitle $position={position}>
+      <Typography variant="title">{title}</Typography>
       <Separator />
-      <Typography variant="h2">{subtitle}</Typography>
+      <Typography variant="subtitle">{subtitle}</Typography>
     </ContainerTitle>
   );
 };

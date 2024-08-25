@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     padding: 0 46px;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 570px) {
     flex-direction: column;
   }
 `;
@@ -36,7 +36,7 @@ export const ContainerContent = styled.div`
   max-width: 621px;
   padding-left: 62px;
 
-  @media (max-width: 460px) {
+  @media (max-width: 502px) {
     padding: 0;
     text-align: center;
   }
@@ -99,7 +99,7 @@ export const ContainerIcons = styled.div`
     order: -1;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 502px) {
     flex-direction: row;
     position: static;
     max-width: 100%;
@@ -115,7 +115,7 @@ export const ContainerButton = styled.div`
     justify-content: flex-start;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 502px) {
     justify-content: center;
   }
 `;
@@ -159,7 +159,7 @@ export const ContainerNextArrow = styled.div`
     animation-delay: -0.4s;
   }
 
-  @media (max-width: 431px) {
+  @media (max-width: 502px) {
     display: none;
   }
 `;
@@ -180,7 +180,7 @@ const scrolling = keyframes`
 `;
 
 export const ContainerNextmobile = styled.span`
-  @media (max-width: 431px) {
+  @media (max-width: 502px) {
     position: absolute;
     bottom: 2%;
     right: 48%;

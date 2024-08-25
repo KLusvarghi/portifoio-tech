@@ -9,7 +9,6 @@ const ContainerToggleTheme = styled.div`
   top: 22%;
   padding: 0.5em;
   display: flex;
-  border-radius: 5px 0 0 5px;
   background: linear-gradient(
     to right,
     ${(props) => props.theme.colors.bgGradient.a},

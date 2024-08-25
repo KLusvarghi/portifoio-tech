@@ -61,7 +61,6 @@ const BaseLayout = ({ children }: IChildrenProps) => {
             </Col>
             <Col>
               <Nav>
-                {/* passando a props com "$" para que o styled-components filtre essa props e não passse para o DOM, assim não gerando erro no console */}
                 <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
                   <LiHeader>
                     <LinkScroll to="intro" {...options}>
@@ -204,7 +203,6 @@ const BaseLayout = ({ children }: IChildrenProps) => {
               </RouterLink>
             </LiFooter>
           </UlFooter>
-
           <ContainerIcons>
             <GitHub theme={theme.title} footer={true} />
             <Email theme={theme.title} footer={true} />
@@ -213,9 +211,8 @@ const BaseLayout = ({ children }: IChildrenProps) => {
             <WhatsApp theme={theme.title} footer={true} />
             <Cv theme={theme.title} footer={true} />
           </ContainerIcons>
-
           <Separator />
-          <Typography variant="body3">
+          <Typography variant="body2">
             © 2024 by Kauã Lusvarghi | Todos os direitos reservados{' '}
           </Typography>
         </ContainerFooter>

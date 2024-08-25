@@ -45,7 +45,9 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  max-height: 60px;
   &:hover {
     box-shadow: inset 500px 0 0 0
       ${({ theme, $theme }) =>

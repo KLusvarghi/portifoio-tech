@@ -44,14 +44,14 @@ export const Rocket = ({ refContainer }: RefProps) => {
     };
   }, [refContainer]);
 
-  if (width >= 600) {
+  if (width >= 670) {
     return (
       <LinkScroll
         to="intro"
         spy={true}
         smooth={true}
         offset={0}
-        duration={500}
+        duration={360}
         isDynamic={true}
       >
         <StyledRocket $visible={visible} ref={rocketRef}>
