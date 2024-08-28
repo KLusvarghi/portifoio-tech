@@ -29,6 +29,27 @@ const ContainerTitle = styled.span<IStyledthemeProps>`
         `;
     }
   }}
+
+  @media (max-width: 830px) {
+    h2 {
+      font-size: 2.25em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+
+    h2, h3{
+      text-align: center;
+    }
+  }
+  @media (max-width: 502px) {
+    h2 {
+      font-size: 1.625em;
+    }
+    h3 {
+      font-size: 1.125em;
+    }
+  }
 `;
 
 const Separator = styled.span`

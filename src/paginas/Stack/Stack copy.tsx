@@ -13,30 +13,17 @@ import sassSvg from './assets/sass.svg';
 import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
-import { useState } from 'react';
-import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import {
   Main,
   Wrapper,
   ContainerCarrosel,
   ContaienrImg,
   StackImg,
-  TextTech,
 } from './styles';
 import UseWindowSize from '../../hooks/useWindowSize';
 
 export const Stack = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
   const width = UseWindowSize();
-  const { theme } = useSystemThemeContext();
-
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
-  };
 
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
@@ -63,30 +50,14 @@ export const Stack = () => {
       />
       <Wrapper>
         <ContainerCarrosel>
-          {' '}
-          {/* scroll */}
           {svgFiles.map(({ index, path, name }) => (
-            <ContaienrImg // div
-              key={index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <StackImg //span
+            <ContaienrImg key={index}>
+              <StackImg
                 $delay={index}
                 $length={svgFiles.length}
                 src={path}
                 alt={`SVG ${name}`}
-                onMouseEnter={handleMouseEnter}
               />
-              {hoveredIndex === index && (
-                <TextTech
-                  $theme={theme.title}
-                  $x={mousePosition.x}
-                  $y={mousePosition.y}
-                >
-                  {name}{' '}
-                </TextTech>
-              )}
             </ContaienrImg>
           ))}
         </ContainerCarrosel>

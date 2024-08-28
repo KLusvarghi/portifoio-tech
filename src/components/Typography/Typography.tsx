@@ -19,7 +19,7 @@ const components = {
     margin: 0;
   `,
 
-  title: styled.h1<IStyledTypographProps>`
+  title: styled.h2<IStyledTypographProps>`
     font-size: 2.5em;
     font-weight: 600;
     line-height: auto;
@@ -39,7 +39,7 @@ const components = {
       }
     }}
   `,
-  subtitle: styled.h2<IStyledTypographProps>`
+  subtitle: styled.h3<IStyledTypographProps>`
     font-size: 2em;
     font-weight: 450;
     font-family: ${(props) => props.theme.font.roboto};
@@ -57,7 +57,7 @@ const components = {
       }
     }}
   `,
-  h3: styled.h3<IStyledTypographProps>`
+  h4: styled.h4<IStyledTypographProps>`
     font-size: 2em;
     font-weight: 500;
     font-family: ${(props) => props.theme.font.poppins};
@@ -74,9 +74,13 @@ const components = {
           `;
       }
     }}
+
+    @media (max-width: 830px) {
+      font-size: 1.625em;
+    }
   `,
 
-  h4: styled.h1<IStyledTypographProps>`
+  h5: styled.h5<IStyledTypographProps>`
     font-size: 1.375em;
     font-weight: 600;
     font-family: ${(props) => props.theme.font.poppins};
@@ -99,7 +103,7 @@ const components = {
     font-weight: 400;
     font-family: ${(props) => props.theme.font.roboto};
     color: ${(props) => props.theme.colors.title.p};
-    
+
     ${(props) => {
       switch (props.$theme) {
         case 'dark':
@@ -109,10 +113,13 @@ const components = {
         default:
           return css`
             color: ${(props) => props.theme.colors.neutral.c7};
-            /* color: ${(props) => props.theme.colors.neutral.c8}; */
           `;
       }
     }}
+
+    @media (max-width: 830px) {
+      font-size: 1em;
+    }
   `,
 
   body2: styled.p<IStyledTypographProps>`

@@ -46,27 +46,20 @@ export const Main = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 36px;
-  padding-bottom: 200px;
-  mask-image: linear-gradient(to right, transparent, #000 10% 98%, transparent);
-`;
-
-export const ContainerCarrosel = styled.div`
+  overflow: hidden;
+  margin-top: 36px;
   position: relative;
-  width: 100%;
-  display: flex;
-
-  &:hover {
-    img {
-      animation-play-state: paused;
-      filter: grayscale(1);
-    }
-  }
+  /* padding-bottom: 130px; */
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+  --webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10% 90%,
+    transparent
+  );
 `;
 
-export const ContaienrImg = styled.div``;
-
-const autoRun = keyframes`
+const infiniteScroll = keyframes`
   0% {
     right: 100%;
   }
@@ -75,16 +68,43 @@ const autoRun = keyframes`
   }
 `;
 
-export const StackImg = styled.img<IStyledStackProps>`
+export const ContainerCarrosel = styled.ul`
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 22px 0;
+
+  &:hover {
+    animation-play-state: paused;
+    img {
+      filter: grayscale(1);
+    }
+  }
+`;
+
+export const ContaienrImg = styled.li`
+  list-style: none;
   cursor: pointer;
+  white-space: nowrap;
+
+  min-height: 120px;
+`;
+
+export const StackImg = styled.img<IStyledStackProps>`
+  /* display: inline-flex; */
   position: absolute;
   right: 100%;
-  /* animation: ${autoRun} ${({ $length }) => $length}s linear infinite; */
-  animation: ${autoRun} 13s linear infinite;
+  animation: ${infiniteScroll} 13s linear infinite;
   animation-delay: ${({ $delay }) => $delay}s;
 
   &:hover {
     filter: grayscale(0) !important;
+    transform: scale(1.08);
+  }
+
+  @media (max-width: 675px) {
+    max-width: 70px;
   }
 `;
 
@@ -98,9 +118,9 @@ export const TextTech = styled.p<IStyledTextProps>`
   font-family: ${(props) => props.theme.font.roboto};
   border-radius: 5px;
 
-  /* arruamr */
+  /* arrumar */
   left: ${({ $x }) => $x - 100}px;
-  top: ${({ $y }) => $y - 520}px;
+  top: ${({ $y }) => $y - 500}px;
 
   ${(props) => {
     switch (props.$theme) {

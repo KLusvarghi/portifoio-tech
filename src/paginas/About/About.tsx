@@ -7,7 +7,6 @@ import { Button } from '../../components/Button/Button';
 import UseWindowSize from '../../hooks/useWindowSize';
 import { instagram, linkedin, urlgitHub } from '../../utils/links';
 import {
-  Main,
   Wrapper,
   ContainerContent,
   TextBold,
@@ -20,6 +19,7 @@ import {
   ContaienrAttribute,
 } from './styles';
 import useFetchData from '../../hooks/useFetchData';
+import { Main } from '../../styles/mainContainer';
 
 const About = () => {
   const width = UseWindowSize();
@@ -88,7 +88,7 @@ const About = () => {
         {width >= 1012 && <Img src={euImg} alt="Imagem de Kauã Lusvarghi" />}
         <ContainerContent>
           <ContainerTypograph>
-            <Typography variant="h3">Saudações, um pouco sobre mim!</Typography>
+            <Typography variant="h4">Saudações, um pouco sobre mim!</Typography>
             <Typography variant="body">
               Me chamo Kauã Ortolani Lusvarghi,{' '}
               <ContainerAcessibility

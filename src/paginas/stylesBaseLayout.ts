@@ -119,9 +119,7 @@ export const ContainerButton = styled.div`
   }
 `;
 
-// const StyledFooter = styled.div`
-//
-// `;
+// Footer
 
 export const ContainerFooter = styled.div`
   display: flex;

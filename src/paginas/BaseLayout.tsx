@@ -152,7 +152,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
       {children}
       <Footer>
         <ContainerFooter>
-          <Typography variant="h4">Navegue até</Typography>
+          <Typography variant="h5">Navegue até</Typography>
           <UlFooter>
             <LiFooter>
               <Button variant="footer">

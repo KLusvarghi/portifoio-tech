@@ -1,23 +1,8 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
-  overflow: hidden;
-  gap: 80px;
-  padding: 0 84px;
-  max-width: 1680px;
-  margin: 120px auto 0;
-
-  @media (max-width: 1060px) {
-    padding: 0 46px;
-  }
-  @media (max-width: 600px) {
-    padding: 0 22px;
-  }
-`;
-
 export const Wrapper = styled.div`
   display: flex;
-  margin-top: 80px;
+  margin-top: 60px;
   gap: 44px;
   justify-content: center;
   align-items: center;
@@ -70,7 +55,6 @@ export const ContainerAcessibility = styled.span<IStyledTextProps>`
     padding: 4px 8px;
     border-radius: 4px;
     white-space: nowrap;
-    /* transform: translateX(-50%); */
     pointer-events: none; /* Faz com que o mouse não interaja com o elemento */
     opacity: ${({ $hover }) => ($hover ? 1 : 0)};
     transition: opacity 0.2s ease;
@@ -81,8 +65,9 @@ export const ContainerTypograph = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-`;
 
+  
+`;
 
 export const ContainerInformations = styled.div`
   display: flex;
@@ -125,30 +110,5 @@ export const ContaienrAttribute = styled.span`
     h1 {
       font-size: 32px;
     }
-  }
-`;
-
-export const StyledSpan = styled.span`
-  position: absolute;
-  /* right: 50%; */
-  padding: 4px 12px;
-  color: ${(props) => props.theme.colors.neutral.c1};
-  background: ${(props) => props.theme.colors.neutral.c10};
-  font-family: ${(props) => props.theme.font.poppins};
-  border-radius: 5px;
-  /* z-index: 2; */
-  /* pointer-events: none; */
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 10%;
-    width: 13px;
-    height: 13px;
-    background: ${(props) => props.theme.colors.neutral.c10};
-    transform: rotate(45deg);
-    /* z-index: 1; */
-    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
   }
 `;

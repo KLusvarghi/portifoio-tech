@@ -49,7 +49,7 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   gap: 12px;
   max-height: 60px;
   &:hover {
-    box-shadow: inset 500px 0 0 0
+    box-shadow: inset 700px 0 0 0
       ${({ theme, $theme }) =>
         $theme === 'dark' ? theme.colors.neutral.c3 : theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
@@ -73,7 +73,7 @@ const OutlineButton = styled(StyledButton)`
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
   color: ${(props) => props.theme.colors.primaries.a};
   &:hover {
-    box-shadow: inset 300px 0 0 0 ${(props) => props.theme.colors.primaries.a};
+    box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.primaries.a};
     color: ${(props) => props.theme.colors.neutral.c2};
   }
 `;
