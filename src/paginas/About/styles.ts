@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Main = styled.div`
   overflow: hidden;
@@ -49,9 +49,32 @@ export const LinkText = styled.a`
   }
 `;
 
-export const ContainerAcessibility = styled.span`
+interface IStyledTextProps {
+  $theme?: string;
+  $x: number;
+  $y: number;
+  $hover: boolean;
+}
+
+export const ContainerAcessibility = styled.span<IStyledTextProps>`
+  position: relative;
   cursor: pointer;
-  padding: 12px 0;
+
+  &::before {
+    content: 'Acessibilidade';
+    position: absolute;
+    left: ${({ $x }) => $x}px;
+    top: ${({ $y }) => $y - 30}px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* transform: translateX(-50%); */
+    pointer-events: none; /* Faz com que o mouse não interaja com o elemento */
+    opacity: ${({ $hover }) => ($hover ? 1 : 0)};
+    transition: opacity 0.2s ease;
+  }
 `;
 
 export const ContainerTypograph = styled.div`
@@ -59,6 +82,7 @@ export const ContainerTypograph = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
+
 
 export const ContainerInformations = styled.div`
   display: flex;

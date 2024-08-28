@@ -2,7 +2,7 @@ import { Title } from '../../components/Typography/Title';
 import { Typography } from '../../components/Typography/Typography';
 import euImg from './assets/eu.png';
 import { useEffect, useState } from 'react';
-import { useRef } from 'react';
+import { Link } from '../../components/Link/Link';
 import { Button } from '../../components/Button/Button';
 import UseWindowSize from '../../hooks/useWindowSize';
 import { instagram, linkedin, urlgitHub } from '../../utils/links';
@@ -19,43 +19,67 @@ import {
   ContainerXp,
   ContaienrAttribute,
 } from './styles';
+import useFetchData from '../../hooks/useFetchData';
 
 const About = () => {
   const width = UseWindowSize();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hover, setHover] = useState(false);
-  const [repositoryLenght, setRepositoryLenght] = useState(null);
-  const accRef = useRef<HTMLSpanElement | null>(null);
+  const [allRepositories, setAllRepositories] = useState<number | null>(null);
+  const [displayedRepositories, setDisplayedRepositories] = useState<number>(0);
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
 
-  function handleMouseMove(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
-    if (accRef.current) {
-      const spanElement = accRef.current;
-      // Atualiza a posição do elemento com base nas coordenadas do mouse
-      const offsetX = -spanElement.offsetWidth / 2; // ou outro valor para ajustar horizontalmente
-      const offsetY = -spanElement.offsetHeight / 2 + 10; // +10px para mover mais para baixo
-      spanElement.style.left = `${e.clientX + offsetX}px`;
-      spanElement.style.top = `${e.clientY + offsetY + 400}px`;
-    }
-  }
+  const { data, error } = useFetchData(urlgitHub);
 
   useEffect(() => {
-    const fetchRespGit = async () => {
+    const setStateWithReposGit = async () => {
       try {
-        const repos = await fetch(urlgitHub);
-        const data = await repos.json();
-        setRepositoryLenght(data.length);
+        if (!error && Array.isArray(data) && data.length > 0) {
+          setAllRepositories(data.length);
+        }
       } catch (err) {
         console.error('Erro ao carregar os repositórios do github.', err);
-        setRepositoryLenght(null);
+        setAllRepositories(null);
       }
     };
-    fetchRespGit();
-  }, []);
+    setStateWithReposGit();
+  }, [data, error]);
+
+  useEffect(() => {
+    if (allRepositories !== null) {
+      const incrementNumber = () => {
+        const repositoriesLength = allRepositories;
+        const incremento = Math.max(1, Math.floor(repositoriesLength / 1000));
+        let start = 0;
+        const timer = setInterval(() => {
+          start += incremento;
+          setDisplayedRepositories(Math.min(start, repositoriesLength));
+          if (start >= repositoriesLength) {
+            clearInterval(timer);
+          }
+        }, 25 * Math.random());
+      };
+      incrementNumber();
+    }
+  }, [allRepositories]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    setMousePosition({
+      x: x,
+      y: y,
+    });
+  };
 
   return (
     <Main id="about">
-      {/* {hover && <StyledSpan ref={accRef}>Acessibilidade</StyledSpan>} */}
       <Title
         title="Sobre mim"
         subtitle="Aqui você encontrará mais informações sobre mim"
@@ -68,9 +92,13 @@ const About = () => {
             <Typography variant="body">
               Me chamo Kauã Ortolani Lusvarghi,{' '}
               <ContainerAcessibility
-                ref={accRef}
-                onMouseMove={handleMouseMove}
-                onMouseEnter={() => setHover(true)}
+                $x={mousePosition.x}
+                $y={mousePosition.y}
+                $hover={hover}
+                onMouseEnter={(e) => {
+                  setHover(true);
+                  handleMouseMove(e);
+                }}
                 onMouseLeave={() => setHover(false)}
               >
                 sou um homem de pele branca com cabelos castanhos e cacheado.
@@ -108,14 +136,16 @@ const About = () => {
                 </Typography>
               </ContaienrAttribute>
               <ContaienrAttribute>
-                <Typography>{repositoryLenght}+</Typography>
+                <Typography>{displayedRepositories}+</Typography>
                 <Typography variant="body">
                   Projetos
                   <br /> no GitHub
                 </Typography>
               </ContaienrAttribute>
             </ContainerXp>
-            <Button>Baixar CV</Button>
+            <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
+              <Button>Baixar CV</Button>
+            </Link>
           </ContainerInformations>
         </ContainerContent>
       </Wrapper>

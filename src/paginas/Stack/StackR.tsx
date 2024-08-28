@@ -63,13 +63,15 @@ export const Stack = () => {
       />
       <Wrapper>
         <ContainerCarrosel>
+          {' '}
+          {/* scroll */}
           {svgFiles.map(({ index, path, name }) => (
-            <ContaienrImg
+            <ContaienrImg // div
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <StackImg
+              <StackImg //span
                 $delay={index}
                 $length={svgFiles.length}
                 src={path}

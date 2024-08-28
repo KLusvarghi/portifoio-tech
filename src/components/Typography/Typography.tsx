@@ -22,8 +22,10 @@ const components = {
   title: styled.h1<IStyledTypographProps>`
     font-size: 2.5em;
     font-weight: 600;
-    line-height: 0;
+    line-height: auto;
     font-family: ${(props) => props.theme.font.poppins};
+    margin: 0;
+    /* text-align: center; tem que adicionar para o title do STACK*/
     ${(props) => {
       switch (props.$theme) {
         case 'dark':
@@ -97,7 +99,7 @@ const components = {
     font-weight: 400;
     font-family: ${(props) => props.theme.font.roboto};
     color: ${(props) => props.theme.colors.title.p};
-
+    
     ${(props) => {
       switch (props.$theme) {
         case 'dark':

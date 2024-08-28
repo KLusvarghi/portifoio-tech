@@ -59,28 +59,6 @@ export const ContainerSvg = styled.img`
   }
 `;
 
-// assim os icones de redes sociais fica sempre no canto
-// export const StyeldContainerIcons = styled.div`
-//   flex: 0;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 16px;
-//   max-width: 54px;
-
-//   @media (max-width: 1536px) {
-//   }
-//     position: absolute;
-//     top: 40%;
-//     left: 54px;
-
-//   @media (max-width: 460px) {
-//     flex-direction: row;
-//     position: static;
-//     max-width: 100%;
-//   }
-// `;
-
-// assim o icone do menu ficará grudado ao container de texto quando acima de 1536px
 export const ContainerIcons = styled.div`
   flex: 0;
   display: flex;
@@ -120,7 +98,6 @@ export const ContainerButton = styled.div`
   }
 `;
 
-// Animação
 const animate = keyframes`
     0% {
       opacity: 0;

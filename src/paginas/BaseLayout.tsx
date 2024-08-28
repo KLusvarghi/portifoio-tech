@@ -156,52 +156,35 @@ const BaseLayout = ({ children }: IChildrenProps) => {
           <UlFooter>
             <LiFooter>
               <Button variant="footer">
-                <LinkScroll
-                  to="intro"
-                  spy={true}
-                  smooth={true}
-                  offset={0}
-                  duration={500}
-                >
+                <LinkScroll to="intro" {...options}>
                   Home
                 </LinkScroll>
               </Button>
             </LiFooter>
             <LiFooter>
               <Button variant="footer">
-                <LinkScroll
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={0}
-                  duration={500}
-                >
+                <LinkScroll to="about" {...options}>
                   Sobre
                 </LinkScroll>
               </Button>
             </LiFooter>
             <LiFooter>
               <Button variant="footer">
-                <LinkScroll
-                  to="project"
-                  spy={true}
-                  smooth={true}
-                  offset={0}
-                  duration={500}
-                >
+                <LinkScroll to="stack" {...options}>
+                  Stack
+                </LinkScroll>
+              </Button>
+            </LiFooter>
+            <LiFooter>
+              <Button variant="footer">
+                <LinkScroll to="project" {...options}>
                   Projetos
                 </LinkScroll>
               </Button>
             </LiFooter>
             <LiFooter>
               <Button variant="footer">
-                <LinkScroll
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={0}
-                  duration={500}
-                >
+                <LinkScroll to="contact" {...options}>
                   Contato
                 </LinkScroll>
               </Button>

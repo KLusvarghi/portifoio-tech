@@ -10,6 +10,8 @@ interface ILinkProps {
 const StyledLink = styled.a`
   color: ${(props) => props.theme.colors.primaries.a};
   font-weight: 700;
+  text-decoration: none;
+  width: 100%;
 `;
 
 export const Link = ({ children, url, blank = true }: ILinkProps) => {
