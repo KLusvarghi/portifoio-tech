@@ -6,11 +6,14 @@ import About from '../About/About';
 import { useRef } from 'react';
 import Stack from '../Stack/Stack';
 import { Head } from '../../components/Head/Head';
+import Contact from '../Contact/Contact';
+import UseWindowSize from '../../hooks/useWindowSize';
 
 const Main = styled.div``;
 
 const Home = () => {
   const refContainer = useRef<HTMLDivElement>(null);
+  const width = UseWindowSize();
 
   return (
     <Main>
@@ -21,8 +24,9 @@ const Home = () => {
       <ToggleThemeButton />
       <Rocket refContainer={refContainer} />
       <Introduction refContainer={refContainer} />
-      <About />
-      <Stack />
+      <About width={width} />
+      <Stack  width={width}/>
+      <Contact/>
     </Main>
   );
 };

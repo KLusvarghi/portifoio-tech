@@ -4,8 +4,10 @@ import euImg from './assets/eu.png';
 import { useEffect, useState } from 'react';
 import { Link } from '../../components/Link/Link';
 import { Button } from '../../components/Button/Button';
-import UseWindowSize from '../../hooks/useWindowSize';
 import { instagram, linkedin, urlgitHub } from '../../utils/links';
+import useFetchData from '../../hooks/useFetchData';
+import { Main } from '../../styles/mainContainer';
+import { IUseWindoSizeProps } from '../../types/auxProps';
 import {
   Wrapper,
   ContainerContent,
@@ -18,12 +20,10 @@ import {
   ContainerXp,
   ContaienrAttribute,
 } from './styles';
-import useFetchData from '../../hooks/useFetchData';
-import { Main } from '../../styles/mainContainer';
 
-const About = () => {
-  const width = UseWindowSize();
 
+const About = ({ width }: IUseWindoSizeProps) => {
+  const { data, error } = useFetchData(urlgitHub);
   const [hover, setHover] = useState(false);
   const [allRepositories, setAllRepositories] = useState<number | null>(null);
   const [displayedRepositories, setDisplayedRepositories] = useState<number>(0);
@@ -31,8 +31,6 @@ const About = () => {
     x: 0,
     y: 0,
   });
-
-  const { data, error } = useFetchData(urlgitHub);
 
   useEffect(() => {
     const setStateWithReposGit = async () => {

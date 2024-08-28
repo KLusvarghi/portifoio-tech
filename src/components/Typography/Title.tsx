@@ -20,6 +20,7 @@ const ContainerTitle = styled.span<IStyledthemeProps>`
         return css`
           justify-content: center;
           align-items: center;
+          text-align: center;
         `;
       default:
         return css`

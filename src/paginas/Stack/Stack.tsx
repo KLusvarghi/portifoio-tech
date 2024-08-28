@@ -13,18 +13,11 @@ import sassSvg from './assets/sass.svg';
 import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
-import {
-  Wrapper,
-  ContainerCarrosel,
-  ContaienrImg,
-  StackImg,
-} from './styles';
-import UseWindowSize from '../../hooks/useWindowSize';
+import { Wrapper, ContainerCarrosel, ContaienrImg, StackImg } from './styles';
 import { Main } from '../../styles/mainContainer';
+import { IUseWindoSizeProps } from '../../types/auxProps';
 
-export const Stack = () => {
-  const width = UseWindowSize();
-
+export const Stack = ({ width }: IUseWindoSizeProps) => {
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
     { index: 2, path: figmaSvg, name: 'Figma' },

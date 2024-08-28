@@ -8,6 +8,11 @@ export interface IChildrenProps {
   children?: ReactNode;
 }
 
+// Interface para width de UseWindowSize
+export interface IUseWindoSizeProps {
+  width: number;
+}
+
 // Interfaces para as props recebidas no styled-componente
 export interface ISvgProps {
   theme?: string;

@@ -25,7 +25,6 @@ const components = {
     line-height: auto;
     font-family: ${(props) => props.theme.font.poppins};
     margin: 0;
-    /* text-align: center; tem que adicionar para o title do STACK*/
     ${(props) => {
       switch (props.$theme) {
         case 'dark':
@@ -43,7 +42,6 @@ const components = {
     font-size: 2em;
     font-weight: 450;
     font-family: ${(props) => props.theme.font.roboto};
-    text-align: center;
     ${(props) => {
       switch (props.$theme) {
         case 'dark':
