@@ -1,10 +1,10 @@
 import { Col, Container, Row } from 'react-grid-system';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Typography } from '../../components/Typography/Typography';
-import { Button } from '../../components/Button/Button';
+import { Typography } from '../../../components/Typography/Typography';
+import { Button } from '../../../components/Button/Button';
 import erro404 from './assets/error-404.svg';
-import { Head } from '../../components/Head/Head';
+import { Head } from '../../../components/Head/Head';
 
 const StylizedImage = styled.img`
   max-width: 100%;

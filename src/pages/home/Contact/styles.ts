@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IStyledSvgProps } from '../../types/auxProps';
+import { IStyledSvgProps } from '../../../types/auxProps';
 
 export const Wrapper = styled.div`
   margin: 60px 0 120px;
@@ -34,8 +34,7 @@ export const ContainerIcone = styled.span<IStyledSvgProps>`
     max-width: 28px;
 
     path {
-      fill: ${(props) =>
-        props.theme.colors.form.path};
+      fill: ${(props) => props.theme.colors.form.path};
     }
   }
 `;

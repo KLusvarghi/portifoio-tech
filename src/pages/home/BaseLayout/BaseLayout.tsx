@@ -1,24 +1,26 @@
-import { Col, Container, Row } from '../components/Grid/Grid';
+import { Col, Container, Row } from '../../../components/Grid/Grid';
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Link } from '../components/Link/Link';
+import { Link } from '../../../components/Link/Link';
 import { Link as LinkScroll } from 'react-scroll';
-import { Header } from '../components/Header/Header';
-import { Footer } from '../components/Footer/Footer';
-import { PortifolioLogo } from '../components/Icons/PortifolioLogo';
-import { IChildrenProps } from '../types/auxProps';
-import { Button } from '../components/Button/Button';
-import UseWindowSize from '../hooks/useWindowSize';
-import useSystemThemeContext from '../hooks/useSystemThemeContext';
+import { Header } from '../../../components/Header/Header';
+import { Footer } from '../../../components/Footer/Footer';
+import { PortifolioLogo } from '../../../components/Icons/PortifolioLogo';
+import { IChildrenProps } from '../../../types/auxProps';
+import { Button } from '../../../components/Button/Button';
+import UseWindowSize from '../../../hooks/useWindowSize';
+import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
 import { Outlet } from 'react-router-dom';
-import { Instagram } from '../components/Icons/Instagram';
-import { WhatsApp } from '../components/Icons/WhatsApp';
-import { GitHub } from '../components/Icons/GitHub';
-import { Linkedin } from '../components/Icons/Linkedin';
-import { Email } from '../components/Icons/Email';
-import { Cv } from '../components/Icons/Cv';
-import { Typography } from '../components/Typography/Typography';
-import { ToggleThemeButton } from '../components/Button/ToggleThemeButton';
+import { Instagram } from '../../../components/Icons/Instagram';
+import { WhatsApp } from '../../../components/Icons/WhatsApp';
+import { GitHub } from '../../../components/Icons/GitHub';
+import { Linkedin } from '../../../components/Icons/Linkedin';
+import { Email } from '../../../components/Icons/Email';
+import { Cv } from '../../../components/Icons/Cv';
+import { Typography } from '../../../components/Typography/Typography';
+import { ToggleThemeButton } from '../../../components/Button/ToggleThemeButton';
+import { HamburguerButton } from '../../../components/Button/HamburguerButton';
+import { github, linkedin } from '../../../utils/links';
 import {
   Nav,
   UlHeader,
@@ -30,9 +32,7 @@ import {
   LiFooter,
   ContainerIcons,
   Separator,
-} from './stylesBaseLayout';
-import { HamburguerButton } from '../components/Button/HamburguerButton';
-import { github, linkedin } from '../utils/links';
+} from './styles';
 
 const BaseLayout = ({ children }: IChildrenProps) => {
   const { theme, setTheme } = useSystemThemeContext();

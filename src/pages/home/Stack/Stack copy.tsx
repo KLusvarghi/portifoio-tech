@@ -1,4 +1,4 @@
-import { Title } from '../../components/Typography/Title';
+import { Title } from '../../../components/Typography/Title';
 import cssSvg from './assets/css.svg';
 // import figmaBorderSvg from './assets/figma.svg';
 import figmaSvg from './assets/figma-border.svg';
@@ -13,11 +13,18 @@ import sassSvg from './assets/sass.svg';
 import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
-import { Wrapper, ContainerCarrosel, ContaienrImg, StackImg } from './styles';
-import { Main } from '../../styles/mainContainer';
-import { IUseWindoSizeProps } from '../../types/auxProps';
+import {
+  Main,
+  Wrapper,
+  ContainerCarrosel,
+  ContaienrImg,
+  StackImg,
+} from './styles';
+import UseWindowSize from '../../../hooks/useWindowSize';
 
-export const Stack = ({ width }: IUseWindoSizeProps) => {
+export const Stack = () => {
+  const width = UseWindowSize();
+
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
     { index: 2, path: figmaSvg, name: 'Figma' },
@@ -43,18 +50,16 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
       />
       <Wrapper>
         <ContainerCarrosel>
-          <div className="carousel-inner">
-            {svgFiles.map(({ index, path, name }) => (
-              <ContaienrImg key={index}>
-                <StackImg
-                  $delay={index}
-                  $length={svgFiles.length}
-                  src={path}
-                  alt={`SVG ${name}`}
-                />
-              </ContaienrImg>
-            ))}
-          </div>
+          {svgFiles.map(({ index, path, name }) => (
+            <ContaienrImg key={index}>
+              <StackImg
+                $delay={index}
+                $length={svgFiles.length}
+                src={path}
+                alt={`SVG ${name}`}
+              />
+            </ContaienrImg>
+          ))}
         </ContainerCarrosel>
       </Wrapper>
     </Main>

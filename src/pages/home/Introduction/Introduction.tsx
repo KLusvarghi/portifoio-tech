@@ -1,13 +1,13 @@
 // import useSystemThemeContext from '../../hooks/useSystemThemeContext';
-import { GitHub } from '../../components/Icons/GitHub';
-import { Linkedin } from '../../components/Icons/Linkedin';
-import { Instagram } from '../../components/Icons/Instagram';
-import { Cv } from '../../components/Icons/Cv';
-import { Typography } from '../../components/Typography/Typography';
+import { GitHub } from '../../../components/Icons/GitHub';
+import { Linkedin } from '../../../components/Icons/Linkedin';
+import { Instagram } from '../../../components/Icons/Instagram';
+import { Cv } from '../../../components/Icons/Cv';
+import { Typography } from '../../../components/Typography/Typography';
 import { Link as LinkScroll } from 'react-scroll';
-import { Button } from '../../components/Button/Button';
+import { Button } from '../../../components/Button/Button';
 import image from './assets/ilustrationr.svg';
-import { RefProps } from '../../types/auxProps';
+import { RefProps } from '../../../types/auxProps';
 import {
   Main,
   Wrapper,
@@ -18,7 +18,7 @@ import {
   ContainerNextArrow,
   ContainerNextmobile,
 } from './styles';
-import { WhatsApp } from '../../components/Icons/WhatsApp';
+import { WhatsApp } from '../../../components/Icons/WhatsApp';
 
 const Introduction = ({ refContainer }: RefProps) => {
   const options = {

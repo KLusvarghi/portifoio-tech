@@ -1,11 +1,11 @@
-import { Main } from '../../styles/mainContainer';
-import { Title } from '../../components/Typography/Title';
-import api from '../../api/projetos.json';
-import { Typography } from '../../components/Typography/Typography';
+import { Main } from '../../../styles/mainContainer';
+import { Title } from '../../../components/Typography/Title';
+import api from '../../../api/projetos.json';
+import { Typography } from '../../../components/Typography/Typography';
 import { useState } from 'react';
-import { Tag } from '../../components/Button/Tag';
-import { Button } from '../../components/Button/Button';
-import { getImageUrl } from '../../utils/imageUtils';
+import { Tag } from '../../../components/Button/Tag';
+import { Button } from '../../../components/Button/Button';
+import { getImageUrl } from '../../../utils/imageUtils';
 import {
   Wrapper,
   ContainerProject,
@@ -14,6 +14,7 @@ import {
   ContainerListTech,
   ContainerButton,
 } from './styles';
+import { Link } from 'react-scroll';
 
 export const Projects = () => {
   const [visibleItems, setVisibleItems] = useState(3);
@@ -45,7 +46,9 @@ export const Projects = () => {
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                <Button variant="secondary">Mais Sobre</Button>
+                <Link to={projeto.linkTo}>
+                  <Button variant="secondary">Mais Sobre</Button>
+                </Link>
               </ContainerButton>
             </ContainerContent>
           </ContainerProject>

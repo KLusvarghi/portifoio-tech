@@ -1,8 +1,8 @@
-import { Main } from '../../styles/mainContainer';
-import { Title } from '../../components/Typography/Title';
-import { Forms } from '../../components/Form/Form';
+import { Main } from '../../../styles/mainContainer';
+import { Title } from '../../../components/Typography/Title';
+import { Forms } from '../../../components/Form/Form';
 import { GitHub, Linkedin, Email } from './icons';
-import { Typography } from '../../components/Typography/Typography';
+import { Typography } from '../../../components/Typography/Typography';
 import {
   Wrapper,
   ContainerInformations,
@@ -10,7 +10,7 @@ import {
   ContainerIcone,
   SuccessMessage,
 } from './styles';
-import useSystemThemeContext from '../../hooks/useSystemThemeContext';
+import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -67,7 +67,9 @@ const Contact = () => {
       </Wrapper>
       {sendMessage && (
         <SuccessMessage>
-          <Typography variant='body'>Texto copiado para área de transferência!</Typography>
+          <Typography variant="body">
+            Texto copiado para área de transferência!
+          </Typography>
         </SuccessMessage>
       )}
     </Main>

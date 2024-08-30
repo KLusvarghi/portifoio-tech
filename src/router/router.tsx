@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Pagina404 from '../paginas/error/Page404';
-import BaseLayout from '../paginas/BaseLayout';
-import Home from '../paginas/Home/Home';
-import Certificates from '../paginas/Certificates/Certificates';
-import Projects from '../paginas/Projects/Projects';
+import Pagina404 from '../pages/home/error/Page404';
+import BaseLayout from '../pages/home/BaseLayout/BaseLayout';
+import Home from '../pages/home/Home';
+import Certificates from '../pages/Certificates/Certificates';
+import Projects from '../pages/home/Projects/Projects';
 
 export const router = createBrowserRouter([
   {

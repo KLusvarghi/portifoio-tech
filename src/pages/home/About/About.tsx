@@ -1,13 +1,13 @@
-import { Title } from '../../components/Typography/Title';
-import { Typography } from '../../components/Typography/Typography';
+import { Title } from '../../../components/Typography/Title';
+import { Typography } from '../../../components/Typography/Typography';
 import euImg from './assets/eu.png';
 import { useEffect, useState } from 'react';
-import { Link } from '../../components/Link/Link';
-import { Button } from '../../components/Button/Button';
-import { instagram, linkedin, urlgitHub } from '../../utils/links';
-import useFetchData from '../../hooks/useFetchData';
-import { Main } from '../../styles/mainContainer';
-import { IUseWindoSizeProps } from '../../types/auxProps';
+import { Link } from '../../../components/Link/Link';
+import { Button } from '../../../components/Button/Button';
+import { instagram, linkedin, urlgitHub } from '../../../utils/links';
+import useFetchData from '../../../hooks/useFetchData';
+import { Main } from '../../../styles/mainContainer';
+import { IUseWindoSizeProps } from '../../../types/auxProps';
 import {
   Wrapper,
   ContainerContent,
