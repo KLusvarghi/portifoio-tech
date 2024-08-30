@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { ToggleThemeButton } from '../../components/Button/ToggleThemeButton';
 import { Rocket } from '../../components/Rocket/Rocket';
+import { Head } from '../../components/Head/Head';
+import { useRef } from 'react';
 import Introduction from './Introduction/Introduction';
 import About from './About/About';
-import { useRef } from 'react';
 import Stack from './Stack/Stack';
-import { Head } from '../../components/Head/Head';
 import Contact from './Contact/Contact';
 import UseWindowSize from '../../hooks/useWindowSize';
 import Projects from './Projects/Projects';

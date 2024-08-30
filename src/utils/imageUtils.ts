@@ -1,4 +1,3 @@
 export function getImageUrl(name: string) {
-  return new URL(`../paginas/Projects/svgProjetos/${name}`, import.meta.url)
-    .href;
+  return new URL(`../pages/home/Projects/assets${name}`, import.meta.url).href;
 }

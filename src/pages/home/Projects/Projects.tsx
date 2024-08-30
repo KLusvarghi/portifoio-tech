@@ -1,11 +1,12 @@
 import { Main } from '../../../styles/mainContainer';
 import { Title } from '../../../components/Typography/Title';
-import api from '../../../api/projetos.json';
 import { Typography } from '../../../components/Typography/Typography';
 import { useState } from 'react';
 import { Tag } from '../../../components/Button/Tag';
 import { Button } from '../../../components/Button/Button';
 import { getImageUrl } from '../../../utils/imageUtils';
+import useSystemProjectContext from '../../../hooks/useSystemProjectContext ';
+// import { Link } from 'react-scroll';
 import {
   Wrapper,
   ContainerProject,
@@ -14,14 +15,14 @@ import {
   ContainerListTech,
   ContainerButton,
 } from './styles';
-import { Link } from 'react-scroll';
 
 export const Projects = () => {
   const [visibleItems, setVisibleItems] = useState(3);
   const increment = 3;
+  const { data } = useSystemProjectContext();
 
   const showMoreItems = () => {
-    setVisibleItems((prev) => Math.min(prev + increment, api.length));
+    setVisibleItems((prev) => Math.min(prev + increment, data.length));
   };
 
   return (
@@ -31,29 +32,29 @@ export const Projects = () => {
         subtitle="Aqui você encontrará alguns dos meus projetos pessoais mais recentes"
       />
       <Wrapper>
-        {api.slice(0, visibleItems).map((projeto, index) => (
+        {data.slice(0, visibleItems).map((Project, index) => (
           <ContainerProject key={index}>
             <Image
-              src={getImageUrl(projeto.image)}
-              alt={`imagem ilustrativa do projeto ${projeto.nome}`}
+              src={getImageUrl(Project.image)}
+              alt={`imagem ilustrativa do projeto ${Project.name}`}
             />
             <ContainerContent>
-              <Typography variant="h4">{projeto.nome}</Typography>
-              <Typography variant="body">{projeto.preDescricao}</Typography>
+              <Typography variant="h4">{Project.name}</Typography>
+              <Typography variant="body">{Project.preDescription}</Typography>
               <ContainerListTech id="tech">
-                {projeto.tecnologias.map((tech, index) => (
-                  <Tag key={index}>{tech}</Tag>
+                {Project.technologies.map((technology, index) => (
+                  <Tag key={index}>{technology}</Tag>
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                <Link to={projeto.linkTo}>
-                  <Button variant="secondary">Mais Sobre</Button>
-                </Link>
+                {/* <Link to={projeto.linkTo}> */}
+                <Button variant="secondary">Mais Sobre</Button>
+                {/* </Link> */}
               </ContainerButton>
             </ContainerContent>
           </ContainerProject>
         ))}
-        {visibleItems < api.length && (
+        {visibleItems < data.length && (
           <Button variant="project" onClick={showMoreItems}>
             Ver mais projetos 💻
           </Button>

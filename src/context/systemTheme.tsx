@@ -17,7 +17,7 @@ export const SystemThemeContext = createContext<IThemeContextProps>({
   setTheme: () => null,
 });
 
-export const SystemThemeProvider = ({ children }: IChildrenProps) => {
+export const SystemThemeProviderTheme = ({ children }: IChildrenProps) => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>(
     'theme',
     window.matchMedia('(prefers-color-scheme: dark)').matches ? dark : light,
