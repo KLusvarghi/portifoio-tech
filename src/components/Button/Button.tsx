@@ -11,6 +11,7 @@ interface IButtonProps {
     | 'outline'
     | 'transparent'
     | 'header'
+    | 'project'
     | 'footer';
   icon?: boolean;
   onClick?: () => void;
@@ -76,6 +77,14 @@ const OutlineButton = styled(StyledButton)`
   &:hover {
     box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.primaries.a};
     color: ${(props) => props.theme.colors.neutral.c2};
+  }
+`;
+
+const ProjectButton = styled(StyledButton)`
+  background: transparent;
+  color: ${(props) => props.theme.colors.btnHeader};
+  &:hover {
+    box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
   }
 `;
 
@@ -155,6 +164,8 @@ export const Button = ({
       return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
+    case 'project':
+      return <ProjectButton onClick={onClick}>{children}</ProjectButton>;
     case 'transparent':
       return (
         <TransparentButton onClick={onClick}>{children}</TransparentButton>

@@ -8,6 +8,7 @@ import Stack from '../Stack/Stack';
 import { Head } from '../../components/Head/Head';
 import Contact from '../Contact/Contact';
 import UseWindowSize from '../../hooks/useWindowSize';
+import Projects from '../Projects/Projects';
 
 const Main = styled.div``;
 
@@ -25,8 +26,9 @@ const Home = () => {
       <Rocket refContainer={refContainer} />
       <Introduction refContainer={refContainer} />
       <About width={width} />
-      <Stack  width={width}/>
-      <Contact/>
+      <Stack width={width} />
+      <Projects />
+      <Contact />
     </Main>
   );
 };

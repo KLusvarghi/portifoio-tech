@@ -4,45 +4,13 @@ import { Title } from '../../components/Typography/Title';
 import { Forms } from '../../components/Form/Form';
 import { GitHub, Linkedin, Email } from './icons';
 import { Typography } from '../../components/Typography/Typography';
+import {
+  Wrapper,
+  ContainerInformations,
+  ContainerInfo,
+  ContainerIcone,
+} from './styles';
 
-const Wrapper = styled.div`
-  margin: 60px 0 120px;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 88px;
-  justify-content: center;
-  align-items: center;
-`;
-const ContainerInformations = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-`;
-const ContainerInfo = styled.div`
-  display: flex;
-  gap: 6px;
-  align-items: center;
-`;
-const ContainerIcone = styled.span`
-  padding: 12px;
-  border-radius: 100%;
-  box-shadow: 0px 4px 3px rgba(0, 0, 0, 25%);
-  background: ${(props) => props.theme.colors.form.a};
-
-  &:hover {
-    background: ${(props) => props.theme.colors.form.b};
-  }
-
-  svg {
-    max-height: 28px;
-    max-width: 28px;
-
-    path {
-      fill: ${(props) => props.theme.colors.form.path};
-    }
-  }
-`;
-const ContainerText = styled.span``;
 
 const Contact = () => {
   const info = [
@@ -71,9 +39,7 @@ const Contact = () => {
           {info.map(({ index, path, text }) => (
             <ContainerInfo key={index}>
               <ContainerIcone>{path}</ContainerIcone>
-              <ContainerText>
-                <Typography variant="body">{text}</Typography>
-              </ContainerText>
+              <Typography variant="body">{text}</Typography>
             </ContainerInfo>
           ))}
         </ContainerInformations>

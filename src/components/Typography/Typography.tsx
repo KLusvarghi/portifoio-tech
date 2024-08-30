@@ -153,17 +153,19 @@ const components = {
 interface ITypographerProps {
   variant?: keyof typeof components;
   children: ReactNode;
+  onCLick?: () => void
 }
 
 // 'variant' o que será exibido de fato
 export const Typography = ({
   variant = 'title',
   children,
+  onCLick
 }: ITypographerProps) => {
   const { theme } = useSystemThemeContext();
 
   const ContainerTypography = components[variant];
   return (
-    <ContainerTypography $theme={theme.title}>{children}</ContainerTypography>
+    <ContainerTypography onClick={onCLick} $theme={theme.title}>{children}</ContainerTypography>
   );
 };

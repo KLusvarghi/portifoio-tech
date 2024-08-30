@@ -4,6 +4,7 @@ import { Linkedin } from '../../components/Icons/Linkedin';
 import { Instagram } from '../../components/Icons/Instagram';
 import { Cv } from '../../components/Icons/Cv';
 import { Typography } from '../../components/Typography/Typography';
+import { Link as LinkScroll } from 'react-scroll';
 import { Button } from '../../components/Button/Button';
 import image from './assets/ilustrationr.svg';
 import { RefProps } from '../../types/auxProps';
@@ -20,6 +21,14 @@ import {
 import { WhatsApp } from '../../components/Icons/WhatsApp';
 
 const Introduction = ({ refContainer }: RefProps) => {
+  const options = {
+    spy: true,
+    smooth: true,
+    offset: -162,
+    duration: 500,
+    isDynamic: true,
+  };
+
   return (
     <Main ref={refContainer} id="intro">
       <Wrapper>
@@ -35,10 +44,14 @@ const Introduction = ({ refContainer }: RefProps) => {
             eficientes a partir de código.
           </Typography>
           <ContainerButton>
-            <Button variant="outline">Contato</Button>
-            <Button variant="primary" icon={true}>
-              Projetos
-            </Button>
+            <LinkScroll to="contact" {...options}>
+              <Button variant="outline">Contato</Button>
+            </LinkScroll>
+            <LinkScroll to="projects" {...options}>
+              <Button variant="primary" icon={true}>
+                Projetos
+              </Button>
+            </LinkScroll>
           </ContainerButton>
         </ContainerContent>
         <ContainerSvg src={image} alt="Imagem ilustrativa" />

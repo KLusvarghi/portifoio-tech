@@ -177,7 +177,7 @@ const BaseLayout = ({ children }: IChildrenProps) => {
             </LiFooter>
             <LiFooter>
               <Button variant="footer">
-                <LinkScroll to="project" {...options}>
+                <LinkScroll to="projects" {...options}>
                   Projetos
                 </LinkScroll>
               </Button>
