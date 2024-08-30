@@ -3,7 +3,7 @@ import { Typography } from './Typography';
 
 interface ITitlePorps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   position?: 'flex-start' | 'center';
 }
 
@@ -39,7 +39,8 @@ const ContainerTitle = styled.span<IStyledthemeProps>`
       font-size: 1.5em;
     }
 
-    h2, h3{
+    h2,
+    h3 {
       text-align: center;
     }
   }
@@ -70,7 +71,7 @@ export const Title = ({
     <ContainerTitle $position={position}>
       <Typography variant="title">{title}</Typography>
       <Separator />
-      <Typography variant="subtitle">{subtitle}</Typography>
+      {subtitle && <Typography variant="subtitle">{subtitle}</Typography>}
     </ContainerTitle>
   );
 };

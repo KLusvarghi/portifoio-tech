@@ -6,7 +6,7 @@ import { Tag } from '../../../components/Button/Tag';
 import { Button } from '../../../components/Button/Button';
 import { getImageUrl } from '../../../utils/imageUtils';
 import useSystemProjectContext from '../../../hooks/useSystemProjectContext ';
-// import { Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import {
   Wrapper,
   ContainerProject,
@@ -32,24 +32,24 @@ export const Projects = () => {
         subtitle="Aqui você encontrará alguns dos meus projetos pessoais mais recentes"
       />
       <Wrapper>
-        {data.slice(0, visibleItems).map((Project, index) => (
-          <ContainerProject key={index}>
+        {data.slice(0, visibleItems).map((project) => (
+          <ContainerProject key={project.id}>
             <Image
-              src={getImageUrl(Project.image)}
-              alt={`imagem ilustrativa do projeto ${Project.name}`}
+              src={getImageUrl(project.image)}
+              alt={`imagem ilustrativa do projeto ${project.name}`}
             />
             <ContainerContent>
-              <Typography variant="h4">{Project.name}</Typography>
-              <Typography variant="body">{Project.preDescription}</Typography>
+              <Typography variant="h4">{project.name}</Typography>
+              <Typography variant="body">{project.preDescription}</Typography>
               <ContainerListTech id="tech">
-                {Project.technologies.map((technology, index) => (
+                {project.technologies.map((technology, index) => (
                   <Tag key={index}>{technology}</Tag>
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                {/* <Link to={projeto.linkTo}> */}
-                <Button variant="secondary">Mais Sobre</Button>
-                {/* </Link> */}
+                <Link to={`/projetos/${project.id}`}>
+                  <Button variant="secondary">Mais Sobre</Button>
+                </Link>
               </ContainerButton>
             </ContainerContent>
           </ContainerProject>

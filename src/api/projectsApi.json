@@ -17,7 +17,7 @@
     "urlWebsite": "https://sorteador-de-amigo-secreto-five.vercel.app/",
     "repositoryLink": "https://github.com/KLusvarghi/Sorteador-De-Amigo-Secreto",
     "image": "sorteador.svg",
-    "linkTo": "Projetos/Sorteador-de-amigo-secreto"
+    "linkTo": "Sorteador-de-amigo-secreto"
   },
   {
     "id": 2,
@@ -37,7 +37,7 @@
     "urlWebsite": "https://cardapio-aluroni.vercel.app/cardapio",
     "repositoryLink": "https://github.com/KLusvarghi/cardapio-aluroni-2.0",
     "image": "aluroni.svg",
-    "linkTo": "Projetos/cardapio-aluroni"
+    "linkTo": "cardapio-aluroni"
   },
   {
     "id": 3,
@@ -56,7 +56,7 @@
     "urlWebsite": "https://dogsapp-eight.vercel.app/",
     "repositoryLink": "https://github.com/KLusvarghi/dogs",
     "image": "dogs.svg",
-    "linkTo": "Projetos/dogs"
+    "linkTo": "dogs"
   },
   {
     "id": 4,
@@ -75,7 +75,7 @@
     "urlWebsite": "https://alura-cases-xi.vercel.app/",
     "repositoryLink": "https://github.com/KLusvarghi/AluraCases-Next.js",
     "image": "aluraCases.svg",
-    "linkTo": "Projetos/alura-cases"
+    "linkTo": "alura-cases"
   },
   {
     "id": 5,
@@ -95,7 +95,7 @@
     "urlWebsite": "https://cronometro-de-afazeres.vercel.app/",
     "repositoryLink": "https://github.com/KLusvarghi/Cronometro-de-afazeres",
     "image": "cronometro.svg",
-    "linkTo": "Projetos/cronometro-de-afazeres"
+    "linkTo": "cronometro-de-afazeres"
   },
   {
     "id": 6,
@@ -106,7 +106,7 @@
     "urlWebsite": "https://fantasticos-animais.netlify.app/",
     "repositoryLink": "https://github.com/KLusvarghi/Animais-Fantasticos",
     "image": "animaisFantasticos.svg",
-    "linkTo": "Projetos/animais-fantasticos"
+    "linkTo": "animais-fantasticos"
   },
   {
     "id": 7,
@@ -117,7 +117,7 @@
     "urlWebsite": "https://bikcraftlandingpage.netlify.app/sobre",
     "repositoryLink": "https://github.com/KLusvarghi/Bikcraft",
     "image": "bikcraft.svg",
-    "linkTo": "Projetos/bikcraft"
+    "linkTo": "bikcraft"
   },
   {
     "id": 8,
@@ -128,7 +128,7 @@
     "urlWebsite": "https://projectwildbeast.netlify.app/",
     "repositoryLink": "https://github.com/KLusvarghi/Wildbeast-urlWebsite",
     "image": "wildbeast.svg",
-    "linkTo": "Projetos/wildbeast"
+    "linkTo": "wildbeast"
   },
   {
     "id": 9,
@@ -139,6 +139,6 @@
     "urlWebsite": "https://slides-funcionalidadejs.netlify.app/",
     "repositoryLink": "https://github.com/KLusvarghi/Slides-FuncionalidadeJS",
     "image": "slides.svg",
-    "linkTo": "Projetos/slides"
+    "linkTo": "slides"
   }
 ]

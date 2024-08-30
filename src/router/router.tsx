@@ -3,27 +3,39 @@ import Pagina404 from '../pages/home/error/Page404';
 import BaseLayout from '../pages/home/BaseLayout/BaseLayout';
 import Home from '../pages/home/Home';
 import Certificates from '../pages/Certificates/Certificates';
-import Projects from '../pages/home/Projects/Projects';
+import ProjectDetails from '../pages/Projects/ProjectDetails';
 
 export const router = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [
       {
         path: '',
         element: <Home />,
-        children: [
-          {
-            path: 'projetos/:id',
-            element: <Projects />,
-          },
-          {
-            path: 'certificados',
-            element: <Certificates />,
-          },
-        ],
+      },
+    ],
+  },
+  {
+    path: '/certificados',
+    element: <BaseLayout />,
+    ErrorBoundary: Pagina404,
+    children: [
+      {
+        path: '',
+        element: <Certificates />,
+      },
+    ],
+  },
+  {
+    path: '/projetos/:id',
+    element: <BaseLayout />,
+    ErrorBoundary: Pagina404,
+    children: [
+      {
+        path: '',
+        element: <ProjectDetails />,
       },
     ],
   },

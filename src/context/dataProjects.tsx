@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { IChildrenProps } from '../types/auxProps';
-import api from '../api/projetos.json';
+import api from '../api/projectsApi.json';
 
 export interface ISystemProjectContext {
   data: IApiContext[];

@@ -1,3 +1,5 @@
-export function getImageUrl(name: string) {
-  return new URL(`../pages/home/Projects/assets${name}`, import.meta.url).href;
+function getImageUrl(name: string) {
+  return new URL(`../assets${name}`, import.meta.url).href;
 }
+
+export {getImageUrl}
