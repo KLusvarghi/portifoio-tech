@@ -17,6 +17,7 @@ import {
   ContainerNextArrow,
   ContainerNextmobile,
 } from './styles';
+import { WhatsApp } from '../../components/Icons/WhatsApp';
 
 const Introduction = ({ refContainer }: RefProps) => {
   return (
@@ -45,6 +46,7 @@ const Introduction = ({ refContainer }: RefProps) => {
           <GitHub />
           <Instagram />
           <Linkedin />
+          <WhatsApp />
           <Cv />
         </ContainerIcons>
       </Wrapper>

@@ -8,6 +8,19 @@ export interface IChildrenProps {
   children?: ReactNode;
 }
 
+// Interface para tipar o grid area do form
+export interface IStyledClassProps {
+  $gridArea: string;
+}
+
+// Interface para tipar as props recebidas no input do form
+export interface IFormInputProps {
+  placeholder: string;
+  name: string;
+  type?: string;
+  gridArea: string;
+}
+
 // Interface para width de UseWindowSize
 export interface IUseWindoSizeProps {
   width: number;
@@ -21,7 +34,6 @@ export interface ISvgProps {
 }
 
 export interface IStyledSvgProps {
-  // $isHovered: boolean;
   $footer?: boolean;
   $theme: string;
 }

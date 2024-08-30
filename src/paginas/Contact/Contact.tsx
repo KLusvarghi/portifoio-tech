@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { Main } from '../../styles/mainContainer';
 import { Title } from '../../components/Typography/Title';
-import Form from '../../components/Form/Form';
+import { Forms } from '../../components/Form/Form';
 import { GitHub, Linkedin, Email } from './icons';
 import { Typography } from '../../components/Typography/Typography';
 
 const Wrapper = styled.div`
-  margin-top: 60px;
+  margin: 60px 0 120px;
   display: flex;
+  flex-wrap: wrap-reverse;
   gap: 88px;
   justify-content: center;
   align-items: center;
@@ -23,13 +24,22 @@ const ContainerInfo = styled.div`
   align-items: center;
 `;
 const ContainerIcone = styled.span`
-  background: ${(props) => props.theme.colors.formBg};
   padding: 12px;
   border-radius: 100%;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 25%);
+  background: ${(props) => props.theme.colors.form.a};
+
+  &:hover {
+    background: ${(props) => props.theme.colors.form.b};
+  }
 
   svg {
     max-height: 28px;
     max-width: 28px;
+
+    path {
+      fill: ${(props) => props.theme.colors.form.path};
+    }
   }
 `;
 const ContainerText = styled.span``;
@@ -50,10 +60,10 @@ const Contact = () => {
   ];
 
   return (
-    <Main>
+    <Main id="contact">
       <Title
         title="Contato"
-        subtitle="Sinta-se à vontade para entrar em contato comigo enviando o formulário abaixo e entrarei em contato com você o mais breve possível!"
+        subtitle="Sinta-se à vontade para entrar em contato comigo enviando o formulário abaixo. Retornarei o mais breve possível!"
         position="center"
       />
       <Wrapper>
@@ -67,7 +77,7 @@ const Contact = () => {
             </ContainerInfo>
           ))}
         </ContainerInformations>
-        <Form />
+        <Forms />
       </Wrapper>
     </Main>
   );

@@ -14,13 +14,15 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-grid-system": "^8.2.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.26.0",
     "react-scroll": "^1.9.0",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

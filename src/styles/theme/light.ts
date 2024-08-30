@@ -4,7 +4,11 @@ export default {
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#FCFCFC',
-    formBg: '#F7F7F8',
+    form: {
+      a: '#F7F7F8',
+      b: '#F1F1F5',
+      path: '#F7F7F8',
+    },
     menu: {
       shadow: 'rgba(0, 0, 0, 50%)',
       hover: '#DEE0E2',

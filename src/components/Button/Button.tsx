@@ -15,6 +15,7 @@ interface IButtonProps {
   icon?: boolean;
   onClick?: () => void;
   width?: number;
+  className?: string;
 }
 
 const StyledButton = styled.button`
@@ -127,12 +128,14 @@ export const Button = ({
   icon = false,
   onClick,
   width = 0,
+  ...props
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
   const { theme } = useSystemThemeContext();
 
   const renderButton = () => (
     <PrimaryButton
+      {...props}
       $theme={theme.title}
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}

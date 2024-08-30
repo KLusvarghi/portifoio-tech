@@ -54,6 +54,10 @@ const components = {
           `;
       }
     }}
+
+    @media (min-width: 1296px) {
+      max-width: 76%;
+    }
   `,
   h4: styled.h4<IStyledTypographProps>`
     font-size: 2em;

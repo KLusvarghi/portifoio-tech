@@ -1,10 +1,7 @@
 // para modificarmos apenas um propriedade (defaulttheme) e não o styled-components inteiro, nós temos que improtar ele antes
 import 'styled-components';
-
 // sendo um arquvo de definição de tipos, sendo acessivel por varios niveis da minha aplicação
-
 // sobrescrevendo uma definição de tipos dentro do styled-component
-
 declare module 'styled-components' {
   // passando o formato do meu tema e iremos sobrescerber o DefaultTheme apenas
   export interface DefaultTheme {
@@ -13,7 +10,11 @@ declare module 'styled-components' {
       stackIcon: string;
       overlay: string;
       tecnologyStroke: string;
-      formBg: string;
+      form: {
+        a: string;
+        b: string;
+        path: string;
+      };
       menu: {
         shadow: string;
         hover: string;
