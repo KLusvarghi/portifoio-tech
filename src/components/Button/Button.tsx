@@ -148,6 +148,7 @@ export const Button = ({
       $theme={theme.title}
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}
+      onKeyUp={onClick}
       onClick={onClick}
     >
       {children}
@@ -160,7 +161,7 @@ export const Button = ({
   );
 
   switch (variant) {
-    case 'secondary':
+  case 'secondary':
       return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
@@ -177,7 +178,11 @@ export const Button = ({
         </HeaderButton>
       );
     case 'footer':
-      return <FooterButton onClick={onClick}>{children}</FooterButton>;
+      return (
+        <FooterButton onKeyUp={onClick} onClick={onClick}>
+          {children}
+        </FooterButton>
+      );
     default:
       return renderButton();
   }

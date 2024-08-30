@@ -11,7 +11,7 @@ const ContainerEstilizado = styled.div<IStyledClassProps>`
 
 const TextAreaEstilizado = styled.textarea`
   width: 100%;
-  background: ${(props) => props.theme.colors.formBg};
+  background: ${(props) => props.theme.colors.form.a};
   color: ${(props) => props.theme.colors.neutral.c7};
   margin: 0;
   padding: 20px 10px;
@@ -23,12 +23,12 @@ const TextAreaEstilizado = styled.textarea`
   border-bottom: 2px solid ${(props) => props.theme.colors.primaries.a};
 
   &:focus {
+    background: ${(props) => props.theme.colors.form.a};
     border: none;
     transform: scale(1.02);
     border-radius: 5px;
     outline: none;
     box-shadow: 0 0 0 3px ${(props) => props.theme.colors.primaries.a};
-    /* background: ${(props) => props.theme.colors.hover.b}; */
   }
 `;
 

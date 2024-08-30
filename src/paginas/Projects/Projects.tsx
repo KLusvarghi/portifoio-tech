@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { Main } from '../../styles/mainContainer';
 import { Title } from '../../components/Typography/Title';
 import api from '../../api/projetos.json';
@@ -6,42 +5,15 @@ import { Typography } from '../../components/Typography/Typography';
 import { useState } from 'react';
 import { Tag } from '../../components/Button/Tag';
 import { Button } from '../../components/Button/Button';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 60px;
-  gap: 120px;
-  justify-content: center;
-  align-items: center;
-`;
-const ContainerProject = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
-`;
-const Image = styled.img``;
-const ContainerContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-  gap: 12px;
-
-  max-width: 532px;
-`;
-const ContainerListTech = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  flex-direction: row;
-  margin: 28px 0 40px;
-
-  justify-content: end;
-`;
-const ContainerButton = styled.div``;
+import { getImageUrl } from '../../utils/imageUtils';
+import {
+  Wrapper,
+  ContainerProject,
+  Image,
+  ContainerContent,
+  ContainerListTech,
+  ContainerButton,
+} from './styles';
 
 export const Projects = () => {
   const [visibleItems, setVisibleItems] = useState(3);
@@ -52,7 +24,7 @@ export const Projects = () => {
   };
 
   return (
-    <Main id='projects'>
+    <Main id="projects">
       <Title
         title="Projetos"
         subtitle="Aqui você encontrará alguns dos meus projetos pessoais mais recentes"
@@ -61,19 +33,19 @@ export const Projects = () => {
         {api.slice(0, visibleItems).map((projeto, index) => (
           <ContainerProject key={index}>
             <Image
-              src={projeto.image}
+              src={getImageUrl(projeto.image)}
               alt={`imagem ilustrativa do projeto ${projeto.nome}`}
             />
             <ContainerContent>
               <Typography variant="h4">{projeto.nome}</Typography>
               <Typography variant="body">{projeto.preDescricao}</Typography>
-              <ContainerListTech>
+              <ContainerListTech id="tech">
                 {projeto.tecnologias.map((tech, index) => (
                   <Tag key={index}>{tech}</Tag>
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                <Button variant='secondary'>Mais Sobre</Button>
+                <Button variant="secondary">Mais Sobre</Button>
               </ContainerButton>
             </ContainerContent>
           </ContainerProject>

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { IStyledSvgProps } from '../../types/auxProps';
 
 export const Wrapper = styled.div`
   margin: 60px 0 120px;
@@ -18,12 +19,14 @@ export const ContainerInfo = styled.div`
   gap: 6px;
   align-items: center;
 `;
-export const ContainerIcone = styled.span`
+export const ContainerIcone = styled.span<IStyledSvgProps>`
   padding: 12px;
   border-radius: 100%;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 25%);
 
   &:hover {
+    cursor: pointer;
+    background: ${(props) => props.theme.colors.form.b};
   }
 
   svg {
@@ -31,8 +34,17 @@ export const ContainerIcone = styled.span`
     max-width: 28px;
 
     path {
+      fill: ${(props) =>
+        props.theme.colors.form.path};
     }
   }
 `;
 
-export const ContainerText = styled.span``;
+export const SuccessMessage = styled.div`
+  position: relative;
+  background: ${(props) => props.theme.colors.neutral.c10};
+  padding: 12px 20px;
+  max-width: 20%;
+  text-align: center;
+  border-radius: 4px;
+`;

@@ -12,7 +12,7 @@ const ContainerEstilizado = styled.div<IStyledClassProps>`
 const InputEstilizado = styled.input`
   width: 100%;
   height: 60px;
-  background: ${(props) => props.theme.colors.formBg};
+  background: ${(props) => props.theme.colors.form.a};
   color: ${(props) => props.theme.colors.neutral.c7};
   padding: 20px 10px;
   font-size: 1.125em;
@@ -23,12 +23,12 @@ const InputEstilizado = styled.input`
   border-bottom: 2px solid ${(props) => props.theme.colors.primaries.a};
 
   &:focus {
+    background: ${(props) => props.theme.colors.form.b};
     border: none;
     transform: scale(1.02);
     border-radius: 5px;
     outline: none;
     box-shadow: 0 0 0 3px ${(props) => props.theme.colors.primaries.a};
-    /* background: ${(props) => props.theme.colors.hover.b}; */
   }
 `;
 

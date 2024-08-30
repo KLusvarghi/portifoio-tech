@@ -6,8 +6,8 @@ export default {
     tecnologyStroke: '#FCFCFC',
     form: {
       a: '#F7F7F8',
-      b: '#F1F1F5',
-      path: '#F7F7F8',
+      b: '#E1E1EB',
+      path: '#225E84',
     },
     menu: {
       shadow: 'rgba(0, 0, 0, 50%)',

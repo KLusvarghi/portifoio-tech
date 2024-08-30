@@ -16,7 +16,7 @@
     ],
     "site": "https://sorteador-de-amigo-secreto-five.vercel.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/Sorteador-De-Amigo-Secreto",
-    "image": "/svgProjetos/sorteador.svg",
+    "image": "sorteador.svg",
     "linkTo": "Projetos/Sorteador-de-amigo-secreto"
   },
   {
@@ -36,7 +36,7 @@
     ],
     "site": "https://cardapio-aluroni.vercel.app/cardapio",
     "linkRepositorio": "https://github.com/KLusvarghi/cardapio-aluroni-2.0",
-    "image": "/svgProjetos/aluroni.svg",
+    "image": "aluroni.svg",
     "linkTo": "Projetos/cardapio-aluroni"
   },
   {
@@ -55,7 +55,7 @@
     ],
     "site": "https://dogsapp-eight.vercel.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/dogs",
-    "image": "/svgProjetos/dogs.svg",
+    "image": "dogs.svg",
     "linkTo": "Projetos/dogs"
   },
   {
@@ -74,7 +74,7 @@
     ],
     "site": "https://alura-cases-xi.vercel.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/AluraCases-Next.js",
-    "image": "/svgProjetos/aluraCases.svg",
+    "image": "aluraCases.svg",
     "linkTo": "Projetos/alura-cases"
   },
   {
@@ -94,7 +94,7 @@
     ],
     "site": "https://cronometro-de-afazeres.vercel.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/Cronometro-de-afazeres",
-    "image": "/svgProjetos/cronometro.svg",
+    "image": "cronometro.svg",
     "linkTo": "Projetos/cronometro-de-afazeres"
   },
   {
@@ -105,7 +105,7 @@
     "tecnologias": ["javascript", "HTML", "CSS", "git", "github", "netlify"],
     "site": "https://fantasticos-animais.netlify.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/Animais-Fantasticos",
-    "image": "/svgProjetos/animaisFantasticos.svg",
+    "image": "animaisFantasticos.svg",
     "linkTo": "Projetos/animais-fantasticos"
   },
   {
@@ -116,7 +116,7 @@
     "tecnologias": ["javascript", "HTML", "CSS", "git", "github", "netlify"],
     "site": "https://bikcraftlandingpage.netlify.app/sobre",
     "linkRepositorio": "https://github.com/KLusvarghi/Bikcraft",
-    "image": "/svgProjetos/bikcraft.svg",
+    "image": "bikcraft.svg",
     "linkTo": "Projetos/bikcraft"
   },
   {
@@ -127,7 +127,7 @@
     "tecnologias": ["javascript", "HTML", "CSS", "git", "github", "netlify"],
     "site": "https://projectwildbeast.netlify.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/Wildbeast-site",
-    "image": "/svgProjetos/wildbeast.svg",
+    "image": "wildbeast.svg",
     "linkTo": "Projetos/wildbeast"
   },
   {
@@ -138,7 +138,7 @@
     "tecnologias": ["javascript", "HTML", "CSS", "git", "github", "netlify"],
     "site": "https://slides-funcionalidadejs.netlify.app/",
     "linkRepositorio": "https://github.com/KLusvarghi/Slides-FuncionalidadeJS",
-    "image": "/svgProjetos/slides.svg",
+    "image": "slides.svg",
     "linkTo": "Projetos/slides"
   }
 ]
