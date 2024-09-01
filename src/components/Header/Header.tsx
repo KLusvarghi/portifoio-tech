@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '../../components/Link/Link';
 import { Link as LinkScroll } from 'react-scroll';
@@ -9,8 +9,10 @@ import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { ToggleThemeButton } from '../../components/Button/ToggleThemeButton';
 import { HamburguerButton } from '../../components/Button/HamburguerButton';
 import { github, linkedin } from '../../utils/links';
+import { useLocation } from 'react-router-dom';
 import {
   Main,
+  ContainerLogo,
   Nav,
   UlHeader,
   LiHeader,
@@ -20,6 +22,9 @@ import {
 import { Col, Container, Row } from '../Grid/Grid';
 
 export const Header = () => {
+  const location = useLocation();
+  const certificatesPage = location.pathname.includes('certificado')
+  const [isHome, setIsHome] = useState(certificatesPage);
   const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
   const [active, setAcive] = useState(false);
@@ -32,18 +37,27 @@ export const Header = () => {
     isDynamic: true,
   };
 
+  useEffect(() => {
+    setIsHome(certificatesPage);
+  }, [certificatesPage]);
+
   return (
-    <Main>
+    <Main $isHome={isHome}>
       <Container>
-          <Row>
-            <Col>
-              <PortifolioLogo
-                width={width < 1100 ? 201 : 231}
-                height={width < 1100 ? 36 : 42}
-                theme={theme.title}
-              />
-            </Col>
-            <Col>
+        <Row>
+          <Col>
+            <ContainerLogo>
+              <RouterLink to={'/'}>
+                <PortifolioLogo
+                  width={width < 1100 ? 201 : 231}
+                  height={width < 1100 ? 36 : 42}
+                  theme={theme.title}
+                />
+              </RouterLink>
+            </ContainerLogo>
+          </Col>
+          <Col>
+            {!isHome && (
               <Nav>
                 <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
                   <LiHeader>
@@ -128,10 +142,10 @@ export const Header = () => {
                 <ToggleThemeButton />
                 <HamburguerButton active={active} setActive={setAcive} />
               </Nav>
-            </Col>
-          </Row>
-        </Container>
+            )}
+          </Col>
+        </Row>
+      </Container>
     </Main>
-  )
-}
-
+  );
+};

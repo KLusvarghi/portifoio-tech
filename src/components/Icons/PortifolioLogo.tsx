@@ -9,7 +9,6 @@ export const PortifolioLogo = ({
   height = 42,
   theme,
 }: IProtifolioProps) => {
-
   return (
     <svg
       width={width}

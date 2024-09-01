@@ -36,7 +36,7 @@ export const Projects = () => {
           <ContainerProject key={project.id}>
             <Image
               src={getImageUrl(project.image)}
-              alt={`imagem ilustrativa do projeto ${project.name}`}
+              alt={`imagem ilustrativa do projeto: ${project.name}`}
             />
             <ContainerContent>
               <Typography variant="h4">{project.name}</Typography>

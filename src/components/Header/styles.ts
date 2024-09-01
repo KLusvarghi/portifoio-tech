@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 interface IStyledStateProps {
   $active: boolean;
@@ -8,7 +8,7 @@ interface IStyledThoggleThemeMenu {
   $theme: string;
 }
 
-export const Main = styled.header`
+export const Main = styled.header<{ $isHome: boolean }>`
   background: ${(props) => props.theme.colors.bgGradient.a};
   padding: 0 82px;
   display: flex;
@@ -19,10 +19,16 @@ export const Main = styled.header`
   height: 112px;
   z-index: 1000;
 
+  ${(props) =>
+    props.$isHome &&
+    css`
+      position: static;
+      height: 82px;
+    `}
+
   @media (max-width: 1015px) {
     height: 82px;
     padding: 0 44px;
-
   }
   @media (max-width: 680px) {
     position: static;
@@ -30,6 +36,14 @@ export const Main = styled.header`
 
   @media (max-width: 460px) {
     padding: 0 12px;
+  }
+`;
+
+export const ContainerLogo = styled.div`
+  transition: 0.2s ease-in;
+
+  &:hover {
+    transform: scale(1.02);
   }
 `;
 
@@ -104,7 +118,7 @@ export const LiHeader = styled.li`
     transform-origin: right;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoint.mobile}) {
+  @media (min-width: 1015px) {
     &:hover::after {
       transform: scaleX(1);
       transform-origin: left;
