@@ -3,19 +3,24 @@ import { Title } from '../../../components/Typography/Title';
 import { Forms } from '../../../components/Form/Form';
 import { GitHub, Linkedin, Email } from './icons';
 import { Typography } from '../../../components/Typography/Typography';
+import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
+import { useState } from 'react';
+import svgMessage from './assets/popup.svg';
 import {
+  ContainerMessage,
+  Message,
+  Image,
   Wrapper,
   ContainerInformations,
   ContainerInfo,
   ContainerIcone,
   SuccessMessage,
 } from './styles';
-import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
-import { useState } from 'react';
 
 const Contact = () => {
   const { theme } = useSystemThemeContext();
   const [sendMessage, setSendMessage] = useState(false);
+  const [sucess, setSucces] = useState(false);
   const info = [
     { index: 1, path: <GitHub />, text: '/klusvarghi' },
     {
@@ -55,6 +60,15 @@ const Contact = () => {
         position="center"
       />
       <Wrapper>
+        {sucess && (
+          <ContainerMessage>
+            <Message>
+              <Image src={svgMessage} alt="icone ilustrativo de mensagem" />
+              <Typography variant="body">Obrigado!</Typography>
+              <Typography variant="body">Email enviado com sucesso</Typography>
+            </Message>
+          </ContainerMessage>
+        )}
         <ContainerInformations>
           {info.map(({ index, path, text }) => (
             <ContainerInfo
@@ -66,7 +80,7 @@ const Contact = () => {
             </ContainerInfo>
           ))}
         </ContainerInformations>
-        <Forms />
+        <Forms setSucces={setSucces} />
       </Wrapper>
       {sendMessage && (
         <SuccessMessage>

@@ -1,17 +1,15 @@
-import styled from 'styled-components';
 import { Typography } from '../../components/Typography/Typography';
 import { Head } from '../../components/Head/Head';
 import { Main } from '../../styles/mainContainer';
 import { Title } from '../../components/Typography/Title';
-
-const StyledCertigficates = styled.main`
-  height: 100vh;
-`;
-const Wrapper = styled.div``;
-const ContainerCertificates = styled.div``;
-const Filter = styled.div``;
-const Ul = styled.ul``;
-const Li = styled.li``;
+import {
+  StyledCertigficates,
+  Wrapper,
+  ContainerCertificates,
+  Filter,
+  Ul,
+  Li,
+} from './styles';
 
 const Certificates = () => {
   return (
@@ -26,29 +24,31 @@ const Certificates = () => {
           <Filter>
             <Ul>
               <Li>
-                <Typography>Typescript</Typography>
+                <Typography variant="body">Typescript</Typography>
               </Li>
               <Li>
-                <Typography>Javacript</Typography>
+                <Typography variant="body">Javacript</Typography>
               </Li>
               <Li>
-                <Typography>Next.js</Typography>
+                <Typography variant="body">Next.js</Typography>
               </Li>
               <Li>
-                <Typography>SASS</Typography>
+                <Typography variant="body">SASS</Typography>
               </Li>
               <Li>
-                <Typography>Tailwind</Typography>
+                <Typography variant="body">Tailwind</Typography>
               </Li>
               <Li>
-                <Typography>Styled-Component</Typography>
+                <Typography variant="body">Styled-Component</Typography>
               </Li>
               <Li>
-                <Typography>React</Typography>
+                <Typography variant="body">React</Typography>
               </Li>
             </Ul>
           </Filter>
-          <ContainerCertificates></ContainerCertificates>
+          <ContainerCertificates>
+            
+          </ContainerCertificates>
         </Wrapper>
       </StyledCertigficates>
     </Main>

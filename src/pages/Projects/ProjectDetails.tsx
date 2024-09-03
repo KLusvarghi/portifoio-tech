@@ -9,6 +9,7 @@ import { Button } from '../../components/Button/Button';
 import { Link as RouterLink } from 'react-router-dom';
 import { ArrowBack } from '../../components/Icons/ArrowBack';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
+import UseWindowSize from '../../hooks/useWindowSize';
 import {
   Main,
   Wrapper,
@@ -42,6 +43,7 @@ const ProjectDetails = () => {
   const [data, setData] = useState<IProjectProps>();
   const [title, setTitle] = useState<string | undefined>(undefined);
   const { theme } = useSystemThemeContext();
+  const width = UseWindowSize();
 
   const goToBack = () => {
     navigate('/home');
@@ -98,9 +100,16 @@ const ProjectDetails = () => {
                 <RouterLink to={`${data.urlWebsite}`} target="_blank">
                   <Button variant="primary">VER PROJETO</Button>
                 </RouterLink>
-                <RouterLink to={`${data.repositoryLink}`} target="_blank">
-                  <Button variant="transparent">REPOSITÓRIO</Button>
-                </RouterLink>
+                {width >= 510 ? (
+                  <RouterLink to={`${data.repositoryLink}`} target="_blank">
+                    <Button variant="transparent">REPOSITÓRIO</Button>
+                  </RouterLink>
+                ) : (
+                  <RouterLink to={`${data.repositoryLink}`} target="_blank">
+                    <Button variant="outline">REPOSITÓRIO</Button>
+                  </RouterLink>
+                )}
+
                 <Button onClick={goToBack} variant="outline">
                   VOLTAR
                 </Button>

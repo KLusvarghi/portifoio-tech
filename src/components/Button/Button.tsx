@@ -17,6 +17,7 @@ interface IButtonProps {
   onClick?: () => void;
   width?: number;
   className?: string;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 const StyledButton = styled.button`
@@ -50,6 +51,7 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   justify-content: center;
   gap: 12px;
   max-height: 60px;
+  /* width: 100%; */
   &:hover {
     box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
@@ -137,6 +139,7 @@ export const Button = ({
   icon = false,
   onClick,
   width = 0,
+  type = 'button',
   ...props
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
@@ -145,6 +148,7 @@ export const Button = ({
   const renderButton = () => (
     <PrimaryButton
       {...props}
+      type={type}
       $theme={theme.title}
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}

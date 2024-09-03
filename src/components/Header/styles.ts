@@ -34,7 +34,7 @@ export const Main = styled.header<{ $isHome: boolean }>`
     position: static;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 600px) {
     padding: 0 12px;
   }
 `;

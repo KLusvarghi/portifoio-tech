@@ -11,6 +11,7 @@ export interface IFormInputProps {
   name: string;
   type?: string;
   gridArea: string;
+  value: string;
 }
 
 const ContainerEstilizado = styled.div<IStyledClassProps>`
@@ -41,17 +42,33 @@ const InputEstilizadoBase = styled.input<IStyledClassProps>`
 `;
 // .attrs({ as: 'input' }), isso significa que o componente estilizado será renderizado como um elemento <input>.
 const InputEstilizado = styled(InputEstilizadoBase).attrs({ as: 'input' })``;
-const TextAreaEstilizado = styled(InputEstilizadoBase).attrs({ as: 'textarea' })``;
+const TextAreaEstilizado = styled(InputEstilizadoBase).attrs({
+  as: 'textarea',
+})``;
 
 export const InputText = ({
   placeholder,
   name,
   type,
   gridArea,
-}: IFormInputProps) => {
+  value,
+  onChange,
+  onBlur,
+}: IFormInputProps & {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur: React.FocusEventHandler<HTMLInputElement>;
+}) => {
   return (
     <ContainerEstilizado $gridArea={gridArea}>
-      <InputEstilizado placeholder={placeholder} type={type} $gridArea={gridArea} />
+      <InputEstilizado
+        name={name} // Certifique-se de que o name está sendo passado aqui
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        $gridArea={gridArea}
+      />
       <ErrorMessage name={name}>
         {(mensagens) => (
           <div style={{ color: 'red', marginTop: '4px' }}>
@@ -67,10 +84,24 @@ export const TextArea = ({
   placeholder,
   name,
   gridArea,
-}: IFormInputProps) => {
+  value,
+  onChange,
+  onBlur,
+}: IFormInputProps & {
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
+  onBlur: React.FocusEventHandler<HTMLTextAreaElement>;
+}) => {
   return (
     <ContainerEstilizado $gridArea={gridArea}>
-      <TextAreaEstilizado placeholder={placeholder} rows={6} $gridArea={gridArea} />
+      <TextAreaEstilizado
+        name={name} // Certifique-se de que o name está sendo passado aqui
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        rows={6}
+        $gridArea={gridArea}
+      />
       <ErrorMessage name={name}>
         {(mensagens) => (
           <div style={{ color: 'red', marginTop: '4px' }}>

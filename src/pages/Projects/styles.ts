@@ -25,17 +25,21 @@ export const ContainerTitle = styled.div`
 `;
 export const ContainerArrow = styled.div`
   transform: rotate(180deg);
-
   align-self: flex-start;
   color: $c12;
   top: 50px;
   cursor: pointer;
-  margin: 10px;
   transition: 0.2s;
+  margin-bottom: 42px;
+  margin-left: 12px;
 `;
 export const ContainerContent = styled.div`
   max-width: 80%;
-  margin-top: 80px;
+  margin-top: 60px;
+
+  @media (max-width: 631px) {
+    max-width: 100%;
+  }
 `;
 
 export const Description = styled.div`
@@ -58,14 +62,44 @@ export const ContainerTech = styled.div`
 `;
 
 export const Navigations = styled.div``;
+
 export const ContainerButton = styled.div`
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 8px;
 
   a {
     text-decoration: none;
+  }
+
+  @media (max-width: 510px) {
+    a:nth-child(1) {
+      flex-basis: 100%;
+      display: flex;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    button:nth-child(3) {
+      flex-grow: 2;
+      flex-basis: 0;
+    }
+
+    a:nth-child(2),
+    button:nth-child(2) {
+      flex-grow: 3;
+      flex-basis: 0;
+      width: 100%;
+    }
+
+    a:nth-child(2) button,
+    a:nth-child(3) button {
+      width: 100%;
+    }
   }
 `;
 
