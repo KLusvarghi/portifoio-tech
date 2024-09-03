@@ -1,9 +1,8 @@
 import { Form, Formik } from 'formik';
 import styled from 'styled-components';
 import * as Yup from 'yup';
-import { InputText } from '../InputText/InputText';
 import { Button } from '../Button/Button';
-import { TextArea } from '../InputText/TextArea';
+import { InputText, TextArea } from './InputForm';
 
 const ContainerForm = styled.div`
   display: grid;

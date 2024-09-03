@@ -51,9 +51,7 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   gap: 12px;
   max-height: 60px;
   &:hover {
-    box-shadow: inset 700px 0 0 0
-      ${({ theme, $theme }) =>
-        $theme === 'dark' ? theme.colors.neutral.c3 : theme.colors.neutral.c1};
+    box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
   }
 `;
@@ -83,8 +81,10 @@ const OutlineButton = styled(StyledButton)`
 const ProjectButton = styled(StyledButton)`
   background: transparent;
   color: ${(props) => props.theme.colors.btnHeader};
+  cursor: pointer;
+
   &:hover {
-    box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
+    transform: scale(1.125);
   }
 `;
 
@@ -161,7 +161,7 @@ export const Button = ({
   );
 
   switch (variant) {
-  case 'secondary':
+    case 'secondary':
       return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;

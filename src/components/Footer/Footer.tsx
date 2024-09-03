@@ -9,6 +9,8 @@ import { GitHub } from '../../components/Icons/GitHub';
 import { Linkedin } from '../../components/Icons/Linkedin';
 import { Email } from '../../components/Icons/Email';
 import { Cv } from '../../components/Icons/Cv';
+import { Button } from '../Button/Button';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import {
   ContainerFooter,
   UlFooter,
@@ -16,8 +18,6 @@ import {
   ContainerIcons,
   Separator,
 } from './styles';
-import { Button } from '../Button/Button';
-import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 const Main = styled.footer`
   padding: 32px 0;
@@ -29,6 +29,8 @@ const Main = styled.footer`
 
 export const Footer = () => {
   const { theme } = useSystemThemeContext();
+  const isHome = location.pathname.includes('home');
+  const isCertificates = location.pathname.includes('certificados');
   const options = {
     spy: true,
     smooth: true,
@@ -42,46 +44,58 @@ export const Footer = () => {
       <ContainerFooter>
         <Typography variant="h5">Navegue até</Typography>
         <UlFooter>
-          <LiFooter>
-            <Button variant="footer">
-              <LinkScroll to="intro" {...options}>
-                Home
-              </LinkScroll>
-            </Button>
-          </LiFooter>
-          <LiFooter>
-            <Button variant="footer">
-              <LinkScroll to="about" {...options}>
-                Sobre
-              </LinkScroll>
-            </Button>
-          </LiFooter>
-          <LiFooter>
-            <Button variant="footer">
-              <LinkScroll to="stack" {...options}>
-                Stack
-              </LinkScroll>
-            </Button>
-          </LiFooter>
-          <LiFooter>
-            <Button variant="footer">
-              <LinkScroll to="projects" {...options}>
-                Projetos
-              </LinkScroll>
-            </Button>
-          </LiFooter>
-          <LiFooter>
-            <Button variant="footer">
-              <LinkScroll to="contact" {...options}>
-                Contato
-              </LinkScroll>
-            </Button>
-          </LiFooter>
-          <LiFooter>
-            <RouterLink to={'/certificados'}>
-              <Button variant="footer">Certificados</Button>
-            </RouterLink>
-          </LiFooter>
+          {isHome ? (
+            <>
+              <LiFooter>
+                <Button variant="footer">
+                  <LinkScroll to="intro" {...options}>
+                    Home
+                  </LinkScroll>
+                </Button>
+              </LiFooter>
+              <LiFooter>
+                <Button variant="footer">
+                  <LinkScroll to="about" {...options}>
+                    Sobre
+                  </LinkScroll>
+                </Button>
+              </LiFooter>
+              <LiFooter>
+                <Button variant="footer">
+                  <LinkScroll to="stack" {...options}>
+                    Stack
+                  </LinkScroll>
+                </Button>
+              </LiFooter>
+              <LiFooter>
+                <Button variant="footer">
+                  <LinkScroll to="projects" {...options}>
+                    Projetos
+                  </LinkScroll>
+                </Button>
+              </LiFooter>
+              <LiFooter>
+                <Button variant="footer">
+                  <LinkScroll to="contact" {...options}>
+                    Contato
+                  </LinkScroll>
+                </Button>
+              </LiFooter>
+            </>
+          ) : (
+            <LiFooter>
+              <RouterLink to={'/home'}>
+                <Button variant="footer">Home</Button>
+              </RouterLink>
+            </LiFooter>
+          )}
+          {!isCertificates && (
+            <LiFooter>
+              <RouterLink to={'/certificados'}>
+                <Button variant="footer">Certificados</Button>
+              </RouterLink>
+            </LiFooter>
+          )}
         </UlFooter>
         <ContainerIcons>
           <GitHub theme={theme.title} footer={true} />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '../../components/Link/Link';
 import { Link as LinkScroll } from 'react-scroll';
@@ -23,8 +23,7 @@ import { Col, Container, Row } from '../Grid/Grid';
 
 export const Header = () => {
   const location = useLocation();
-  const certificatesPage = location.pathname.includes('certificado')
-  const [isHome, setIsHome] = useState(certificatesPage);
+  const isHome = location.pathname.includes('home');
   const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
   const [active, setAcive] = useState(false);
@@ -37,17 +36,13 @@ export const Header = () => {
     isDynamic: true,
   };
 
-  useEffect(() => {
-    setIsHome(certificatesPage);
-  }, [certificatesPage]);
-
   return (
     <Main $isHome={isHome}>
       <Container>
         <Row>
           <Col>
             <ContainerLogo>
-              <RouterLink to={'/'}>
+              <RouterLink to={'/home'}>
                 <PortifolioLogo
                   width={width < 1100 ? 201 : 231}
                   height={width < 1100 ? 36 : 42}
@@ -57,7 +52,7 @@ export const Header = () => {
             </ContainerLogo>
           </Col>
           <Col>
-            {!isHome && (
+            {isHome && (
               <Nav>
                 <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
                   <LiHeader>

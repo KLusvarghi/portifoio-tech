@@ -57,7 +57,10 @@ const Contact = () => {
       <Wrapper>
         <ContainerInformations>
           {info.map(({ index, path, text }) => (
-            <ContainerInfo key={index} onClick={() => handleCopy(text)}>
+            <ContainerInfo
+              key={index}
+              onClick={() => handleCopy(text.replace('/', ''))}
+            >
               <ContainerIcone $theme={theme.title}>{path}</ContainerIcone>
               <Typography variant="body">{text}</Typography>
             </ContainerInfo>

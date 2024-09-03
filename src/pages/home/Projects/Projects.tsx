@@ -4,9 +4,8 @@ import { Typography } from '../../../components/Typography/Typography';
 import { useState } from 'react';
 import { Tag } from '../../../components/Button/Tag';
 import { Button } from '../../../components/Button/Button';
-import { getImageUrl } from '../../../utils/imageUtils';
 import useSystemProjectContext from '../../../hooks/useSystemProjectContext ';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import {
   Wrapper,
   ContainerProject,
@@ -15,6 +14,7 @@ import {
   ContainerListTech,
   ContainerButton,
 } from './styles';
+import { getImageUrl } from '../../../utils/imageUtils';
 
 export const Projects = () => {
   const [visibleItems, setVisibleItems] = useState(3);
@@ -47,7 +47,7 @@ export const Projects = () => {
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                <Link to={`/projetos/${project.id}`}>
+                <Link to={`/projetos/${project.linkTo}`}>
                   <Button variant="secondary">Mais Sobre</Button>
                 </Link>
               </ContainerButton>

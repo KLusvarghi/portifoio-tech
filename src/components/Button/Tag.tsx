@@ -13,16 +13,13 @@ interface IStyledTagProps {
 
 const StyledTag = styled.span<IStyledTagProps>`
   padding: 8px 14px;
-  /* letter-spacing: 0.8px; */
+  letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
   font-weight: 500;
   font-family: ${(props) => props.theme.font.poppins};
   border-radius: ${(props) => props.theme.borderRadius.xxs};
-  cursor: grab;
   text-transform: capitalize;
   ${({ $capitalize }) => !$capitalize && `text-transform: uppercase;`}
-
-  /* QUANDO ARRUAMR O THEME VIR AQUI E ARRUMAR PARA QUE FUNCIONE NOS DOIS TEMAS */
   box-shadow: 0 0 0 1px ${(props) => props.theme.colors.bgGradient.b},
   0 0 0 2px ${(props) => props.theme.colors.bgGradient.a};
 `;

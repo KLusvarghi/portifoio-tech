@@ -14,7 +14,7 @@ export const Main = styled.header<{ $isHome: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: static;
   width: 100vw;
   height: 112px;
   z-index: 1000;
@@ -22,7 +22,7 @@ export const Main = styled.header<{ $isHome: boolean }>`
   ${(props) =>
     props.$isHome &&
     css`
-      position: static;
+      position: fixed;
       height: 82px;
     `}
 
