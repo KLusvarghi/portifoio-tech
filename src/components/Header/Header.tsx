@@ -23,7 +23,9 @@ import { Col, Container, Row } from '../Grid/Grid';
 
 export const Header = () => {
   const location = useLocation();
-  const isHome = location.pathname.includes('home');
+  const isCertificates = location.pathname.includes('certificados');
+  const isProject = location.pathname.includes('projetos');
+  const isHome = isCertificates || isProject;
   const { theme, setTheme } = useSystemThemeContext();
   const width = UseWindowSize();
   const [active, setAcive] = useState(false);
@@ -52,7 +54,7 @@ export const Header = () => {
             </ContainerLogo>
           </Col>
           <Col>
-            {isHome && (
+            {!isCertificates && !isProject && (
               <Nav>
                 <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
                   <LiHeader>
@@ -91,7 +93,7 @@ export const Header = () => {
                     </LinkScroll>
                   </LiHeader>
                   <LiHeader>
-                    <RouterLink to={'/certificados'}>
+                    <RouterLink to={'/home/certificados'}>
                       <Button variant="header" width={width}>
                         Certificados
                       </Button>

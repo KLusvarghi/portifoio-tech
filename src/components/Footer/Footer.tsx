@@ -29,8 +29,8 @@ const Main = styled.footer`
 
 export const Footer = () => {
   const { theme } = useSystemThemeContext();
-  const isHome = location.pathname.includes('home');
   const isCertificates = location.pathname.includes('certificados');
+  const isProject = location.pathname.includes('projetos');
   const options = {
     spy: true,
     smooth: true,
@@ -44,7 +44,7 @@ export const Footer = () => {
       <ContainerFooter>
         <Typography variant="h5">Navegue até</Typography>
         <UlFooter>
-          {isHome ? (
+          {!isCertificates && !isProject ? (
             <>
               <LiFooter>
                 <Button variant="footer">
@@ -91,7 +91,7 @@ export const Footer = () => {
           )}
           {!isCertificates && (
             <LiFooter>
-              <RouterLink to={'/certificados'}>
+              <RouterLink to={'/home/certificados'}>
                 <Button variant="footer">Certificados</Button>
               </RouterLink>
             </LiFooter>

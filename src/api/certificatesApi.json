@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "css_com_sass",
+    "institution": "origamid",
+    "tech": "css"
+  },
+  {
+    "id": 2,
+    "name": "css_flexbox",
+    "institution": "origamid",
+    "tech": "css"
+  },
+  {
+    "id": 3,
+    "name": "css_grid_layout",
+    "institution": "origamid",
+    "tech": "css"
+  },
+  {
+    "id": 4,
+    "name": "database_programming_with_sql",
+    "institution": "oracle",
+    "tech": "database"
+  },
+  {
+    "id": 5,
+    "name": "javascript",
+    "institution": "origamid",
+    "tech": "javascript"
+  },
+  {
+    "id": 6,
+    "name": "next_js_tour_pelo_next_js",
+    "institution": "alura",
+    "tech": "next.js"
+  },
+  {
+    "id": 7,
+    "name": "next_js_trabalhando_com_arquitetura_frontend",
+    "institution": "alura",
+    "tech": "next.js"
+  },
+  {
+    "id": 8,
+    "name": "next_js_autenticacao_e_gerenciamento_de_tokens",
+    "institution": "alura",
+    "tech": "next.js"
+  },
+  {
+    "id": 9,
+    "name": "next_js_explorando_o_framework",
+    "institution": "alura",
+    "tech": "next.js"
+  },
+  {
+    "id": 10,
+    "name": "postgresql_comandos_dml_e_ddl",
+    "institution": "alura",
+    "tech": "postgresql"
+  },
+  {
+    "id": 11,
+    "name": "postgresql_views_sub_consultas_e_funcoes",
+    "institution": "alura",
+    "tech": "postgresql"
+  },
+  {
+    "id": 12,
+    "name": "postgresql",
+    "institution": "alura",
+    "tech": "postgresql"
+  },
+  {
+    "id": 13,
+    "name": "react_arquitetando_solucoes_de_roteamento_e_gestao_de_estado",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 14,
+    "name": "react_configurando_e_estruturando_projetos_com_vite",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 15,
+    "name": "react_conhecendo_a_biblioteca_react_router",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 16,
+    "name": "react_criando_formularios_com_formik_e_yup",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 17,
+    "name": "react_escrevendo_com_typescript",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 18,
+    "name": "react_estilize_componentes_com_styled_components",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 19,
+    "name": "react_gerenciando_estado_com_recoil",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 20,
+    "name": "react_migrando_para_o_vite",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 21,
+    "name": "react_origamid",
+    "institution": "origamid",
+    "tech": "react"
+  },
+  {
+    "id": 22,
+    "name": "react_testando_os_seus_componentes",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 23,
+    "name": "react_com_tailwindcss",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 24,
+    "name": "react_lidando_com_arquivos_estaticos",
+    "institution": "alura",
+    "tech": "react"
+  },
+  {
+    "id": 25,
+    "name": "sap_entendendo_suas_caracteristicas_gerais",
+    "institution": "alura",
+    "tech": "sap"
+  },
+  {
+    "id": 26,
+    "name": "sap_activate_gestao_agil_em_projetos_sap",
+    "institution": "alura",
+    "tech": "sap"
+  },
+  {
+    "id": 27,
+    "name": "sass_css_sintaticamente_espetacular",
+    "institution": "alura",
+    "tech": "sass"
+  },
+  {
+    "id": 28,
+    "name": "tailwind_css_estilizando_a_sua_pagina",
+    "institution": "alura",
+    "tech": "tailwind"
+  },
+  {
+    "id": 29,
+    "name": "typescript_evoluindo_seu_javascript",
+    "institution": "alura",
+    "tech": "typescript"
+  },
+  {
+    "id": 30,
+    "name": "typescript_avancando_na_linguagem",
+    "institution": "alura",
+    "tech": "typescript"
+  },
+  {
+    "id": 31,
+    "name": "typescript_mais_tecnicas_e_boas_praticas",
+    "institution": "alura",
+    "tech": "typescript"
+  },
+  {
+    "id": 32,
+    "name": "typescript",
+    "institution": "origamid",
+    "tech": "typescript"
+  },
+  {
+    "id": 33,
+    "name": "ui_designer_para_iniciantes",
+    "institution": "origamid",
+    "tech": "ui"
+  },
+  {
+    "id": 34,
+    "name": "wordpress_rest_api",
+    "institution": "origamid",
+    "tech": "wordpress"
+  },
+  {
+    "id": 35,
+    "name": "react_integrando_seu_projeto_react_com_apis",
+    "institution": "alura",
+    "tech": "react"
+  }
+]

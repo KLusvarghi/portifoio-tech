@@ -77,7 +77,7 @@ const ProjectDetails = () => {
           <ContainerTitle>
             <Typography>{title}</Typography>
             <Image
-              src={getImageUrl(data.image)}
+              src={getImageUrl(data.image, 'projectsSvg')}
               alt={`imagem ilustrativa do projeto ${data.name}`}
             />
           </ContainerTitle>

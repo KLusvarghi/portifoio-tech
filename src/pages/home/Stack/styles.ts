@@ -28,10 +28,6 @@ const infiniteScroll = keyframes`
   }
 `;
 
-
-
-
-
 export const ContainerCarrosel = styled.div`
   overflow: hidden;
   position: relative;

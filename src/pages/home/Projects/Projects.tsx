@@ -6,6 +6,7 @@ import { Tag } from '../../../components/Button/Tag';
 import { Button } from '../../../components/Button/Button';
 import useSystemProjectContext from '../../../hooks/useSystemProjectContext ';
 import { Link } from 'react-router-dom';
+import { getImageUrl } from '../../../utils/imageUtils';
 import {
   Wrapper,
   ContainerProject,
@@ -14,7 +15,6 @@ import {
   ContainerListTech,
   ContainerButton,
 } from './styles';
-import { getImageUrl } from '../../../utils/imageUtils';
 
 export const Projects = () => {
   const [visibleItems, setVisibleItems] = useState(3);
@@ -35,7 +35,7 @@ export const Projects = () => {
         {data.slice(0, visibleItems).map((project) => (
           <ContainerProject key={project.id}>
             <Image
-              src={getImageUrl(project.image)}
+              src={getImageUrl(project.image, 'projectsSvg')}
               alt={`imagem ilustrativa do projeto: ${project.name}`}
             />
             <ContainerContent>

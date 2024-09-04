@@ -20,7 +20,7 @@ export const Main = styled.header<{ $isHome: boolean }>`
   z-index: 1000;
 
   ${(props) =>
-    props.$isHome &&
+    props.$isHome == false &&
     css`
       position: fixed;
       height: 82px;

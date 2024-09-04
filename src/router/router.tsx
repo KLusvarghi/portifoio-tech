@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/certificados',
+    path: '/home/certificados',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [

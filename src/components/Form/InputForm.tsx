@@ -40,6 +40,13 @@ const InputEstilizadoBase = styled.input<IStyledClassProps>`
     box-shadow: 0 0 0 3px ${(props) => props.theme.colors.primaries.a};
   }
 `;
+
+const Error = styled.div`
+  margin-top: 4px;
+  p {
+    color: #e92525;
+  }
+`;
 // .attrs({ as: 'input' }), isso significa que o componente estilizado será renderizado como um elemento <input>.
 const InputEstilizado = styled(InputEstilizadoBase).attrs({ as: 'input' })``;
 const TextAreaEstilizado = styled(InputEstilizadoBase).attrs({
@@ -61,7 +68,7 @@ export const InputText = ({
   return (
     <ContainerEstilizado $gridArea={gridArea}>
       <InputEstilizado
-        name={name} // Certifique-se de que o name está sendo passado aqui
+        name={name}
         placeholder={placeholder}
         type={type}
         value={value}
@@ -71,9 +78,9 @@ export const InputText = ({
       />
       <ErrorMessage name={name}>
         {(mensagens) => (
-          <div style={{ color: 'red', marginTop: '4px' }}>
+          <Error>
             <Typography variant="body">{mensagens}</Typography>
-          </div>
+          </Error>
         )}
       </ErrorMessage>
     </ContainerEstilizado>
@@ -94,7 +101,7 @@ export const TextArea = ({
   return (
     <ContainerEstilizado $gridArea={gridArea}>
       <TextAreaEstilizado
-        name={name} // Certifique-se de que o name está sendo passado aqui
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -104,9 +111,9 @@ export const TextArea = ({
       />
       <ErrorMessage name={name}>
         {(mensagens) => (
-          <div style={{ color: 'red', marginTop: '4px' }}>
+          <Error>
             <Typography variant="body">{mensagens}</Typography>
-          </div>
+          </Error>
         )}
       </ErrorMessage>
     </ContainerEstilizado>

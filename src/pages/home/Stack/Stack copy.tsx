@@ -1,6 +1,5 @@
 import { Title } from '../../../components/Typography/Title';
 import cssSvg from './assets/css.svg';
-// import figmaBorderSvg from './assets/figma.svg';
 import figmaSvg from './assets/figma-border.svg';
 import gitSvg from './assets/git.svg';
 import githubSvg from './assets/github.svg';
@@ -14,13 +13,13 @@ import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
 import {
-  Main,
   Wrapper,
   ContainerCarrosel,
   ContaienrImg,
   StackImg,
 } from './styles';
 import UseWindowSize from '../../../hooks/useWindowSize';
+import { Main } from '../../../styles/mainContainer';
 
 export const Stack = () => {
   const width = UseWindowSize();
