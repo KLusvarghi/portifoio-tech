@@ -14,11 +14,15 @@ export const Main = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
+
+
+
+
 
 export const Ul = styled.ul`
   display: flex;
@@ -44,6 +48,7 @@ export const Filter = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
+  text-align: center;
 `;
 
 export const ContainerCertificates = styled.div`
@@ -51,16 +56,5 @@ export const ContainerCertificates = styled.div`
   flex-wrap: wrap;
   gap: 36px;
   justify-content: center;
-`;
-
-export const Image = styled.img`
-  max-height: 120px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s ease-in;
-
-  &:hover {
-    border-radius: 0px;
-    transform: scale(2);
-  }
+  margin-bottom: 32px;
 `;

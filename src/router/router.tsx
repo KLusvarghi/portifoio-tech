@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/projetos/:id',
+    path: '/home/projetos/:id',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [

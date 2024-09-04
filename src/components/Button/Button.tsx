@@ -12,12 +12,14 @@ interface IButtonProps {
     | 'transparent'
     | 'header'
     | 'project'
+    | 'filter'
     | 'footer';
   icon?: boolean;
   onClick?: () => void;
   width?: number;
   className?: string;
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  isActive?: boolean | null;
 }
 
 const StyledButton = styled.button`
@@ -133,6 +135,16 @@ const FooterButton = styled(StyledButton)`
   font-weight: 500;
 `;
 
+const FilterButton = styled(StyledButton)<{ $isActive: boolean }>`
+  background: transparent;
+  color: ${(props) => props.theme.colors.footer.b};
+  padding: 0 1.2em 0.2em;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 500;
+  background: ${(props) => (props.$isActive ? '#000' : '#102444')};
+`;
+
 export const Button = ({
   variant = 'primary',
   children,
@@ -140,6 +152,7 @@ export const Button = ({
   onClick,
   width = 0,
   type = 'button',
+  isActive,
   ...props
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
@@ -169,6 +182,12 @@ export const Button = ({
       return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
+    case 'filter':
+      return (
+        <FilterButton $isActive={isActive} onClick={onClick}>
+          {children}
+        </FilterButton>
+      );
     case 'project':
       return <ProjectButton onClick={onClick}>{children}</ProjectButton>;
     case 'transparent':

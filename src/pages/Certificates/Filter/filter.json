@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Typescript",
+    "id": 1
+  },
+  {
+    "label": "Javacript",
+    "id": 2
+  },
+  {
+    "label": "Next.js",
+    "id": 3
+  },
+  {
+    "label": "React",
+    "id": 4
+  },
+  {
+    "label": "SASS",
+    "id": 5
+  },
+  {
+    "label": "Tailwind",
+    "id": 6
+  },
+  {
+    "label": "Styled-Component",
+    "id": 7
+  },
+  {
+    "label": "CSS",
+    "id": 8
+  },
+  {
+    "label": "SQL",
+    "id": 9
+  },
+  {
+    "label": "Outros",
+    "id": 10
+  }
+]

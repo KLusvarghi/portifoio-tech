@@ -47,7 +47,7 @@ export const Projects = () => {
                 ))}
               </ContainerListTech>
               <ContainerButton>
-                <Link to={`/projetos/${project.linkTo}`}>
+                <Link to={`/home/projetos/${project.linkTo}`}>
                   <Button variant="secondary">Mais Sobre</Button>
                 </Link>
               </ContainerButton>

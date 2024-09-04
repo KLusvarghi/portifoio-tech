@@ -3,210 +3,350 @@
     "id": 1,
     "name": "css_com_sass",
     "institution": "origamid",
-    "tech": "css"
+    "tech": "css",
+    "category": {
+      "id": 5,
+      "label": "SASS"
+    }
   },
   {
     "id": 2,
     "name": "css_flexbox",
     "institution": "origamid",
-    "tech": "css"
+    "tech": "css",
+    "category": {
+      "id": 8,
+      "label": "CSS"
+    }
   },
   {
     "id": 3,
     "name": "css_grid_layout",
     "institution": "origamid",
-    "tech": "css"
+    "tech": "css",
+    "category": {
+      "id": 8,
+      "label": "CSS"
+    }
   },
   {
     "id": 4,
     "name": "database_programming_with_sql",
     "institution": "oracle",
-    "tech": "database"
+    "tech": "database",
+    "category": {
+      "id": 9,
+      "label": "SQL"
+    }
   },
   {
     "id": 5,
     "name": "javascript",
     "institution": "origamid",
-    "tech": "javascript"
+    "tech": "javascript",
+    "category": {
+      "id": 2,
+      "label": "javacript"
+    }
   },
   {
     "id": 6,
     "name": "next_js_tour_pelo_next_js",
     "institution": "alura",
-    "tech": "next.js"
+    "tech": "next.js",
+    "category": {
+      "id": 3,
+      "label": "next"
+    }
   },
   {
     "id": 7,
     "name": "next_js_trabalhando_com_arquitetura_frontend",
     "institution": "alura",
-    "tech": "next.js"
+    "tech": "next.js",
+    "category": {
+      "id": 3,
+      "label": "next"
+    }
   },
   {
     "id": 8,
     "name": "next_js_autenticacao_e_gerenciamento_de_tokens",
     "institution": "alura",
-    "tech": "next.js"
+    "tech": "next.js",
+    "category": {
+      "id": 3,
+      "label": "next"
+    }
   },
   {
     "id": 9,
     "name": "next_js_explorando_o_framework",
     "institution": "alura",
-    "tech": "next.js"
+    "tech": "next.js",
+    "category": {
+      "id": 3,
+      "label": "next"
+    }
   },
   {
     "id": 10,
     "name": "postgresql_comandos_dml_e_ddl",
     "institution": "alura",
-    "tech": "postgresql"
+    "tech": "postgresql",
+    "category": {
+      "id": 9,
+      "label": "SQL"
+    }
   },
   {
     "id": 11,
     "name": "postgresql_views_sub_consultas_e_funcoes",
     "institution": "alura",
-    "tech": "postgresql"
+    "tech": "postgresql",
+    "category": {
+      "id": 9,
+      "label": "SQL"
+    }
   },
   {
     "id": 12,
     "name": "postgresql",
     "institution": "alura",
-    "tech": "postgresql"
+    "tech": "postgresql",
+    "category": {
+      "id": 9,
+      "label": "SQL"
+    }
   },
   {
     "id": 13,
     "name": "react_arquitetando_solucoes_de_roteamento_e_gestao_de_estado",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 14,
     "name": "react_configurando_e_estruturando_projetos_com_vite",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 15,
     "name": "react_conhecendo_a_biblioteca_react_router",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 16,
     "name": "react_criando_formularios_com_formik_e_yup",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 17,
     "name": "react_escrevendo_com_typescript",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 18,
     "name": "react_estilize_componentes_com_styled_components",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 19,
     "name": "react_gerenciando_estado_com_recoil",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 20,
     "name": "react_migrando_para_o_vite",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 21,
     "name": "react_origamid",
     "institution": "origamid",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 22,
     "name": "react_testando_os_seus_componentes",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 23,
     "name": "react_com_tailwindcss",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 24,
     "name": "react_lidando_com_arquivos_estaticos",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "react"
+    }
   },
   {
     "id": 25,
     "name": "sap_entendendo_suas_caracteristicas_gerais",
     "institution": "alura",
-    "tech": "sap"
+    "tech": "sap",
+    "category": {
+      "id": 10,
+      "label": "outros"
+    }
   },
   {
     "id": 26,
     "name": "sap_activate_gestao_agil_em_projetos_sap",
     "institution": "alura",
-    "tech": "sap"
+    "tech": "sap",
+    "category": {
+      "id": 10,
+      "label": "outros"
+    }
   },
   {
     "id": 27,
     "name": "sass_css_sintaticamente_espetacular",
     "institution": "alura",
-    "tech": "sass"
+    "tech": "sass",
+    "category": {
+      "id": 5,
+      "label": "SASS"
+    }
   },
   {
     "id": 28,
     "name": "tailwind_css_estilizando_a_sua_pagina",
     "institution": "alura",
-    "tech": "tailwind"
+    "tech": "tailwind",
+    "category": {
+      "id": 6,
+      "label": "Tailwind"
+    }
   },
   {
     "id": 29,
     "name": "typescript_evoluindo_seu_javascript",
     "institution": "alura",
-    "tech": "typescript"
+    "tech": "typescript",
+    "category": {
+      "id": 1,
+      "label": "Typescript"
+    }
   },
   {
     "id": 30,
     "name": "typescript_avancando_na_linguagem",
     "institution": "alura",
-    "tech": "typescript"
+    "tech": "typescript",
+    "category": {
+      "id": 1,
+      "label": "Typescript"
+    }
   },
   {
     "id": 31,
     "name": "typescript_mais_tecnicas_e_boas_praticas",
     "institution": "alura",
-    "tech": "typescript"
+    "tech": "typescript",
+    "category": {
+      "id": 1,
+      "label": "Typescript"
+    }
   },
   {
     "id": 32,
     "name": "typescript",
     "institution": "origamid",
-    "tech": "typescript"
+    "tech": "typescript",
+    "category": {
+      "id": 1,
+      "label": "Typescript"
+    }
   },
   {
     "id": 33,
     "name": "ui_designer_para_iniciantes",
     "institution": "origamid",
-    "tech": "ui"
+    "tech": "ui",
+    "category": {
+      "id": 10,
+      "label": "Outros"
+    }
   },
   {
     "id": 34,
     "name": "wordpress_rest_api",
     "institution": "origamid",
-    "tech": "wordpress"
+    "tech": "wordpress",
+    "category": {
+      "id": 10,
+      "label": "Outros"
+    }
   },
   {
     "id": 35,
     "name": "react_integrando_seu_projeto_react_com_apis",
     "institution": "alura",
-    "tech": "react"
+    "tech": "react",
+    "category": {
+      "id": 4,
+      "label": "React"
+    }
   }
 ]
