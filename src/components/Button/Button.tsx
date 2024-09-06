@@ -34,6 +34,8 @@ const StyledButton = styled.button`
   border: 1px solid transparent;
   padding: 0.75em 1.5em;
   white-space: nowrap;
+
+  
 `;
 
 const StyledArrow = styled.svg`
@@ -53,11 +55,11 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
   justify-content: center;
   gap: 12px;
   max-height: 60px;
-  /* width: 100%; */
   &:hover {
     box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
   }
+
 `;
 
 const SecondaryButton = styled(StyledButton)`
@@ -86,7 +88,6 @@ const ProjectButton = styled(StyledButton)`
   background: transparent;
   color: ${(props) => props.theme.colors.btnHeader};
   cursor: pointer;
-
   &:hover {
     transform: scale(1.125);
   }
@@ -135,10 +136,13 @@ const FooterButton = styled(StyledButton)`
   font-weight: 500;
 `;
 
-const FilterButton = styled(StyledButton)<{ $isActive: boolean }>`
+const FilterButton = styled(StyledButton)<{ $isActive: boolean | null | undefined }>`
   background: transparent;
   color: ${(props) => props.theme.colors.footer.b};
-  padding: 0 1.2em 0.2em;
+  /* padding: 0 1.2em 0.2em; */
+  padding: 4px 12px;
+  margin: 0;
+  border: none;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;

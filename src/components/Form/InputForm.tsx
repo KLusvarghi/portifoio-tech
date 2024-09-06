@@ -37,6 +37,7 @@ const InputEstilizadoBase = styled.input<IStyledClassProps>`
     transform: scale(1.02);
     border-radius: 5px;
     outline: none;
+    border: none;
     box-shadow: 0 0 0 3px ${(props) => props.theme.colors.primaries.a};
   }
 `;

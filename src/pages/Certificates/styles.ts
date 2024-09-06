@@ -4,6 +4,8 @@ export const Main = styled.div`
   max-width: 1680px;
   margin: 40px auto 0;
   padding: 0 84px;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 1060px) {
     padding: 0 46px;
@@ -20,41 +22,10 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
-
-
-
-
-export const Ul = styled.ul`
-  display: flex;
-  gap: 36px;
-  /* background: ${(props) => props.theme.colors.form.a}; */
-  background: #071225;
-  border-radius: 100px;
-  padding: 10px 22px;
-`;
-
-export const Li = styled.li`
+export const ContainerArrow = styled.div`
+  transform: rotate(180deg);
+  align-self: flex-start;
   cursor: pointer;
-  list-style: none;
-  padding: 6px 8px;
-  transition: 0.2s ease-in;
-
-  &:hover {
-    background: ${(props) => props.theme.colors.form.a};
-  }
-`;
-
-export const Filter = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 80px;
-  text-align: center;
-`;
-
-export const ContainerCertificates = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 36px;
-  justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 42px;
+  /* margin-left: 12px; */
 `;

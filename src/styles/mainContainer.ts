@@ -8,6 +8,11 @@ export const Main = styled.div`
   @media (max-width: 1060px) {
     padding: 0 46px;
   }
+  
+  @media (max-width: 680px) {
+    margin-top: 20px;
+  }
+
   @media (max-width: 600px) {
     padding: 0 22px;
   }

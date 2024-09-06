@@ -23,21 +23,20 @@ export const Wrapper = styled.div`
 export const ContainerTitle = styled.div`
   text-align: center;
 `;
+
 export const ContainerArrow = styled.div`
   transform: rotate(180deg);
   align-self: flex-start;
-  color: $c12;
-  top: 50px;
   cursor: pointer;
-  transition: 0.2s;
   margin-bottom: 42px;
   margin-left: 12px;
 `;
+
 export const ContainerContent = styled.div`
   max-width: 80%;
   margin-top: 60px;
 
-  @media (max-width: 631px) {
+  @media (max-width: 660px) {
     max-width: 100%;
   }
 `;

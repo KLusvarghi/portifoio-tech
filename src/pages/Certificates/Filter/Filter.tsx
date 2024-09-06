@@ -17,7 +17,6 @@ const ContainerFilter = styled.div`
   gap: 22px;
   margin-bottom: 40px;
   border-radius: 100px;
-  padding: 10px 22px;
 `;
 
 export const Filter = ({ filter, setFilter }: Props) => {

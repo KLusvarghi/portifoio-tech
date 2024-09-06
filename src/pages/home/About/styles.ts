@@ -6,7 +6,16 @@ export const Wrapper = styled.div`
   gap: 44px;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 680px) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 431px) {
+    margin-top: 32px;
+  }
 `;
+
 export const Img = styled.img`
   max-height: 415px;
   max-width: 348px;
@@ -65,8 +74,6 @@ export const ContainerTypograph = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  
 `;
 
 export const ContainerInformations = styled.div`

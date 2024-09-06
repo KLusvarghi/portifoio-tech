@@ -47,6 +47,7 @@ export const ContainerIcons = styled.div`
 
   @media (max-width: 480px) {
     gap: 14px;
+    margin-bottom: 32px;
   }
 `;
 

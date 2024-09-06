@@ -1,6 +1,5 @@
 import { Title } from '../../../components/Typography/Title';
 import cssSvg from './assets/css.svg';
-// import figmaBorderSvg from './assets/figma.svg';
 import figmaSvg from './assets/figma-border.svg';
 import gitSvg from './assets/git.svg';
 import githubSvg from './assets/github.svg';

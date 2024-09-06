@@ -53,6 +53,10 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 26px;
+
+  @media (max-width: 680px) {
+    gap: 8px;
+  }
 `;
 
 export const UlHeader = styled.ul<IStyledStateProps>`

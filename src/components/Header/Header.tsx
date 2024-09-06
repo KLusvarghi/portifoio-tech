@@ -10,6 +10,7 @@ import { ToggleThemeButton } from '../../components/Button/ToggleThemeButton';
 import { HamburguerButton } from '../../components/Button/HamburguerButton';
 import { github, linkedin } from '../../utils/links';
 import { useLocation } from 'react-router-dom';
+import { Col, Container, Row } from '../Grid/Grid';
 import {
   Main,
   ContainerLogo,
@@ -19,7 +20,6 @@ import {
   WrapperToggleThemeMobile,
   ContainerButton,
 } from './styles';
-import { Col, Container, Row } from '../Grid/Grid';
 
 export const Header = () => {
   const location = useLocation();
@@ -54,6 +54,39 @@ export const Header = () => {
             </ContainerLogo>
           </Col>
           <Col>
+            {isCertificates && (
+              <Nav>
+                <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
+                  <LiHeader>
+                    <RouterLink to={'/home'}>
+                      <Button variant="header" width={width}>
+                        Home
+                      </Button>
+                    </RouterLink>
+                  </LiHeader>
+                </UlHeader>
+              </Nav>
+            )}
+            {isProject && (
+              <Nav>
+                <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
+                  <LiHeader>
+                    <RouterLink to={'/home'}>
+                      <Button variant="header" width={width}>
+                        Home
+                      </Button>
+                    </RouterLink>
+                  </LiHeader>
+                  <LiHeader>
+                    <RouterLink to={'/home/certificados'}>
+                      <Button variant="header" width={width}>
+                        Certificados
+                      </Button>
+                    </RouterLink>
+                  </LiHeader>
+                </UlHeader>
+              </Nav>
+            )}
             {!isCertificates && !isProject && (
               <Nav>
                 <UlHeader $active={active} onMouseLeave={() => setAcive(false)}>
@@ -116,7 +149,7 @@ export const Header = () => {
                           </Button>
                         </Link>
                       </LiHeader>
-                      {width < 600 && (
+                      {width < 430 && (
                         <WrapperToggleThemeMobile
                           onClick={() => setTheme()}
                           $theme={theme.title}
@@ -136,8 +169,10 @@ export const Header = () => {
                     </Link>
                   </ContainerButton>
                 )}
-                <ToggleThemeButton />
                 <HamburguerButton active={active} setActive={setAcive} />
+                {width > 429 && (
+                  <ToggleThemeButton fixed={width > 680 ? true : false} />
+                )}
               </Nav>
             )}
           </Col>

@@ -7,6 +7,15 @@ export const Wrapper = styled.div`
   gap: 80px;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 680px) {
+    margin-bottom: 80px;
+  gap: 32px;
+  }
+
+  @media (max-width: 431px) {
+    margin-top: 32px;
+  }
 `;
 export const ContainerProject = styled.div`
   flex: 1;

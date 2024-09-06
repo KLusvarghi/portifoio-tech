@@ -7,10 +7,10 @@ import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
 import { useState } from 'react';
 import svgMessage from './assets/popup.svg';
 import {
+  Wrapper,
   ContainerMessage,
   Message,
   Image,
-  Wrapper,
   ContainerInformations,
   ContainerInfo,
   ContainerIcone,
@@ -19,8 +19,8 @@ import {
 
 const Contact = () => {
   const { theme } = useSystemThemeContext();
-  const [sendMessage, setSendMessage] = useState(false);
-  const [sucess, setSucces] = useState(false);
+  const [sendMessage, setSendMessage] = useState(true);
+  const [sucessForm, setSuccesForm] = useState(false);
   const info = [
     { index: 1, path: <GitHub />, text: '/klusvarghi' },
     {
@@ -51,7 +51,7 @@ const Contact = () => {
         }, 3000);
       });
   };
-
+console.log()
   return (
     <Main id="contact">
       <Title
@@ -60,15 +60,6 @@ const Contact = () => {
         position="center"
       />
       <Wrapper>
-        {sucess && (
-          <ContainerMessage>
-            <Message>
-              <Image src={svgMessage} alt="icone ilustrativo de mensagem" />
-              <Typography variant="body">Obrigado!</Typography>
-              <Typography variant="body">Email enviado com sucesso</Typography>
-            </Message>
-          </ContainerMessage>
-        )}
         <ContainerInformations>
           {info.map(({ index, path, text }) => (
             <ContainerInfo
@@ -80,15 +71,24 @@ const Contact = () => {
             </ContainerInfo>
           ))}
         </ContainerInformations>
-        <Forms setSucces={setSucces} />
+        <Forms setSuccesForm={setSuccesForm} />
+        {sendMessage && (
+          <SuccessMessage>
+            <Typography variant="body">
+              Texto copiado para área de transferência!
+            </Typography>
+          </SuccessMessage>
+        )}
+        {sucessForm && (
+          <ContainerMessage >
+            <Message>
+              <Image src={svgMessage} alt="icone ilustrativo de mensagem" />
+              <Typography variant="body">Obrigado!</Typography>
+              <Typography variant="body">Email enviado com sucesso</Typography>
+            </Message>
+          </ContainerMessage>
+        )}
       </Wrapper>
-      {sendMessage && (
-        <SuccessMessage>
-          <Typography variant="body">
-            Texto copiado para área de transferência!
-          </Typography>
-        </SuccessMessage>
-      )}
     </Main>
   );
 };

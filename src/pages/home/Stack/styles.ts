@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   overflow: hidden;
   margin-top: 60px;
   position: relative;
-  /* padding-bottom: 130px; */
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
   --webkit-mask-image: linear-gradient(
     to right,
@@ -17,6 +16,10 @@ export const Wrapper = styled.div`
     #000 10% 90%,
     transparent
   );
+
+  @media (max-width: 680px) {
+    margin-bottom: 80px;
+  }
 `;
 
 const infiniteScroll = keyframes`

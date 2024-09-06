@@ -19,6 +19,7 @@ import {
   ContainerNextmobile,
 } from './styles';
 import { WhatsApp } from '../../../components/Icons/WhatsApp';
+import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 
 const Introduction = ({ refContainer }: RefProps) => {
   const options = {
@@ -32,36 +33,40 @@ const Introduction = ({ refContainer }: RefProps) => {
   return (
     <Main ref={refContainer} id="intro">
       <Wrapper>
-        <ContainerContent>
-          <Typography variant="body">E ai, eu me chamo</Typography>
-          <div style={{ marginBottom: '12px' }}>
-            <Typography>Kauã Lusvarghi</Typography>
-            <Typography variant="intro">Web Developer</Typography>
-          </div>
-          <Typography variant="body">
-            Sou um Engenheiro de Software especializado em frontend, apaixonado
-            por desafios que me permitem criar interfaces intuitivas e
-            eficientes a partir de código.
-          </Typography>
-          <ContainerButton>
-            <LinkScroll to="contact" {...options}>
-              <Button variant="outline">Contato</Button>
-            </LinkScroll>
-            <LinkScroll to="projects" {...options}>
-              <Button variant="primary" icon={true}>
-                Projetos
-              </Button>
-            </LinkScroll>
-          </ContainerButton>
-        </ContainerContent>
+        <AnimatedSection position="down">
+          <ContainerContent>
+            <Typography variant="body">E ai, eu me chamo</Typography>
+            <div style={{ marginBottom: '12px' }}>
+              <Typography>Kauã Lusvarghi</Typography>
+              <Typography variant="intro">Web Developer</Typography>
+            </div>
+            <Typography variant="body">
+              Sou um Engenheiro de Software especializado em frontend,
+              apaixonado por desafios que me permitem criar interfaces
+              intuitivas e eficientes a partir de código.
+            </Typography>
+            <ContainerButton>
+              <LinkScroll to="contact" {...options}>
+                <Button variant="outline">Contato</Button>
+              </LinkScroll>
+              <LinkScroll to="projects" {...options}>
+                <Button variant="primary" icon={true}>
+                  Projetos
+                </Button>
+              </LinkScroll>
+            </ContainerButton>
+          </ContainerContent>
+        </AnimatedSection>
         <ContainerSvg src={image} alt="Imagem ilustrativa" />
-        <ContainerIcons>
-          <GitHub />
-          <Instagram />
-          <Linkedin />
-          <WhatsApp />
-          <Cv />
-        </ContainerIcons>
+        <AnimatedSection position="up">
+          <ContainerIcons>
+            <GitHub />
+            <Instagram />
+            <Linkedin />
+            <WhatsApp />
+            <Cv />
+          </ContainerIcons>
+        </AnimatedSection>
       </Wrapper>
       <ContainerNextArrow>
         <span></span>

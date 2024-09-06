@@ -45,7 +45,11 @@ const schema = Yup.object().shape({
     .required('Campo obrigatório'),
 });
 
-export const Forms = ({ setSucces }: { setSucces: React.Dispatch<React.SetStateAction<boolean>> }) => {
+export const Forms = ({
+  setSuccesForm,
+}: {
+  setSuccesForm: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <Formik
       initialValues={{
@@ -78,9 +82,9 @@ export const Forms = ({ setSucces }: { setSucces: React.Dispatch<React.SetStateA
               console.log(error.text);
             },
           );
-        setSucces(true);
+        setSuccesForm(true);
         setTimeout(() => {
-          setSucces(false);
+          setSuccesForm(false);
         }, 5000);
       }}
     >

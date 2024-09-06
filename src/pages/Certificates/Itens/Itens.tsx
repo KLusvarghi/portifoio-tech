@@ -15,8 +15,8 @@ export const Itens = ({ filter }: { filter: number | null }) => {
   const [list, setList] = useState(certificatesApi);
 
   const filterTest = useCallback(
-    (id: number) => {
-      if (filter !== null) return filter === id;
+    (ids: number[]) => {
+      if (filter !== null) return ids.some((id) => filter === id);
       return true;
     },
     [filter],

@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import { Typography } from '../../components/Typography/Typography';
 import { Link as LinkScroll } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
-
 import { Instagram } from '../../components/Icons/Instagram';
 import { WhatsApp } from '../../components/Icons/WhatsApp';
 import { GitHub } from '../../components/Icons/GitHub';
 import { Linkedin } from '../../components/Icons/Linkedin';
-import { Email } from '../../components/Icons/Email';
 import { Cv } from '../../components/Icons/Cv';
 import { Button } from '../Button/Button';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
@@ -99,7 +97,6 @@ export const Footer = () => {
         </UlFooter>
         <ContainerIcons>
           <GitHub theme={theme.title} footer={true} />
-          <Email theme={theme.title} footer={true} />
           <Instagram theme={theme.title} footer={true} />
           <Linkedin theme={theme.title} footer={true} />
           <WhatsApp theme={theme.title} footer={true} />

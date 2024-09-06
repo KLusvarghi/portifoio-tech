@@ -28,15 +28,11 @@
     "id": 7
   },
   {
-    "label": "CSS",
+    "label": "SQL",
     "id": 8
   },
   {
-    "label": "SQL",
-    "id": 9
-  },
-  {
     "label": "Outros",
-    "id": 10
+    "id": 9
   }
 ]
