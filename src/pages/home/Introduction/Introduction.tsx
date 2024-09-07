@@ -1,4 +1,3 @@
-// import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { GitHub } from '../../../components/Icons/GitHub';
 import { Linkedin } from '../../../components/Icons/Linkedin';
 import { Instagram } from '../../../components/Icons/Instagram';
@@ -6,22 +5,25 @@ import { Cv } from '../../../components/Icons/Cv';
 import { Typography } from '../../../components/Typography/Typography';
 import { Link as LinkScroll } from 'react-scroll';
 import { Button } from '../../../components/Button/Button';
-import image from './assets/ilustrationr.svg';
 import { RefProps } from '../../../types/auxProps';
+import { WhatsApp } from '../../../components/Icons/WhatsApp';
+import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
+import UseWindowSize from '../../../hooks/useWindowSize';
 import {
   Main,
   Wrapper,
+  ContainerFreela,
   ContainerIcons,
   ContainerContent,
+  ContainerTitle,
+  ContainerDescription,
   ContainerButton,
-  ContainerSvg,
   ContainerNextArrow,
   ContainerNextmobile,
 } from './styles';
-import { WhatsApp } from '../../../components/Icons/WhatsApp';
-import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 
 const Introduction = ({ refContainer }: RefProps) => {
+  const width = UseWindowSize();
   const options = {
     spy: true,
     smooth: true,
@@ -33,18 +35,43 @@ const Introduction = ({ refContainer }: RefProps) => {
   return (
     <Main ref={refContainer} id="intro">
       <Wrapper>
-        <AnimatedSection position="down">
-          <ContainerContent>
-            <Typography variant="body">E ai, eu me chamo</Typography>
-            <div style={{ marginBottom: '12px' }}>
-              <Typography>Kauã Lusvarghi</Typography>
-              <Typography variant="intro">Web Developer</Typography>
-            </div>
-            <Typography variant="body">
-              Sou um Engenheiro de Software especializado em frontend,
-              apaixonado por desafios que me permitem criar interfaces
-              intuitivas e eficientes a partir de código.
-            </Typography>
+        {width > 832 && (
+          <ContainerFreela>
+            <Typography variant="body">Disponível para freelance!</Typography>
+            <Typography variant="body">Disponível para freelance!</Typography>
+          </ContainerFreela>
+        )}
+        <ContainerContent>
+          <AnimatedSection direction="toDown">
+            <ContainerTitle>
+              {width > 832 ? (
+                <>
+                  <Typography>E ai, me chamo Kauã Lusvarghi</Typography>
+                  <Typography variant="intro">
+                    Eu sou desenvolvedor web front-end
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  <Typography variant="body">E ai, eu me chamo</Typography>
+                  <Typography>Kauã Lusvarghi</Typography>
+                  <Typography variant="intro">
+                    Eu sou desenvolvedor web
+                  </Typography>
+                </>
+              )}
+            </ContainerTitle>
+          </AnimatedSection>
+          <ContainerDescription>
+            <AnimatedSection direction="toRight">
+              <Typography variant="body">
+                Sou um jovem engenheiro de software especializado aplciações
+                web, apaixonado por desafios que me permitem criar e desenvolver
+                interfaces intuitivas e eficientes a partir de código.
+              </Typography>
+            </AnimatedSection>
+          </ContainerDescription>
+          <AnimatedSection direction="toLeft">
             <ContainerButton>
               <LinkScroll to="contact" {...options}>
                 <Button variant="outline">Contato</Button>
@@ -55,10 +82,9 @@ const Introduction = ({ refContainer }: RefProps) => {
                 </Button>
               </LinkScroll>
             </ContainerButton>
-          </ContainerContent>
-        </AnimatedSection>
-        <ContainerSvg src={image} alt="Imagem ilustrativa" />
-        <AnimatedSection position="up">
+          </AnimatedSection>
+        </ContainerContent>
+        <AnimatedSection direction="toUp">
           <ContainerIcons>
             <GitHub />
             <Instagram />

@@ -23,6 +23,7 @@ import {
   ContainerButton,
   Image,
 } from './styles';
+import { AnimatedSection } from '../../components/AnimatedSection/AnimatedSection';
 
 interface IProjectProps {
   id: number;
@@ -75,46 +76,56 @@ const ProjectDetails = () => {
             <ArrowBack theme={theme.title} />
           </ContainerArrow>
           <ContainerTitle>
-            <Typography>{title}</Typography>
-            <Image
-              src={getImageUrl(data.image, 'projectsSvg')}
-              alt={`imagem ilustrativa do projeto ${data.name}`}
-            />
+            <AnimatedSection direction="toDown">
+              <Typography>{title}</Typography>
+            </AnimatedSection>
+            <AnimatedSection direction="toUp">
+              <Image
+                src={getImageUrl(data.image, 'projectsSvg')}
+                alt={`imagem ilustrativa do projeto ${data.name}`}
+              />
+            </AnimatedSection>
           </ContainerTitle>
           <ContainerContent>
-            <Description>
-              <Typography variant="h4">Visão geral do projeto</Typography>
-              <Typography variant="body">{data.description}</Typography>
-            </Description>
-            <Technologies>
-              <Typography variant="h4">Tecnologias utilizadas</Typography>
-              <ContainerTech>
-                {data.technologies.map((tech, index) => (
-                  <Tag key={index}>{tech}</Tag>
-                ))}
-              </ContainerTech>
-            </Technologies>
-            <Navigations>
-              <Typography variant="h4">Projeto</Typography>
-              <ContainerButton>
-                <RouterLink to={`${data.urlWebsite}`} target="_blank">
-                  <Button variant="primary">VER PROJETO</Button>
-                </RouterLink>
-                {width >= 510 ? (
-                  <RouterLink to={`${data.repositoryLink}`} target="_blank">
-                    <Button variant="transparent">REPOSITÓRIO</Button>
+            <AnimatedSection direction="toLeft">
+              <Description>
+                <Typography variant="h4">Visão geral do projeto</Typography>
+                <Typography variant="body">{data.description}</Typography>
+              </Description>
+            </AnimatedSection>
+            <AnimatedSection direction="toDown">
+              <Technologies>
+                <Typography variant="h4">Tecnologias utilizadas</Typography>
+                <ContainerTech>
+                  {data.technologies.map((tech, index) => (
+                    <Tag key={index}>{tech}</Tag>
+                  ))}
+                </ContainerTech>
+              </Technologies>
+            </AnimatedSection>
+            <AnimatedSection direction="toRight">
+              <Navigations>
+                <Typography variant="h4">Projeto</Typography>
+                <ContainerButton>
+                  <RouterLink to={`${data.urlWebsite}`} target="_blank">
+                    <Button variant="primary">VER PROJETO</Button>
                   </RouterLink>
-                ) : (
-                  <RouterLink to={`${data.repositoryLink}`} target="_blank">
-                    <Button variant="outline">REPOSITÓRIO</Button>
-                  </RouterLink>
-                )}
+                  {width >= 510 ? (
+                    <RouterLink to={`${data.repositoryLink}`} target="_blank">
+                      <Button variant="transparent">REPOSITÓRIO</Button>
+                    </RouterLink>
+                  ) : (
+                    <RouterLink to={`${data.repositoryLink}`} target="_blank">
+                      <Button variant="outline">REPOSITÓRIO</Button>
+                    </RouterLink>
+                  )}
 
-                <Button onClick={goToBack} variant="outline">
-                  VOLTAR
-                </Button>
-              </ContainerButton>
-            </Navigations>
+                  <Button onClick={goToBack} variant="outline">
+                    VOLTAR
+                  </Button>
+                </ContainerButton>
+              </Navigations>
+            </AnimatedSection>
           </ContainerContent>
         </Wrapper>
       )}

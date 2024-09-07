@@ -1,8 +1,6 @@
 import { ReactNode, RefObject } from 'react';
 import styled from 'styled-components';
 
-
-
 // Interface para os childrens
 export interface IChildrenProps {
   children?: ReactNode;
@@ -47,7 +45,6 @@ export const StyledIcons = styled.span<IStyledSvgProps>`
   }
 
   @media (max-width: 480px) {
-    /* min-width: auto; */
     width: 20px;
     height: 20px;
   }

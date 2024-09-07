@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
     margin-top: 32px;
   }
 `;
+
 export const ContainerProject = styled.div`
   flex: 1;
   display: flex;
@@ -56,6 +57,7 @@ export const ContainerProject = styled.div`
     }
   }
 `;
+
 export const Image = styled.img`
   flex: 3;
 `;
@@ -75,6 +77,7 @@ export const ContainerContent = styled.div`
     max-width: 100%;
   }
 `;
+
 export const ContainerListTech = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -84,6 +87,7 @@ export const ContainerListTech = styled.div`
 
   justify-content: end;
 `;
+
 export const ContainerButton = styled.div`
   @media (max-width: 1180px) {
     max-width: 58%;

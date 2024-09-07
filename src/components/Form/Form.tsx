@@ -85,7 +85,7 @@ export const Forms = ({
         setSuccesForm(true);
         setTimeout(() => {
           setSuccesForm(false);
-        }, 5000);
+        }, 4000);
       }}
     >
       {(formik) => (

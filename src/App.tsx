@@ -2,8 +2,8 @@ import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { router } from './router/router';
 import { SystemProjectProviderProject } from './context/dataProjects';
-import GlobalStyles from './styles/GlobalStyles/GlobalStyles';
-import Background from './styles/Background/Background';
+import { GlobalStyles } from './styles/GlobalStyles/GlobalStyles';
+import { Background } from './styles/Background/Background';
 import useSystemThemeContext from './hooks/useSystemThemeContext';
 
 function App() {

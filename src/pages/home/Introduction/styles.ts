@@ -5,57 +5,100 @@ export const Main = styled.main`
   width: 100vw;
   display: flex;
   align-items: center;
-  padding: 0 84px;
+  padding: 0 42px;
 
   @media (max-width: 620px) {
-    padding: 0;
+    padding: 0 16px;
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   gap: 54px;
-  justify-content: center;
 
   @media (max-width: 680px) {
     margin-top: -112px;
   }
+`;
 
-  @media (max-width: 620px) {
-    padding: 0 46px;
+const autoRun = keyframes`
+  0% {
+    transform: translateX(0);  
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
+export const ContainerFreela = styled.div`
+  width: 20rem;
+  overflow: hidden;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.freela.bg};
+  border-radius: 40px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  border: 1px solid ${(props) => props.theme.colors.freela.bg};
+  margin-bottom: -32px;
+
+  &:hover {
+    transform: scale(1.055);
+    border: 1px solid ${(props) => props.theme.colors.freela.border};
   }
 
-  @media (max-width: 570px) {
-    flex-direction: column;
+  p {
+    padding-left: 146px;
+    white-space: nowrap;
+    animation: ${autoRun} 10s infinite linear;
+    user-select: none;
+    pointer-events: none;
   }
 `;
 
 export const ContainerContent = styled.div`
-  max-width: 621px;
-  padding-left: 62px;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+`;
 
-  @media (max-width: 502px) {
-    padding: 0;
-    text-align: center;
+export const ContainerTitle = styled.div`
+  margin-bottom: 12px;
+
+  @media (max-width: 1130px) {
+    h1,
+    h2 {
+      font-size: 2.5em;
+    }
+  }
+
+  @media (max-width: 624px) {
+    h1,
+    h2 {
+      font-size: 2em;
+    }
   }
 `;
 
-// EFEITO DO HOVER DA IMAGEM EM ANDAMENTO
-export const ContainerSvg = styled.img`
-  width: 468px;
-  height: 352px;
-  transition: transform 0.3s ease;
-  transform-origin: center center;
+export const ContainerDescription = styled.div`
+  max-width: 821px;
+  align-self: center;
 
-  /* Inclina a imagem para trás ao passar o mouse */
-  &:hover {
-    transform: rotateX(15deg);
+  @media (max-width: 1130px) {
+    max-width: 621px;
   }
 
-  @media (max-width: 1090px) {
-    display: none;
+  @media (max-width: 624px) {
+    p {
+      font-size: 1em;
+    }
   }
 `;
 
@@ -65,37 +108,16 @@ export const ContainerIcons = styled.div`
   flex-direction: column;
   gap: 16px;
   max-width: 54px;
-
-  @media (max-width: 1536px) {
-    position: absolute;
-    top: 40%;
-    left: 54px;
-  }
-
-  @media (min-width: 1536px) {
-    flex-direction: column;
-    order: -1;
-  }
-
-  @media (max-width: 502px) {
-    flex-direction: row;
-    position: static;
-    max-width: 100%;
-  }
+  flex-direction: row;
+  position: static;
+  max-width: 100%;
 `;
 
 export const ContainerButton = styled.div`
   margin-top: 40px;
   display: flex;
   gap: 40px;
-
-  @media (max-width: 680px) {
-    justify-content: flex-start;
-  }
-
-  @media (max-width: 502px) {
-    justify-content: center;
-  }
+  justify-content: center;
 `;
 
 const animate = keyframes`
@@ -164,7 +186,7 @@ export const ContainerNextmobile = styled.span`
     height: 40px;
     width: 25px;
     border-radius: 60px;
-    border: 2px solid ${props => props.theme.colors.neutral.c7};
+    border: 2px solid ${(props) => props.theme.colors.neutral.c7};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +197,7 @@ export const ContainerNextmobile = styled.span`
       height: 6px;
       position: absolute;
       border-radius: 50%;
-      background: ${props => props.theme.colors.neutral.c7};
+      background: ${(props) => props.theme.colors.neutral.c7};
       animation: ${scrolling} 2s infinite linear;
     }
   }

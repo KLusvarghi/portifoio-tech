@@ -11,8 +11,8 @@ interface IStyledTypographProps {
 
 const components = {
   intro: styled.h1<IStyledTypographProps>`
-    font-size: 2.5em;
-    /* line-height: 1.2; */
+    font-size: 3.5em;
+    line-height: 1.2;
     font-weight: 600;
     font-family: ${(props) => props.theme.font.poppins};
     color: ${(props) => props.theme.colors.primaries.a};
@@ -20,7 +20,7 @@ const components = {
   `,
 
   title: styled.h2<IStyledTypographProps>`
-    font-size: 2.5em;
+    font-size: 3.5em;
     font-weight: 600;
     line-height: auto;
     font-family: ${(props) => props.theme.font.poppins};
@@ -63,6 +63,7 @@ const components = {
     font-size: 2em;
     font-weight: 500;
     font-family: ${(props) => props.theme.font.poppins};
+    margin-bottom: 12px;
 
     ${(props) => {
       switch (props.$theme) {
@@ -119,7 +120,7 @@ const components = {
       }
     }}
 
-    @media (max-width: 830px) {
+    @media (max-width: 520px) {
       font-size: 1em;
     }
   `,

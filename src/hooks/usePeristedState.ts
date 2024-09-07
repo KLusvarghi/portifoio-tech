@@ -6,7 +6,7 @@ type Response<T> = [
 ];
 
 // 'T' contem o formato que nosso tema tem, que neste caso é o "DefaultTheme" que fooi passado no outro componente
-function usePersistedState<T>(key: string, initialState: T): Response<T> {
+const usePersistedState = <T>(key: string, initialState: T): Response<T> => {
   const [state, setState] = useState(() => {
     const storageValue = localStorage.getItem(key);
 
@@ -22,6 +22,6 @@ function usePersistedState<T>(key: string, initialState: T): Response<T> {
   }, [key, state]);
 
   return [state, setState];
-}
+};
 
 export default usePersistedState;

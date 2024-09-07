@@ -6,6 +6,7 @@ import { Typography } from '../../../components/Typography/Typography';
 import useSystemThemeContext from '../../../hooks/useSystemThemeContext';
 import { useState } from 'react';
 import svgMessage from './assets/popup.svg';
+import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 import {
   Wrapper,
   ContainerMessage,
@@ -14,12 +15,12 @@ import {
   ContainerInformations,
   ContainerInfo,
   ContainerIcone,
-  SuccessMessage,
+  ContainerTextCopy,
 } from './styles';
 
 const Contact = () => {
   const { theme } = useSystemThemeContext();
-  const [sendMessage, setSendMessage] = useState(true);
+  const [textCopy, setTextCopy] = useState(false);
   const [sucessForm, setSuccesForm] = useState(false);
   const info = [
     { index: 1, path: <GitHub />, text: '/klusvarghi' },
@@ -39,48 +40,53 @@ const Contact = () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log('Texto copiado com sucesso!');
-        setSendMessage(true);
+        setTextCopy(true);
       })
       .catch((err) => {
         console.error('Erro ao copiar texto: ', err);
       })
       .finally(() => {
         setTimeout(() => {
-          setSendMessage(false);
-        }, 3000);
+          setTextCopy(false);
+        }, 4000);
       });
   };
-console.log()
+  
   return (
     <Main id="contact">
-      <Title
-        title="Contato"
-        subtitle="Sinta-se à vontade para entrar em contato comigo enviando o formulário abaixo. Retornarei o mais breve possível!"
-        position="center"
-      />
+      <AnimatedSection direction="toDown">
+        <Title
+          title="Contato"
+          subtitle="Sinta-se à vontade para entrar em contato comigo enviando o formulário abaixo. Retornarei o mais breve possível!"
+          position="center"
+        />
+      </AnimatedSection>
       <Wrapper>
-        <ContainerInformations>
-          {info.map(({ index, path, text }) => (
-            <ContainerInfo
-              key={index}
-              onClick={() => handleCopy(text.replace('/', ''))}
-            >
-              <ContainerIcone $theme={theme.title}>{path}</ContainerIcone>
-              <Typography variant="body">{text}</Typography>
-            </ContainerInfo>
-          ))}
-        </ContainerInformations>
-        <Forms setSuccesForm={setSuccesForm} />
-        {sendMessage && (
-          <SuccessMessage>
+        <AnimatedSection direction="toUp">
+          <ContainerInformations>
+            {info.map(({ index, path, text }) => (
+              <ContainerInfo
+                key={index}
+                onClick={() => handleCopy(text.replace('/', ''))}
+              >
+                <ContainerIcone $theme={theme.title}>{path}</ContainerIcone>
+                <Typography variant="body">{text}</Typography>
+              </ContainerInfo>
+            ))}
+          </ContainerInformations>
+        </AnimatedSection>
+        <AnimatedSection direction="toRight">
+          <Forms setSuccesForm={setSuccesForm} />
+        </AnimatedSection>
+        {textCopy && (
+          <ContainerTextCopy>
             <Typography variant="body">
               Texto copiado para área de transferência!
             </Typography>
-          </SuccessMessage>
+          </ContainerTextCopy>
         )}
         {sucessForm && (
-          <ContainerMessage >
+          <ContainerMessage>
             <Message>
               <Image src={svgMessage} alt="icone ilustrativo de mensagem" />
               <Typography variant="body">Obrigado!</Typography>

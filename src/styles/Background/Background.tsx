@@ -13,8 +13,6 @@ const ContainerBackground = styled.div`
   overflow-x: hidden;
 `;
 
-const Background = ({ children }: IChildrenProps) => {
+export const Background = ({ children }: IChildrenProps) => {
   return <ContainerBackground>{children}</ContainerBackground>;
 };
-
-export default Background;

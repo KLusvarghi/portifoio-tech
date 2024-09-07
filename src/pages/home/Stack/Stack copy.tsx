@@ -12,14 +12,9 @@ import sassSvg from './assets/sass.svg';
 import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
-import {
-  Wrapper,
-  ContainerCarrosel,
-  ContaienrImg,
-  StackImg,
-} from './styles';
 import UseWindowSize from '../../../hooks/useWindowSize';
 import { Main } from '../../../styles/mainContainer';
+import { Wrapper, ContainerCarrosel, CarrosselTexto, ContaienrImg, StackImg } from './styles';
 
 export const Stack = () => {
   const width = UseWindowSize();
@@ -49,16 +44,18 @@ export const Stack = () => {
       />
       <Wrapper>
         <ContainerCarrosel>
-          {svgFiles.map(({ index, path, name }) => (
-            <ContaienrImg key={index}>
-              <StackImg
-                $delay={index}
-                $length={svgFiles.length}
-                src={path}
-                alt={`SVG ${name}`}
-              />
-            </ContaienrImg>
-          ))}
+          <CarrosselTexto>
+            {svgFiles.map(({ index, path, name }) => (
+              <ContaienrImg key={index}>
+                <StackImg
+                  $delay={index}
+                  $length={svgFiles.length}
+                  src={path}
+                  alt={`SVG ${name}`}
+                />
+              </ContaienrImg>
+            ))}
+          </CarrosselTexto>
         </ContainerCarrosel>
       </Wrapper>
     </Main>

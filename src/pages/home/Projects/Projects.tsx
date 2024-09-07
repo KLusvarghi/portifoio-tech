@@ -7,6 +7,7 @@ import { Button } from '../../../components/Button/Button';
 import useSystemProjectContext from '../../../hooks/useSystemProjectContext ';
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '../../../utils/imageUtils';
+import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 import {
   Wrapper,
   ContainerProject,
@@ -27,10 +28,12 @@ export const Projects = () => {
 
   return (
     <Main id="projects">
-      <Title
-        title="Projetos"
-        subtitle="Aqui você encontrará alguns dos meus projetos pessoais mais recentes"
-      />
+      <AnimatedSection direction="toDown">
+        <Title
+          title="Projetos"
+          subtitle="Aqui você encontrará alguns dos meus projetos pessoais mais recentes"
+        />
+      </AnimatedSection>
       <Wrapper>
         {data.slice(0, visibleItems).map((project) => (
           <ContainerProject key={project.id}>
@@ -39,17 +42,23 @@ export const Projects = () => {
               alt={`imagem ilustrativa do projeto: ${project.name}`}
             />
             <ContainerContent>
-              <Typography variant="h4">{project.name}</Typography>
-              <Typography variant="body">{project.preDescription}</Typography>
-              <ContainerListTech id="tech">
-                {project.technologies.map((technology, index) => (
-                  <Tag key={index}>{technology}</Tag>
-                ))}
-              </ContainerListTech>
+              <AnimatedSection direction="toUp">
+                <Typography variant="h4">{project.name}</Typography>
+                <Typography variant="body">{project.preDescription}</Typography>
+              </AnimatedSection>
+              <AnimatedSection direction="toLeft">
+                <ContainerListTech id="tech">
+                  {project.technologies.map((technology, index) => (
+                    <Tag key={index}>{technology}</Tag>
+                  ))}
+                </ContainerListTech>
+              </AnimatedSection>
               <ContainerButton>
-                <Link to={`/home/projetos/${project.linkTo}`}>
-                  <Button variant="secondary">Mais Sobre</Button>
-                </Link>
+                <AnimatedSection direction="toRight">
+                  <Link to={`/home/projetos/${project.linkTo}`}>
+                    <Button variant="secondary">Mais Sobre</Button>
+                  </Link>
+                </AnimatedSection>
               </ContainerButton>
             </ContainerContent>
           </ContainerProject>

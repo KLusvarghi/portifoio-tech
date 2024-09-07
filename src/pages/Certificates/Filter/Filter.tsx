@@ -20,7 +20,6 @@ const ContainerFilter = styled.div`
 `;
 
 export const Filter = ({ filter, setFilter }: Props) => {
-
   const selectFilter = (option: IOpcao) => {
     if (filter === option.id) return setFilter(null);
     return setFilter(option.id);

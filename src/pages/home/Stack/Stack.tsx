@@ -15,6 +15,7 @@ import vscodeSvg from './assets/vscode.svg';
 import { Wrapper, ContainerCarrosel, ContaienrImg, StackImg } from './styles';
 import { Main } from '../../../styles/mainContainer';
 import { IUseWindoSizeProps } from '../../../types/auxProps';
+import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 
 export const Stack = ({ width }: IUseWindoSizeProps) => {
   const svgFiles = [
@@ -35,27 +36,31 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
 
   return (
     <Main id="stack">
-      <Title
-        title="Minha Stack de tecnologias"
-        subtitle="Aqui estão as linguagens, tecnologias e metodologias que detenho conhecimento e estudo diariamente"
-        position={width >= 1012 ? 'flex-start' : 'center'}
-      />
-      <Wrapper>
-        <ContainerCarrosel>
-          <div className="carousel-inner">
-            {svgFiles.map(({ index, path, name }) => (
-              <ContaienrImg key={index}>
-                <StackImg
-                  $delay={index}
-                  $length={svgFiles.length}
-                  src={path}
-                  alt={`SVG ${name}`}
-                />
-              </ContaienrImg>
-            ))}
-          </div>
-        </ContainerCarrosel>
-      </Wrapper>
+      <AnimatedSection direction="toDown">
+        <Title
+          title="Minha Stack de tecnologias"
+          subtitle="Aqui estão as linguagens, tecnologias e metodologias que detenho conhecimento e estudo diariamente"
+          position={width >= 1012 ? 'flex-start' : 'center'}
+        />
+      </AnimatedSection>
+      <AnimatedSection direction="toUp">
+        <Wrapper>
+          <ContainerCarrosel>
+            <div className="carousel-inner">
+              {svgFiles.map(({ index, path, name }) => (
+                <ContaienrImg key={index}>
+                  <StackImg
+                    $delay={index}
+                    $length={svgFiles.length}
+                    src={path}
+                    alt={`SVG ${name}`}
+                  />
+                </ContaienrImg>
+              ))}
+            </div>
+          </ContainerCarrosel>
+        </Wrapper>
+      </AnimatedSection>
     </Main>
   );
 };
