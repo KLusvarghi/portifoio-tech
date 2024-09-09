@@ -1,16 +1,15 @@
 import styled, { css } from 'styled-components';
+import { IStyledSvgProps } from '../../types/auxProps';
 
-interface IStyledStateProps {
+interface IStyledUlProps {
   $active: boolean;
-}
-
-interface IStyledThoggleThemeMenu {
-  $theme: string;
+  $isCertificates?: string;
+  $isProject?: string;
 }
 
 export const Main = styled.header<{ $isHome: boolean }>`
   background: ${(props) => props.theme.colors.bgGradient.a};
-  padding: 0 82px;
+  padding: 0 44px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,7 +58,9 @@ export const Nav = styled.nav`
   }
 `;
 
-export const UlHeader = styled.ul<IStyledStateProps>`
+export const UlHeader = styled.ul<IStyledUlProps>`
+  align-items: center;
+
   @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
     ${(props) => {
       switch (props.$active) {
@@ -130,30 +131,26 @@ export const LiHeader = styled.li`
   }
 `;
 
-export const WrapperToggleThemeMobile = styled.span<IStyledThoggleThemeMenu>`
+export const ToggleThemeMobile = styled.span<IStyledSvgProps>`
   text-align: center;
   height: 100%;
   width: 100%;
   border-radius: 0 0 5px 5px;
   transition: 0.2s ease-in;
+  background: ${(props) => props.theme.colors.primaries.a};
 
   &:hover {
     border-radius: 5px;
     transform: scale(1.03);
   }
 
-  ${(props) => {
-    switch (props.$theme) {
-      case 'dark':
-        return css`
-          background: ${(props) => props.theme.colors.primaries.a};
-        `;
-      default:
-        return css`
-          background: ${(props) => props.theme.colors.neutral.c5};
-        `;
-    }
-  }}
+  ${(props) =>
+    props.$theme === 'light' &&
+    css`
+      button {
+        color: ${(props) => props.theme.colors.neutral.c3};
+      }
+    `}
 `;
 
 export const ContainerButton = styled.div`

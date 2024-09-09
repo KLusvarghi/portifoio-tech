@@ -1,4 +1,9 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import {
+  autoRunFreela,
+  next,
+  scrolling,
+} from '../../../styles/keyframes/keyframes';
 
 export const Main = styled.main`
   height: 100vh;
@@ -25,15 +30,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-const autoRun = keyframes`
-  0% {
-    transform: translateX(0);  
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-`;
-
 export const ContainerFreela = styled.div`
   width: 20rem;
   overflow: hidden;
@@ -56,9 +52,21 @@ export const ContainerFreela = styled.div`
   p {
     padding-left: 146px;
     white-space: nowrap;
-    animation: ${autoRun} 10s infinite linear;
+    animation: ${autoRunFreela} 10s infinite linear;
     user-select: none;
     pointer-events: none;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      padding: 8px;
+      border-radius: 100%;
+      margin-right: 8px;
+      background-color: ${(props) => props.theme.colors.green};
+      border: 1px solid ${(props) => props.theme.colors.green};
+      margin-top: -2px;
+    }
   }
 `;
 
@@ -120,20 +128,6 @@ export const ContainerButton = styled.div`
   justify-content: center;
 `;
 
-const animate = keyframes`
-    0% {
-      opacity: 0;
-      transform: rotate(45deg) translate(-5px, -5px);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: rotate(45deg) translate(20px, 20px);
-    }
-  `;
-
 export const ContainerNextArrow = styled.div`
   position: absolute;
   bottom: 6%;
@@ -148,7 +142,7 @@ export const ContainerNextArrow = styled.div`
     border-right: 2px solid ${(props) => props.theme.colors.header.a};
     transform: rotate(45deg);
     margin: -8px;
-    animation: ${animate} 2s infinite;
+    animation: ${next} 2s infinite;
   }
 
   span:nth-child(2) {
@@ -160,21 +154,6 @@ export const ContainerNextArrow = styled.div`
 
   @media (max-width: 502px) {
     display: none;
-  }
-`;
-
-const scrolling = keyframes`
-  0% {
-    transform: translateY(-10px);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(8px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(14px);
-    opacity: 0;
   }
 `;
 

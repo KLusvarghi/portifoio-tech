@@ -48,7 +48,7 @@ const Contact = () => {
       .finally(() => {
         setTimeout(() => {
           setTextCopy(false);
-        }, 4000);
+        }, 2300);
       });
   };
   

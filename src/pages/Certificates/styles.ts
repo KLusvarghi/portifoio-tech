@@ -27,5 +27,4 @@ export const ContainerArrow = styled.div`
   align-self: flex-start;
   cursor: pointer;
   margin-bottom: 42px;
-  /* margin-left: 12px; */
 `;

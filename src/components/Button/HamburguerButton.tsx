@@ -3,12 +3,6 @@ import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { Typography } from '../Typography/Typography';
 import UseWindowSize from '../../hooks/useWindowSize';
 
-// const StyledLinearGradient = styled.span`
-//   position: absolute;
-//   top: 110%;
-//   right: 10%;
-// `;
-
 const ContainerHamburguer = styled.div`
   cursor: pointer;
   display: flex;
@@ -19,8 +13,9 @@ const ContainerHamburguer = styled.div`
   padding: 8px;
   border-radius: 5px;
   transition: 0.2s ease-in;
-
+  user-select: none;
   background-color: ${(props) => props.theme.colors.menu.bg};
+  
   &:hover {
     background-color: ${(props) => props.theme.colors.menu.hover};
     transform: scale(1.05);

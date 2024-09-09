@@ -10,6 +10,7 @@ declare module 'styled-components' {
       stackIcon: string;
       overlay: string;
       tecnologyStroke: string;
+      green: string;
       freela: {
         bg: string;
         border: string;

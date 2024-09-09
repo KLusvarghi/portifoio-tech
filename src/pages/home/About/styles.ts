@@ -107,15 +107,15 @@ export const ContaienrAttribute = styled.span`
   gap: 6px;
 
   p {
-    font-size: 16px;
+    font-size: 1em;
   }
 
   @media (max-width: 436px) {
     p {
-      font-size: 12px;
+      font-size: 0.75em;
     }
-    h1 {
-      font-size: 32px;
+    h2 {
+      font-size: 2em;
     }
   }
 `;

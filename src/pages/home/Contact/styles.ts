@@ -1,5 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { IStyledSvgProps } from '../../../types/auxProps';
+import { hideDown, showDown } from '../../../styles/keyframes/keyframes';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -47,27 +48,6 @@ export const ContainerIcone = styled.span<IStyledSvgProps>`
   }
 `;
 
-const showDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translate3d(0, -30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-`;
-const hideDown = keyframes`
-  from {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(0, 40px, 0);
-  }
-`;
-
 export const ContainerTextCopy = styled.div`
   position: absolute;
   top: 20%;
@@ -79,7 +59,7 @@ export const ContainerTextCopy = styled.div`
   border-radius: 4px;
 
   animation: ${showDown} 1s ease forwards, ${hideDown} 1s ease forwards;
-  animation-delay: 0s, 3.2s;
+  animation-delay: 0s, 2s;
 `;
 
 export const ContainerMessage = styled.div`
@@ -93,7 +73,7 @@ export const ContainerMessage = styled.div`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 40%);
 
   animation: ${showDown} 1s ease forwards, ${hideDown} 1s ease forwards;
-  animation-delay: 0s, 3.2s;
+  animation-delay: 0s, 2.6s;
 `;
 
 export const Message = styled.div`

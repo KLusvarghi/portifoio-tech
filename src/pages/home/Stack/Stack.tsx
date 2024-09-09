@@ -12,12 +12,21 @@ import sassSvg from './assets/sass.svg';
 import tailwindSvg from './assets/tailwind.svg';
 import typescriptSvg from './assets/typescript.svg';
 import vscodeSvg from './assets/vscode.svg';
-import { Wrapper, ContainerCarrosel, ContaienrImg, StackImg } from './styles';
 import { Main } from '../../../styles/mainContainer';
 import { IUseWindoSizeProps } from '../../../types/auxProps';
 import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
+import {
+  Wrapper,
+  ContainerCarrosel,
+  ContainerImg,
+  Tag,
+  StackImg,
+} from './styles';
+import { Typography } from '../../../components/Typography/Typography';
+import { useState } from 'react';
 
 export const Stack = ({ width }: IUseWindoSizeProps) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
     { index: 2, path: figmaSvg, name: 'Figma' },
@@ -46,18 +55,44 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
       <AnimatedSection direction="toUp">
         <Wrapper>
           <ContainerCarrosel>
-            <div className="carousel-inner">
-              {svgFiles.map(({ index, path, name }) => (
-                <ContaienrImg key={index}>
-                  <StackImg
-                    $delay={index}
-                    $length={svgFiles.length}
-                    src={path}
-                    alt={`SVG ${name}`}
-                  />
-                </ContaienrImg>
-              ))}
-            </div>
+            {svgFiles.map(({ index, path, name }) => (
+              <ContainerImg
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {hoveredIndex === index && (
+                  <Tag>
+                    <Typography variant="body">{name}</Typography>
+                  </Tag>
+                )}
+                <StackImg
+                  $delay={index}
+                  $length={svgFiles.length}
+                  src={path}
+                  alt={`SVG ${name}`}
+                />
+              </ContainerImg>
+            ))}
+            {svgFiles.map(({ index, path, name }) => (
+              <ContainerImg
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {hoveredIndex === index && (
+                  <Tag>
+                    <Typography variant="body">{name}</Typography>
+                  </Tag>
+                )}
+                <StackImg
+                  $delay={index}
+                  $length={svgFiles.length}
+                  src={path}
+                  alt={`SVG ${name}`}
+                />
+              </ContainerImg>
+            ))}
           </ContainerCarrosel>
         </Wrapper>
       </AnimatedSection>

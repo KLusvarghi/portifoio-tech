@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
-import styled, { css } from 'styled-components';
 import { ArrowNext } from '../Icons/ArrowNext';
+import { IStyledSvgProps } from '../../types/auxProps';
+import styled, { css } from 'styled-components';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface IButtonProps {
@@ -19,14 +20,13 @@ interface IButtonProps {
   width?: number;
   className?: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
-  isActive?: boolean | null;
 }
 
 const StyledButton = styled.button`
   font-family: ${(props) => props.theme.font.poppins};
   color: ${(props) => props.theme.colors.neutral.c2};
   line-height: 22px;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   border-radius: 5px;
   transition: ease-in-out 0.3s;
@@ -34,8 +34,6 @@ const StyledButton = styled.button`
   border: 1px solid transparent;
   padding: 0.75em 1.5em;
   white-space: nowrap;
-
-  
 `;
 
 const StyledArrow = styled.svg`
@@ -43,11 +41,7 @@ const StyledArrow = styled.svg`
   height: 11px;
 `;
 
-interface IStyledPrimaryProps {
-  $theme: string;
-}
-
-const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
+const PrimaryButton = styled(StyledButton)<IStyledSvgProps>`
   background: ${(props) => props.theme.colors.primaries.a};
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
   display: flex;
@@ -59,19 +53,35 @@ const PrimaryButton = styled(StyledButton)<IStyledPrimaryProps>`
     box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.neutral.c1};
     color: ${(props) => props.theme.colors.primaries.a};
   }
-
 `;
 
-const SecondaryButton = styled(StyledButton)`
+const SecondaryButton = styled(StyledButton)<IStyledSvgProps>`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.header.b};
-  background: ${(props) => props.theme.colors.btnSecundary};
 
-  &:hover {
-    background: transparent;
-    color: ${(props) => props.theme.colors.btnHeader};
-    box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
-  }
+  ${(props) => {
+    switch (props.$theme) {
+      case 'dark':
+        return css`
+          color: ${(props) => props.theme.colors.header.b};
+          background: ${(props) => props.theme.colors.btnSecundary};
+
+          &:hover {
+            background: transparent;
+            box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
+          }
+        `;
+      default:
+        return css`
+          color: ${(props) => props.theme.colors.neutral.c10};
+          background: ${(props) => props.theme.colors.neutral.c3};
+
+          &:hover {
+            background: transparent;
+            box-shadow: 0 0 6px ${(props) => props.theme.colors.btnHeader};
+          }
+        `;
+    }
+  }}
 `;
 
 const OutlineButton = styled(StyledButton)`
@@ -100,6 +110,7 @@ const TransparentButton = styled(StyledButton)`
   border: 2px solid transparent;
   font-weight: 600;
   color: ${(props) => props.theme.colors.primaries.a};
+
   &:hover {
     border: 2px solid ${(props) => props.theme.colors.primaries.a};
   }
@@ -136,17 +147,42 @@ const FooterButton = styled(StyledButton)`
   font-weight: 500;
 `;
 
-const FilterButton = styled(StyledButton)<{ $isActive: boolean | null | undefined }>`
-  background: transparent;
+const FilterButton = styled(StyledButton)<{
+  $theme: string;
+}>`
   color: ${(props) => props.theme.colors.footer.b};
-  /* padding: 0 1.2em 0.2em; */
-  padding: 4px 12px;
+  padding: 4px 8px;
   margin: 0;
   border: none;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;
-  background: ${(props) => (props.$isActive ? '#000' : '#102444')};
+
+  ${({ $theme }) =>
+    $theme == 'dark'
+      ? css`
+          background: ${(props) => props.theme.colors.bgGradient.b};
+
+          &:focus {
+            background: ${(props) => props.theme.colors.neutral.c9};
+          }
+          &:hover {
+            background: ${(props) => props.theme.colors.neutral.c9};
+          }
+        `
+      : css`
+          background: ${(props) => props.theme.colors.neutral.c3};
+          color: ${(props) => props.theme.colors.neutral.c8};
+
+          &:focus {
+            background: ${(props) => props.theme.colors.neutral.c5};
+            color: ${(props) => props.theme.colors.neutral.c9};
+          }
+
+          &:hover {
+            background: ${(props) => props.theme.colors.neutral.c5};
+          }
+        `}
 `;
 
 export const Button = ({
@@ -156,7 +192,6 @@ export const Button = ({
   onClick,
   width = 0,
   type = 'button',
-  isActive,
   ...props
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
@@ -183,12 +218,19 @@ export const Button = ({
 
   switch (variant) {
     case 'secondary':
-      return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
+      return (
+        <SecondaryButton $theme={theme.title} onClick={onClick}>
+          {children}
+        </SecondaryButton>
+      );
     case 'outline':
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
     case 'filter':
       return (
-        <FilterButton $isActive={isActive} onClick={onClick}>
+        <FilterButton
+          $theme={theme.title}
+          onClick={onClick}
+        >
           {children}
         </FilterButton>
       );

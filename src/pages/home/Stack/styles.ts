@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { autoRunStack } from '../../../styles/keyframes/keyframes';
 
 interface IStyledStackProps {
   $length: number;
@@ -6,7 +7,6 @@ interface IStyledStackProps {
 }
 
 export const Wrapper = styled.div`
-  overflow: hidden;
   margin-top: 60px;
   position: relative;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
@@ -16,60 +16,72 @@ export const Wrapper = styled.div`
     #000 10% 90%,
     transparent
   );
+  height: 120px;
 
   @media (max-width: 680px) {
     margin-bottom: 80px;
   }
-`;
+  /* height: 380px; */
 
-const infiniteScroll = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 `;
 
 export const ContainerCarrosel = styled.div`
-  overflow: hidden;
-  position: relative;
   display: flex;
-  width: 100%;
-  /* Adicione um contêiner interno para a animação contínua */
+  gap: 32px;
+  position: relative;
+  width: 300%; //arrumar issooooooooooooooooo
+  /* height: 580px; */
 
-  .carousel-inner {
-    display: flex;
-    width: 200%; /* Duplique a largura do contêiner para incluir as imagens duplicadas */
-  }
+  &:hover {
+    filter: grayscale(1);
 
-  @media (max-width: 502px) {
-    .carousel-inner {
-      width: 400%; /* Ajuste a largura para mais imagens conforme necessário */
+    div {
+      animation-play-state: paused;
+
+      img{
+        
+      }
     }
   }
 `;
 
-export const ContaienrImg = styled.div`
-  flex: 1 0 auto;
-  min-width: 120px; /* Ajuste conforme o tamanho das suas imagens */
-  display: flex;
+export const ContainerImg = styled.div`
+  position: relative;
+  white-space: nowrap;
+  transition: 0.2s ease-in;
+  text-align: center;
+  height: 100%;
+
+  /* animation: ${autoRunStack} 13s infinite linear; */
+  &:hover {
+    
+    img {
+      filter: grayscale(0) !important;
+      cursor: pointer;
+    }
+  }
+`;
+
+export const Tag = styled.span`
+  position: absolute;
+  /* width: 100%; */
+  /* top: -10px; */
   justify-content: center;
-  align-items: center;
+  display: flex;
 `;
 
 export const StackImg = styled.img<IStyledStackProps>`
-  width: 100%; /* Ajuste o tamanho das imagens conforme necessário */
-  animation: ${infiniteScroll} 15s linear infinite;
-  animation-delay: ${({ $delay }) => $delay}s;
-  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease-in;
+  position: relative;
+
 
   &:hover {
-    filter: grayscale(0) !important;
-    transform: scale(1.08);
+    /* filter: grayscale(0) !important; */
+    transform: scale(1.525);
   }
 
-  @media (max-width: 675px) {
-    max-width: 70px;
+  @media (max-width: 600px) {
+    width: 70%;
   }
 `;

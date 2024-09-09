@@ -4,6 +4,7 @@ export default {
     stackIcon: 'rgba(34,94,132,80)',
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#122442',
+    green: '#00ff0a',
     freela: {
       bg: '#0A1628',
       border: '#5D616B'

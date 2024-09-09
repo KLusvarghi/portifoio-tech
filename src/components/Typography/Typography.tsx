@@ -3,8 +3,6 @@ import { ReactNode } from 'react';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { css } from 'styled-components';
 
-//  sendo o component é o que será renderizado
-
 interface IStyledTypographProps {
   $theme: string;
 }
@@ -83,7 +81,7 @@ const components = {
     }
   `,
 
-  h5: styled.h5<IStyledTypographProps>`
+  h5: styled.h4<IStyledTypographProps>`
     font-size: 1.375em;
     font-weight: 600;
     font-family: ${(props) => props.theme.font.poppins};
@@ -154,19 +152,20 @@ const components = {
 interface ITypographerProps {
   variant?: keyof typeof components;
   children: ReactNode;
-  onCLick?: () => void
+  onCLick?: () => void;
 }
 
-// 'variant' o que será exibido de fato
 export const Typography = ({
   variant = 'title',
   children,
-  onCLick
+  onCLick,
 }: ITypographerProps) => {
   const { theme } = useSystemThemeContext();
 
   const ContainerTypography = components[variant];
   return (
-    <ContainerTypography onClick={onCLick} $theme={theme.title}>{children}</ContainerTypography>
+    <ContainerTypography onClick={onCLick} $theme={theme.title}>
+      {children}
+    </ContainerTypography>
   );
 };

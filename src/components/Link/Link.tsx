@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface ILinkProps {
   children: ReactNode;
-  url: string;
+  href: string;
   blank?: boolean;
 }
 
@@ -14,9 +14,9 @@ const StyledLink = styled.a`
   width: 100%;
 `;
 
-export const Link = ({ children, url, blank = true }: ILinkProps) => {
+export const Link = ({ children, href, blank = true }: ILinkProps) => {
   return (
-    <StyledLink href={url} target={blank ? '_blank' : '_self'}>
+    <StyledLink href={href} target={blank ? '_blank' : '_self'}>
       {children}
     </StyledLink>
   );

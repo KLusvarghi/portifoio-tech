@@ -19,6 +19,7 @@ const ContainerForm = styled.div`
 
 const ContainerButton = styled.div`
   margin-top: 24px;
+
   button {
     width: 100%;
   }
@@ -59,7 +60,7 @@ export const Forms = ({
         message: '',
       }}
       validationSchema={schema}
-      onSubmit={(response) => {
+      onSubmit={(response, { resetForm }) => {
         const templateParams = {
           name: response.name,
           subject: response.subject,
@@ -83,9 +84,10 @@ export const Forms = ({
             },
           );
         setSuccesForm(true);
+        resetForm();
         setTimeout(() => {
           setSuccesForm(false);
-        }, 4000);
+        }, 3000);
       }}
     >
       {(formik) => (

@@ -29,7 +29,6 @@ export const Filter = ({ filter, setFilter }: Props) => {
     <ContainerFilter>
       {filterApi.map((option) => (
         <Button
-          isActive={filter === option.id}
           variant="filter"
           onClick={() => {
             selectFilter(option);
