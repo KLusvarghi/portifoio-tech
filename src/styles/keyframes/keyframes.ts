@@ -68,3 +68,9 @@ export const scrolling = keyframes`
     opacity: 0;
   }
 `;
+
+export const spinner = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;

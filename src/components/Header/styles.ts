@@ -154,6 +154,7 @@ export const ToggleThemeMobile = styled.span<IStyledSvgProps>`
 `;
 
 export const ContainerButton = styled.div`
+  margin-left: 18px;
   @media (max-width: ${(props) => props.theme.breakpoint.mobile}) {
     display: none;
   }

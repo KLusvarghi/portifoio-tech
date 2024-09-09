@@ -20,6 +20,7 @@ interface IButtonProps {
   width?: number;
   className?: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  active?: boolean | undefined;
 }
 
 const StyledButton = styled.button`
@@ -147,9 +148,12 @@ const FooterButton = styled(StyledButton)`
   font-weight: 500;
 `;
 
-const FilterButton = styled(StyledButton)<{
+interface IStyledFilterProps {
   $theme: string;
-}>`
+  $active: boolean | undefined;
+}
+
+const FilterButton = styled(StyledButton)<IStyledFilterProps>`
   color: ${(props) => props.theme.colors.footer.b};
   padding: 4px 8px;
   margin: 0;
@@ -158,30 +162,19 @@ const FilterButton = styled(StyledButton)<{
   line-height: 1.5em;
   font-weight: 500;
 
-  ${({ $theme }) =>
-    $theme == 'dark'
-      ? css`
-          background: ${(props) => props.theme.colors.bgGradient.b};
+  &:hover {
+    background: ${(props) => props.theme.colors.filter.activebg};
+  }
 
-          &:focus {
-            background: ${(props) => props.theme.colors.neutral.c9};
-          }
-          &:hover {
-            background: ${(props) => props.theme.colors.neutral.c9};
-          }
+  ${(props) =>
+    props.$active
+      ? css`
+          background: ${(props) => props.theme.colors.filter.activebg};
+          color: ${(props) => props.theme.colors.filter.activeColor};
         `
       : css`
-          background: ${(props) => props.theme.colors.neutral.c3};
-          color: ${(props) => props.theme.colors.neutral.c8};
-
-          &:focus {
-            background: ${(props) => props.theme.colors.neutral.c5};
-            color: ${(props) => props.theme.colors.neutral.c9};
-          }
-
-          &:hover {
-            background: ${(props) => props.theme.colors.neutral.c5};
-          }
+          background: ${(props) => props.theme.colors.filter.bg};
+          color: ${(props) => props.theme.colors.filter.color};
         `}
 `;
 
@@ -192,6 +185,7 @@ export const Button = ({
   onClick,
   width = 0,
   type = 'button',
+  active,
   ...props
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
@@ -227,10 +221,7 @@ export const Button = ({
       return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
     case 'filter':
       return (
-        <FilterButton
-          $theme={theme.title}
-          onClick={onClick}
-        >
+        <FilterButton $active={active} $theme={theme.title} onClick={onClick}>
           {children}
         </FilterButton>
       );

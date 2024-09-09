@@ -11,6 +11,12 @@ declare module 'styled-components' {
       overlay: string;
       tecnologyStroke: string;
       green: string;
+      filter: {
+        bg: string;
+        color: string;
+        activebg: string;
+        activeColor: string;
+      };
       freela: {
         bg: string;
         border: string;

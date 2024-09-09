@@ -36,10 +36,12 @@ const Introduction = ({ refContainer }: RefProps) => {
     <Main ref={refContainer} id="intro">
       <Wrapper>
         {width > 832 && (
-          <ContainerFreela>
-            <Typography variant="body">Disponível para freelance!</Typography>
-            <Typography variant="body">Disponível para freelance!</Typography>
-          </ContainerFreela>
+          <AnimatedSection direction="toUp">
+            <ContainerFreela>
+              <Typography variant="body">Disponível para freelance!</Typography>
+              <Typography variant="body">Disponível para freelance!</Typography>
+            </ContainerFreela>
+          </AnimatedSection>
         )}
         <ContainerContent>
           <AnimatedSection direction="toDown">

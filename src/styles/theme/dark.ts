@@ -5,6 +5,12 @@ export default {
     overlay: 'rgba(0,0,0,29)',
     tecnologyStroke: '#122442',
     green: '#00ff0a',
+    filter: {
+      bg: '#0F1C34',
+      color: '#AAAEB6',
+      activebg: '#112442',
+      activeColor: '#E8EBED',
+    },
     freela: {
       bg: '#0A1628',
       border: '#5D616B'

@@ -5,12 +5,14 @@ import { Filter } from './Filter/Filter';
 import { Itens } from './Itens/Itens';
 import { Main, Wrapper, ContainerArrow } from './styles';
 import { ArrowBack } from '../../components/Icons/ArrowBack';
-import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { useNavigate } from 'react-router-dom';
 import { AnimatedSection } from '../../components/AnimatedSection/AnimatedSection';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
+import { ModalZoom } from './ModalZoom/ModalZoom';
 
 const Certificates = () => {
   const [filter, setFilter] = useState<number | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
   const { theme } = useSystemThemeContext();
   const navigate = useNavigate();
 
@@ -27,13 +29,17 @@ const Certificates = () => {
         <Title title="Minhas certificações tech" />
       </AnimatedSection>
       <Wrapper>
-        <AnimatedSection direction="toUp">
+        <AnimatedSection direction="toRight">
           <Filter filter={filter} setFilter={setFilter} />
         </AnimatedSection>
-        <AnimatedSection direction="toRight">
-          <Itens filter={filter} />
+        <AnimatedSection direction="toUp">
+          <Itens
+            filter={filter}
+            onSelectedPhoto={(photo) => setSelectedPhoto(photo)}
+          />
         </AnimatedSection>
       </Wrapper>
+      <ModalZoom photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
     </Main>
   );
 };

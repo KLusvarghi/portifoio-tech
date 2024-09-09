@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Button } from '../../../components/Button/Button';
 import filterApi from './filter.json';
+import { Button } from '../../../components/Button/Button';
 
 interface Props {
   filter: number | null;
@@ -29,11 +29,12 @@ export const Filter = ({ filter, setFilter }: Props) => {
     <ContainerFilter>
       {filterApi.map((option) => (
         <Button
+          key={option.id}
           variant="filter"
+          active={filter === option.id}
           onClick={() => {
             selectFilter(option);
           }}
-          key={option.id}
         >
           {option.label}
         </Button>

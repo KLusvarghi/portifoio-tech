@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import certificatesApi from '../../../api/certificatesApi.json';
 import styled from 'styled-components';
 import { Item } from './Item/Item';
+import Spinner from '../../../components/Spinner/Spinner';
 
 const ContainerItens = styled.div`
   display: flex;
@@ -11,7 +12,13 @@ const ContainerItens = styled.div`
   margin-bottom: 60px;
 `;
 
-export const Itens = ({ filter }: { filter: number | null }) => {
+interface IItensProps {
+  filter: number | null;
+  onSelectedPhoto: (photo: number) => void;
+}
+
+export const Itens = ({ filter, onSelectedPhoto }: IItensProps) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [list, setList] = useState(certificatesApi);
 
   const filterTest = useCallback(
@@ -23,17 +30,33 @@ export const Itens = ({ filter }: { filter: number | null }) => {
   );
 
   useEffect(() => {
+    setIsLoading(true);
     const newList = certificatesApi.filter((item) =>
-      filterTest(item.category.id),
+      filterTest(item.category ? item.category.id : [1]),
     );
-    setList(newList);
+
+    setTimeout(() => {
+      setList(newList);
+      setIsLoading(false);
+    }, 500);
   }, [filterTest]);
 
   return (
     <ContainerItens>
-      {list.map((item) => (
-        <Item key={item.id} {...item} />
-      ))}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        list.map((item) =>
+          item.id && item.name ? (
+            <Item
+              onSelectedZoom={onSelectedPhoto}
+              key={item.id}
+              id={item.id}
+              name={item.name}
+            />
+          ) : null,
+        )
+      )}
     </ContainerItens>
   );
 };
