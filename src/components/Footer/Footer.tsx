@@ -82,14 +82,14 @@ export const Footer = () => {
             </>
           ) : (
             <LiFooter>
-              <RouterLink to={'/home'}>
+              <RouterLink to={'/'}>
                 <Button variant="footer">Home</Button>
               </RouterLink>
             </LiFooter>
           )}
           {!isCertificates && (
             <LiFooter>
-              <RouterLink to={'/home/certificados'}>
+              <RouterLink to={'/certificados'}>
                 <Button variant="footer">Certificados</Button>
               </RouterLink>
             </LiFooter>

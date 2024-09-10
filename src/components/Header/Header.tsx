@@ -49,7 +49,7 @@ const HeaderLinks = ({
   <>
     {isCertificates || isProject ? (
       <LiHeader>
-        <RouterLink to="/home">
+        <RouterLink to="/">
           <Button variant="header" width={width}>
             Home
           </Button>
@@ -98,7 +98,7 @@ const HeaderLinks = ({
     )}
     {!isCertificates && (
       <LiHeader>
-        <RouterLink to="/home/certificados">
+        <RouterLink to="/certificados">
           <Button variant="header" width={width}>
             Certificados
           </Button>
@@ -164,7 +164,7 @@ export const Header = () => {
         <Row>
           <Col>
             <ContainerLogo>
-              <RouterLink to="/home">
+              <RouterLink to="/">
                 <PortifolioLogo
                   width={width < 1100 ? 201 : 231}
                   height={width < 1100 ? 36 : 42}

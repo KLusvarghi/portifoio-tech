@@ -22,7 +22,7 @@ const Certificates = () => {
         title="Certificados | Kauã Ortolani Lusvarghi"
         description="Página com todos meus certificados"
       />
-      <ContainerArrow onClick={() => navigate('/home')}>
+      <ContainerArrow onClick={() => navigate('/')}>
         <ArrowBack theme={theme.title} />
       </ContainerArrow>
       <AnimatedSection direction="toDown">

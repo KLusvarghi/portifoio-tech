@@ -7,7 +7,7 @@ import ProjectDetails from '../pages/Projects/ProjectDetails';
 
 export const router = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [
@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/home/certificados',
+    path: '/certificados',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [
@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/home/projetos/:id',
+    path: '/projetos/:id',
     element: <BaseLayout />,
     ErrorBoundary: Pagina404,
     children: [

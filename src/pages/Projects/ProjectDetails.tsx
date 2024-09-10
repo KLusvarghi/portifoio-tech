@@ -47,7 +47,7 @@ const ProjectDetails = () => {
   const width = UseWindowSize();
 
   const goToBack = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   useEffect(() => {

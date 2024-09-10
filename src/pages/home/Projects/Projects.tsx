@@ -55,7 +55,7 @@ export const Projects = () => {
               </AnimatedSection>
               <ContainerButton>
                 <AnimatedSection direction="toRight">
-                  <Link to={`/home/projetos/${project.linkTo}`}>
+                  <Link to={`/projetos/${project.linkTo}`}>
                     <Button variant="secondary">Mais Sobre</Button>
                   </Link>
                 </AnimatedSection>
