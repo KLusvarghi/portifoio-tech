@@ -1,6 +1,6 @@
 export const getImageUrl = (name: string, directory: string) => {
   if (name.includes('svg')) {
-    return `/home/assets/${directory}/${name}`;
+    return `/assets/${directory}/${name}`;
   }
-  return `/home/assets/${directory}/${name}.png`;
+  return `/assets/${directory}/${name}.png`;
 }
