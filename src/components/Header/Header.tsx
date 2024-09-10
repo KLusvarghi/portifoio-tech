@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from '../../components/Link/Link';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
@@ -19,6 +19,7 @@ import {
   ToggleThemeMobile,
   ContainerButton,
 } from './styles';
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface IHeaderLinksProps {
   width: number;
@@ -148,6 +149,13 @@ export const Header = () => {
   const width = UseWindowSize();
   const { theme, setTheme } = useSystemThemeContext();
   const [active, setActive] = useState(false);
+  const menuRef = useRef<HTMLUListElement | null>(null);
+
+  const closeMenuMobile = () => {
+    setActive(false);
+  };
+
+  useOutsideClick({ onClose: closeMenuMobile, ref: menuRef });
 
   const options = {
     onClick: () => setActive(false),
@@ -176,9 +184,10 @@ export const Header = () => {
           <Col>
             <Nav>
               <UlHeader
+                ref={menuRef}
                 $active={active}
-                onMouseLeave={() => setActive(false)}
-                onClick={() => setActive(false)}
+                onMouseLeave={closeMenuMobile}
+                onClick={closeMenuMobile}
               >
                 <HeaderLinks
                   width={width}

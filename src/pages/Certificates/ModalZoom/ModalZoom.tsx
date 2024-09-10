@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import close from '/icons/fechar.png';
-import { useCallback, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Image } from '../Image/Image';
+import useOutsideClick from '../../../hooks/useOutsideClick';
 
 interface IModalZoomProps {
   photo: number | null;
@@ -55,32 +56,7 @@ export const Close = styled.img`
 export const ModalZoom = ({ photo, onClose }: IModalZoomProps) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
 
-  const handleClickOutside = useCallback(
-    (event: MouseEvent) => {
-      if (imgRef.current) {
-        // sendo rect o valor da imagem e clientX e Y o valor de onde foi clicado
-        const rect = imgRef.current.getBoundingClientRect();
-        const { clientX, clientY } = event;
-        if (
-          clientX < rect.left ||
-          clientX > rect.right ||
-          clientY < rect.top ||
-          clientY > rect.bottom
-        ) {
-          onClose();
-        }
-      }
-    },
-    [onClose],
-  );
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [handleClickOutside]);
+  useOutsideClick({ onClose, ref: imgRef });
 
   return (
     <>
