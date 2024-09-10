@@ -122,7 +122,7 @@ export const Forms = ({
             />
             <TextArea
               gridArea="message"
-              placeholder="O que teme em mente?"
+              placeholder="O que tem em mente?"
               name="message"
               type="textarea"
               value={formik.values.message}

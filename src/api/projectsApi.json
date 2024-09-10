@@ -3,7 +3,7 @@
     "id": 1,
     "name": "sorteador de amigo secreto",
     "preDescription": "O Sorteador de Amigo Secreto é uma aplicação que torna o sorteio de amigo secreto mais prático, rápido e adequado ao ambiente digital atual.",
-    "description": "O Sorteador de Amigo Secreto é uma aplicação desenvolvida com o propósito de viabilizar a realização do tradicional sorteio de amigo secreto de maneira exponencialmente mais prática, ágil e adaptada ao ambiente digital contemporâneo.Este inovador aplicativo foi concebido levando-se primordialmente em consideração a necessidade de eliminar por completo qualquer possibilidade de duplicidade de names ou de jogadores distintos se sortearem mutuamente. Esse desafio é abordado com extrema meticulosidade por meio de um algoritmo robusto e criteriosamente planejado, que opera nos bastidores para garantir a integridade e a equidade do processo de sorteio.",
+    "description": "O Sorteador de Amigo Secreto é uma aplicação desenvolvida com o propósito de viabilizar a realização do tradicional sorteio de amigo secreto de maneira exponencialmente mais prática, ágil e adaptada ao ambiente digital contemporâneo. Este inovador aplicativo foi concebido levando-se primordialmente em consideração a necessidade de eliminar por completo qualquer possibilidade de duplicidade de names ou de jogadores distintos se sortearem mutuamente. Esse desafio é abordado com extrema meticulosidade por meio de um algoritmo robusto e criteriosamente planejado, que opera nos bastidores para garantir a integridade e a equidade do processo de sorteio.",
     "technologies": [
       "typescript",
       "react",
