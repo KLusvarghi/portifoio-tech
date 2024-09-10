@@ -67,8 +67,8 @@ const Introduction = ({ refContainer }: RefProps) => {
           <ContainerDescription>
             <AnimatedSection direction="toRight">
               <Typography variant="body">
-                Sou um jovem engenheiro de software especializado aplciações
-                web, apaixonado por desafios que me permitem criar e desenvolver
+                Sou um jovem engenheiro de software especializado aplicações
+                web, em busca do primeiro emprego na área de tecnologia, sou apaixonado por desafios que me permitem criar e desenvolver
                 interfaces intuitivas e eficientes a partir de código.
               </Typography>
             </AnimatedSection>

@@ -10,11 +10,8 @@ export const autoRunFreela = keyframes`
 `;
 
 export const autoRunStack = keyframes`
-  0% {
-    transform: translateX(0);  
-  }
   100% {
-    transform: translateX(-2000px);
+    left: -200px;
   }
 `;
 

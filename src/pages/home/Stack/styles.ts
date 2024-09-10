@@ -6,9 +6,13 @@ interface IStyledStackProps {
   $delay: number;
 }
 
-export const Wrapper = styled.div`
-  margin-top: 60px;
+export const ContainerCarrosel = styled.div`
   position: relative;
+  margin-top: 8px;
+  height: 250px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
   --webkit-mask-image: linear-gradient(
     to right,
@@ -16,72 +20,55 @@ export const Wrapper = styled.div`
     #000 10% 90%,
     transparent
   );
-  height: 120px;
+
+  &:hover {
+    div {
+      animation-play-state: paused;
+      /* filter: grayscale(1); */
+    }
+  }
 
   @media (max-width: 680px) {
     margin-bottom: 80px;
   }
-  /* height: 380px; */
-
 `;
 
-export const ContainerCarrosel = styled.div`
+export const ContainerImg = styled.div<IStyledStackProps>`
+  position: absolute;
+  left: max(calc(200px * 13), 100%);
   display: flex;
-  gap: 32px;
-  position: relative;
-  width: 300%; //arrumar issooooooooooooooooo
-  /* height: 580px; */
+  gap: 20px;
+  height: 130px;
+  align-items: flex-end;
+  border-radius: 5px;
+  animation: ${autoRunStack} infinite linear;
+  animation-duration: ${({ $length }) => `calc(${$length * 1.5}s)`};
+  animation-delay: ${({ $delay, $length }) =>
+    `calc(${(($length * 1.5) / $length) * ($length - $delay) - 18}s)`};
 
   &:hover {
-    filter: grayscale(1);
-
-    div {
-      animation-play-state: paused;
-
-      img{
-        
-      }
-    }
-  }
-`;
-
-export const ContainerImg = styled.div`
-  position: relative;
-  white-space: nowrap;
-  transition: 0.2s ease-in;
-  text-align: center;
-  height: 100%;
-
-  /* animation: ${autoRunStack} 13s infinite linear; */
-  &:hover {
-    
-    img {
-      filter: grayscale(0) !important;
-      cursor: pointer;
-    }
   }
 `;
 
 export const Tag = styled.span`
   position: absolute;
-  /* width: 100%; */
-  /* top: -10px; */
-  justify-content: center;
-  display: flex;
+  text-align: center;
+  width: 100%;
+  top: -36px;
 `;
 
-export const StackImg = styled.img<IStyledStackProps>`
+export const StackImg = styled.img`
   white-space: nowrap;
   transition: 0.2s ease-in;
   position: relative;
 
-
   &:hover {
-    /* filter: grayscale(0) !important; */
+    cursor: pointer;
     transform: scale(1.525);
+    /* filter: grayscale(0) !important; */
   }
 
   @media (max-width: 600px) {
-    width: 70%;
+    height: 70%;
   }
 `;
