@@ -1,5 +1,6 @@
-import { getImageUrl } from '../../../utils/imageUtils';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
+import { getImageUrl } from '../../../utils/imageUtils';
 
 export const Container = styled.img`
   max-height: 120px;
@@ -7,9 +8,11 @@ export const Container = styled.img`
   cursor: pointer;
   transition: 0.2s ease-in;
 
-  &:hover {
-    border-radius: 0px;
-    transform: scale(1.525);
+  @media (min-width: 660px) {
+    &:hover {
+      /* border-radius: 0px; */
+      transform: scale(1.525);
+    }
   }
 
   @media (max-width: 460px) {
@@ -17,11 +20,18 @@ export const Container = styled.img`
   }
 `;
 
-export const Image = ({ photo }: { photo: number }) => {
-  return (
-    <Container
-      src={getImageUrl(photo.toString(), 'certificatesPng')}
-      alt={`imagem ilustrativa do certificado com id: ${photo}`}
-    />
-  );
-};
+interface IImageProps {
+  photo: number;
+}
+
+export const Image = forwardRef<HTMLImageElement, IImageProps>(
+  ({ photo }, ref) => {
+    return (
+      <Container
+        ref={ref}
+        src={getImageUrl(photo.toString(), 'certificatesPng')}
+        alt={`imagem ilustrativa do certificado com id: ${photo}`}
+      />
+    );
+  },
+);

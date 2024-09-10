@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Image } from '../Image/Image';
 import close from '/icons/fechar.png';
+import { useCallback, useEffect, useRef } from 'react';
+import { Image } from '../Image/Image';
 
 interface IModalZoomProps {
   photo: number | null;
@@ -20,37 +21,75 @@ export const Overlay = styled.div`
   align-items: center;
 
   img {
+    border-radius: none !important;
     max-height: 420px;
     cursor: auto;
 
+    @media (max-width: 660px) {
+      max-height: 220px;
+    }
+
     &:hover {
       transform: scale(1);
+      border-radius: none;
     }
   }
 `;
 
-export const Close = styled.img`
-  margin-left: 12px;
+export const Box = styled.div`
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
+  flex-direction: column;
+`;
 
-  &:hover {
-    transform: scale(1.25);
-  }
+export const Close = styled.img`
+  position: relative;
+  max-width: 22px;
+  top: +34px;
+  right: +15px;
+  align-self: flex-end;
+  z-index: 1000;
+  cursor: pointer !important;
 `;
 
 export const ModalZoom = ({ photo, onClose }: IModalZoomProps) => {
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (imgRef.current) {
+        // sendo rect o valor da imagem e clientX e Y o valor de onde foi clicado
+        const rect = imgRef.current.getBoundingClientRect();
+        const { clientX, clientY } = event;
+        if (
+          clientX < rect.left ||
+          clientX > rect.right ||
+          clientY < rect.top ||
+          clientY > rect.bottom
+        ) {
+          onClose();
+        }
+      }
+    },
+    [onClose],
+  );
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
   return (
     <>
       {photo && (
         <Overlay>
-          <Close src={close} onClick={onClose} />
-          <Image photo={photo} />
+          <Box>
+            <Close src={close} onClick={onClose} />
+            <Image ref={imgRef} photo={photo} />
+          </Box>
         </Overlay>
       )}
     </>

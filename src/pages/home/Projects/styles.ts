@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 
   @media (max-width: 680px) {
     margin-bottom: 80px;
-  gap: 32px;
   }
 
   @media (max-width: 431px) {
@@ -67,7 +66,7 @@ export const ContainerContent = styled.div`
   flex-direction: column;
   gap: 12px;
   max-width: 50%;
-  
+
   @media (max-width: 1180px) {
     align-items: center;
     max-width: 80%;

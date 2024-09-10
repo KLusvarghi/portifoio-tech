@@ -154,7 +154,7 @@ const About = ({ width }: IUseWindoSizeProps) => {
                   </Typography>
                 </ContaienrAttribute>
               </ContainerXp>
-              <Link url="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
+              <Link href="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
                 <Button>Baixar CV</Button>
               </Link>
             </ContainerInformations>

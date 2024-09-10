@@ -22,6 +22,12 @@ export const Wrapper = styled.div`
 
 export const ContainerTitle = styled.div`
   text-align: center;
+
+  @media (max-width: 640px) {
+    h2 {
+      font-size: 2.625em;
+    }
+  }
 `;
 
 export const ContainerArrow = styled.div`

@@ -10,6 +10,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { ArrowBack } from '../../components/Icons/ArrowBack';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import UseWindowSize from '../../hooks/useWindowSize';
+import { AnimatedSection } from '../../components/AnimatedSection/AnimatedSection';
 import {
   Main,
   Wrapper,
@@ -23,7 +24,6 @@ import {
   ContainerButton,
   Image,
 } from './styles';
-import { AnimatedSection } from '../../components/AnimatedSection/AnimatedSection';
 
 interface IProjectProps {
   id: number;
