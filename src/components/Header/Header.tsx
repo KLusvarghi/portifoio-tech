@@ -161,7 +161,7 @@ export const Header = () => {
     onClick: () => setActive(false),
     spy: true,
     smooth: true,
-    offset: -162,
+    offset: width > 680 ? -122 : -42,
     duration: 500,
     isDynamic: true,
   };
