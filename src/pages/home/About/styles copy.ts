@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -40,6 +41,33 @@ export const LinkText = styled.a`
 
   &:hover {
     color: ${(props) => props.theme.colors.title.separator};
+  }
+`;
+
+interface IStyledTextProps {
+  $theme?: string;
+  $x: number;
+  $y: number;
+  $hover: boolean;
+}
+
+export const ContainerAcessibility = styled.span<IStyledTextProps>`
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: 'Acessibilidade';
+    position: absolute;
+    left: ${({ $x }) => $x}px;
+    top: ${({ $y }) => $y - 30}px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none; /* Faz com que o mouse não interaja com o elemento */
+    opacity: ${({ $hover }) => ($hover ? 1 : 0)};
+    transition: opacity 0.2s ease;
   }
 `;
 

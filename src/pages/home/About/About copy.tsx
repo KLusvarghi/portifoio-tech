@@ -15,6 +15,7 @@ import {
   TextBold,
   Img,
   LinkText,
+  ContainerAcessibility,
   ContainerTypograph,
   ContainerInformations,
   ContainerXp,
@@ -23,8 +24,13 @@ import {
 
 const About = ({ width }: IUseWindoSizeProps) => {
   const { data, error } = useFetchData(urlgitHub);
+  const [hover, setHover] = useState(false);
   const [allRepositories, setAllRepositories] = useState<number | null>(null);
   const [displayedRepositories, setDisplayedRepositories] = useState<number>(0);
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     const setStateWithReposGit = async () => {
@@ -58,6 +64,18 @@ const About = ({ width }: IUseWindoSizeProps) => {
     }
   }, [allRepositories]);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    setMousePosition({
+      x: x,
+      y: y,
+    });
+  };
+
   return (
     <Main id="about">
       <AnimatedSection direction="toDown">
@@ -81,15 +99,26 @@ const About = ({ width }: IUseWindoSizeProps) => {
             </AnimatedSection>
             <AnimatedSection direction="toLeft">
               <Typography variant="body">
-                Me chamo Kauã Ortolani Lusvarghi,além de ser formado em TI, sou
-                um desenvolvedor web frontend focado em resolver soluções
-                práticas e eficientes com o que há de mais atual no mercado. No
-                momento estou me aprofundadndo cada vez mais em{' '}
-                <TextBold>Next.js</TextBold>,<TextBold> Typescrip</TextBold>,{' '}
+                Me chamo Kauã Ortolani Lusvarghi,{' '}
+                <ContainerAcessibility
+                  $x={mousePosition.x}
+                  $y={mousePosition.y}
+                  $hover={hover}
+                  onMouseEnter={(e) => {
+                    setHover(true);
+                    handleMouseMove(e);
+                  }}
+                  onMouseLeave={() => setHover(false)}
+                >
+                  sou um homem de pele branca com cabelos castanhos e cacheado.
+                </ContainerAcessibility>{' '}
+                Além de ser formado em TI, sou um desenvolvedor web frontend
+                focado em resolver soluções práticas e eficientes com o que há
+                de mais atual no mercado. No momento estou me aprofundadndo cada
+                vez mais em <TextBold>Next.js</TextBold>,
+                <TextBold>Typescrip</TextBold>,{' '}
                 <TextBold>Styled-component</TextBold>,{' '}
                 <TextBold>Tailwind</TextBold> e <TextBold>PostgreSQL</TextBold>.
-                Estou a procura do meu primeiro emprego na área sendo como
-                desenvolvedor front end ou não.
               </Typography>
               <Typography variant="body">
                 Explore alguns dos projetos que realizei na seção
