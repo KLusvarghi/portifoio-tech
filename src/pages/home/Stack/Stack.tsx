@@ -17,11 +17,16 @@ import { IUseWindoSizeProps } from '../../../types/auxProps';
 import { AnimatedSection } from '../../../components/AnimatedSection/AnimatedSection';
 import { useState } from 'react';
 import { Typography } from '../../../components/Typography/Typography';
-import { ContainerCarrosel, ContainerImg, Tag, StackImg } from './styles';
+import {
+  Container,
+  ContainerCarrosel,
+  ContainerImg,
+  Tag,
+  StackImg,
+} from './styles';
 
 export const Stack = ({ width }: IUseWindoSizeProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
     { index: 2, path: figmaSvg, name: 'Figma' },
@@ -47,25 +52,34 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
           position={width >= 1012 ? 'flex-start' : 'center'}
         />
       </AnimatedSection>
-      <ContainerCarrosel>
-        {svgFiles.map(({ index, path, name }) => (
-          <ContainerImg
-            className={`item ${index}`}
-            key={index}
-            $delay={index}
-            $length={svgFiles.length}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            {hoveredIndex === index && (
-              <Tag>
-                <Typography variant="body">{name}</Typography>
-              </Tag>
-            )}
-            <StackImg src={path} alt={`SVG ${name}`} />
-          </ContainerImg>
-        ))}
-      </ContainerCarrosel>
+      <Container>
+        <ContainerCarrosel>
+          {/* carrosel */}
+          {svgFiles.map(({ index, path, name }) => (
+            <ContainerImg // item
+              className="item"
+              key={index}
+              $delay={index}
+              $length={svgFiles.length}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {hoveredIndex === index && width >= 1100 && (
+                <Tag>
+                  <Typography variant="body">{name}</Typography>
+                </Tag>
+              )}
+              {width < 1100 && (
+                <Tag>
+                  <Typography variant="body">{name}</Typography>
+                </Tag>
+              )}
+              <StackImg src={path} alt={`SVG ${name}`} />
+              {/* item 1, 2, 3 */}
+            </ContainerImg>
+          ))}
+        </ContainerCarrosel>
+      </Container>
     </Main>
   );
 };

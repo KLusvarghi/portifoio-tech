@@ -81,7 +81,7 @@ const About = ({ width }: IUseWindoSizeProps) => {
             </AnimatedSection>
             <AnimatedSection direction="toLeft">
               <Typography variant="body">
-                Me chamo Kauã Ortolani Lusvarghi,além de ser formado em TI, sou
+                Me chamo Kauã Ortolani Lusvarghi, além de ser formado em TI, sou
                 um desenvolvedor web frontend focado em resolver soluções
                 práticas e eficientes com o que há de mais atual no mercado. No
                 momento estou me aprofundadndo cada vez mais em{' '}
