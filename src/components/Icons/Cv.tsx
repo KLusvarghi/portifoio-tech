@@ -6,7 +6,7 @@ import { curriculo } from '../../utils/links';
 const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
   &:hover {
     svg path {
-      fill: #5d616b;
+      fill: ${(props) => props.theme.colors.neutral.c8};
     }
   }
 `;

@@ -1,45 +1,64 @@
-import { Col, Container, Row } from 'react-grid-system';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Typography } from '../../../components/Typography/Typography';
 import { Button } from '../../../components/Button/Button';
 import erro404 from './assets/error-404.svg';
 import { Head } from '../../../components/Head/Head';
+import { useNavigate } from 'react-router-dom';
+
+const Wrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const ContainerText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  margin: 22px 0 40px;
+
+  @media (max-width: 786px) {
+    h2 {
+      font-size: 3em;
+    }
+  }
+`;
 
 const StylizedImage = styled.img`
   max-width: 100%;
-  width: 140px;
-  height: 140px;
+  width: 340px;
+  height: 340px;
+
+  @media (max-width: 400px) {
+    width: 240px;
+    height: 240px;
+  }
 `;
 
 const Pagina404 = () => {
+  const navigate = useNavigate();
+
   return (
-    <Container>
+    <Wrapper>
       <Head
         title="404 - Página não encontrada..."
         description="Pagina não encontrada"
       />
-
-      <Row justify="center">
-        <Col xxl={6} xl={6} lg={6} md={8} sm={12} style={{ marginTop: '48px' }}>
-          <figure>
-            <StylizedImage alt="Not Found" src={erro404} />
-          </figure>
-        </Col>
-        <Col>
-          <Typography>Ops! Não encontramos essa página</Typography>
-          <Typography variant="body">
-            Acho que você escolheu a porta errada, porque eu não consegui dar
-            uma olhada na que você está procurando.
-          </Typography>
-          <div style={{ textAlign: 'center' }}>
-            <Link to="/">
-              <Button>Voltar ao inicio</Button>
-            </Link>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+      <figure>
+        <StylizedImage alt="Not Found" src={erro404} />
+      </figure>
+      <ContainerText>
+        <Typography>Ops! Não encontramos essa página</Typography>
+        <Typography variant="body">
+          Acho que você escolheu a porta errada, porque eu não consegui dar uma
+          olhada na que você está procurando.
+        </Typography>
+      </ContainerText>
+      <Button onClick={() => navigate('/')}>Voltar ao inicio</Button>
+    </Wrapper>
   );
 };
 

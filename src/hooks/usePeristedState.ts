@@ -2,7 +2,7 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 type Response<T> = [
   T,
-  Dispatch<SetStateAction<T>>, //quando queremos retornar um useSatate é dessa maneira que podemos fazemos
+  Dispatch<SetStateAction<T>>, //quando queremos retornar um useSatate é dessa maneira tipamos
 ];
 
 // 'T' contem o formato que nosso tema tem, que neste caso é o "DefaultTheme" que fooi passado no outro componente

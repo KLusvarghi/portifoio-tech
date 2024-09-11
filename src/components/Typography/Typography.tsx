@@ -36,6 +36,7 @@ const components = {
       }
     }}
   `,
+
   subtitle: styled.h3<IStyledTypographProps>`
     font-size: 2em;
     font-weight: 450;
@@ -57,6 +58,7 @@ const components = {
       max-width: 76%;
     }
   `,
+  
   h4: styled.h4<IStyledTypographProps>`
     font-size: 2em;
     font-weight: 500;

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { IStyledSvgProps, ISvgProps, StyledIcons } from '../../types/auxProps';
 import { Link } from 'react-router-dom';
 import { github } from '../../utils/links';
@@ -6,20 +6,10 @@ import { github } from '../../utils/links';
 const StyledSpan = styled(StyledIcons)<IStyledSvgProps>`
   &:hover {
     svg path {
-      fill: #0f0f0f;
+      fill: ${(props) => props.theme.colors.neutral.c12};
     }
   }
 
-  ${(props) =>
-    props.$footer == false
-      ? css`
-          &:hover {
-            svg path {
-              fill: ${(props) => props.theme.colors.neutral.c9};
-            }
-          }
-        `
-      : null}
 `;
 
 export const GitHub = ({ theme = 'dark', footer = false }: ISvgProps) => {

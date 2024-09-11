@@ -54,9 +54,8 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
       </AnimatedSection>
       <Container>
         <ContainerCarrosel>
-          {/* carrosel */}
           {svgFiles.map(({ index, path, name }) => (
-            <ContainerImg // item
+            <ContainerImg
               className="item"
               key={index}
               $delay={index}
@@ -75,7 +74,6 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
                 </Tag>
               )}
               <StackImg src={path} alt={`SVG ${name}`} />
-              {/* item 1, 2, 3 */}
             </ContainerImg>
           ))}
         </ContainerCarrosel>

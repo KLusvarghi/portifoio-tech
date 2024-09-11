@@ -6,9 +6,6 @@ const ContainerBackground = styled.div`
     ${(props) => props.theme.colors.bgGradient.a},
     ${(props) => props.theme.colors.bgGradient.b}
     );
-    /* ${(props) => props.theme.colors.bgGradient.c} */
-  /* width: 100vw; */
-  /* min-width: 100vw; */
   min-height: 100vh;
   overflow-x: hidden;
 `;

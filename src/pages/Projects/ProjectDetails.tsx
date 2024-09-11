@@ -119,7 +119,6 @@ const ProjectDetails = () => {
                       <Button variant="outline">REPOSITÓRIO</Button>
                     </RouterLink>
                   )}
-
                   <Button onClick={goToBack} variant="outline">
                     VOLTAR
                   </Button>

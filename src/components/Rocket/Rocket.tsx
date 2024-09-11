@@ -36,7 +36,6 @@ export const Rocket = ({ refContainer }: RefProps) => {
       }
     };
     window.addEventListener('scroll', handleScroll);
-    // Chamada inicial para definir o estado correto ao carregar a página
     handleScroll();
 
     return () => {

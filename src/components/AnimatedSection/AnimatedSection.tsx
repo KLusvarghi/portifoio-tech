@@ -16,10 +16,10 @@ export const AnimatedSection = ({
     return (
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, x: -100 }} // começa invisível e à direita
-        animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }} // animação quando entra na viewport
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
         transition={{ duration: 0.5, ease: 'easeIn' }}
-        style={{ willChange: 'transform' }} // Previne mudanças bruscas de layout
+        style={{ willChange: 'transform' }}
       >
         {children}
       </motion.div>

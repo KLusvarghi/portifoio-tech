@@ -10,7 +10,6 @@ export const Container = styled.img`
 
   @media (min-width: 660px) {
     &:hover {
-      /* border-radius: 0px; */
       transform: scale(1.525);
     }
   }

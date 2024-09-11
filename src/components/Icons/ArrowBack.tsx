@@ -5,13 +5,14 @@ const StyledSpan = styled.span<IStyledSvgProps>`
   svg {
     transform: rotate(180deg);
     path {
-      fill: ${({ $theme }) => ($theme === 'dark' ? '#AAAEB6' : '#000')};
+      fill: ${({ $theme, theme }) =>
+        $theme === 'dark' ? theme.colors.neutral.c5 : theme.colors.neutral.c12};
     }
   }
 
   &:hover {
     svg path {
-      fill: #5d616b;
+      fill: ${(props) => props.theme.colors.neutral.c8};
     }
   }
 `;

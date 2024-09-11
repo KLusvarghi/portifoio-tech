@@ -1,17 +1,14 @@
 import { ReactNode, RefObject } from 'react';
 import styled from 'styled-components';
 
-// Interface para os childrens
 export interface IChildrenProps {
   children?: ReactNode;
 }
 
-// Interface para width de UseWindowSize
 export interface IUseWindoSizeProps {
   width: number;
 }
 
-// Interfaces para as props recebidas no styled-componente
 export interface ISvgProps {
   theme?: string;
   footer?: boolean;
@@ -23,12 +20,10 @@ export interface IStyledSvgProps {
   $theme: string;
 }
 
-// Interface para o use do useRef
 export interface RefProps {
   refContainer: RefObject<HTMLDivElement>;
 }
 
-// Styled dos social icons
 export const StyledIcons = styled.span<IStyledSvgProps>`
   &:hover {
     svg {
