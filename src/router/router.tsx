@@ -4,6 +4,7 @@ import BaseLayout from '../pages/home/BaseLayout/BaseLayout';
 import Home from '../pages/home/Home';
 import Certificates from '../pages/Certificates/Certificates';
 import ProjectDetails from '../pages/Projects/ProjectDetails';
+import { Navigate } from 'react-router-dom';
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +24,12 @@ export const router = createBrowserRouter([
         element: <ProjectDetails />,
       },
       {
-        path: '*',
+        path: '/404',
         element: <NotFound />,
+      },
+      {
+        path: '*',
+        element: <Navigate to={'/404'} />,
       },
     ],
   },

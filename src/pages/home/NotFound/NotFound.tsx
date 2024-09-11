@@ -4,6 +4,7 @@ import { Button } from '../../../components/Button/Button';
 import erro404 from './assets/error-404.svg';
 import { Head } from '../../../components/Head/Head';
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 const Wrapper = styled.main`
   display: flex;
@@ -41,6 +42,10 @@ const StylizedImage = styled.img`
 const NotFound = () => {
   const navigate = useNavigate();
 
+  const goHome = useCallback(() => {
+    navigate('/');
+  }, [navigate]);
+
   return (
     <Wrapper>
       <Head
@@ -57,7 +62,7 @@ const NotFound = () => {
           olhada na que você está procurando.
         </Typography>
       </ContainerText>
-      <Button onClick={() => navigate('/')}>Voltar ao inicio</Button>
+      <Button onClick={goHome}>Voltar ao inicio</Button>
     </Wrapper>
   );
 };
