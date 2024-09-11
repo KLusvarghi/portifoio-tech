@@ -38,7 +38,7 @@ const StylizedImage = styled.img`
   }
 `;
 
-const Pagina404 = () => {
+const NotFound = () => {
   const navigate = useNavigate();
 
   return (
@@ -62,4 +62,4 @@ const Pagina404 = () => {
   );
 };
 
-export default Pagina404;
+export default NotFound;

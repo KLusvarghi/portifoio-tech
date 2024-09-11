@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Pagina404 from '../pages/home/error/Page404';
+import NotFound from '../pages/home/error/NotFound';
 import BaseLayout from '../pages/home/BaseLayout/BaseLayout';
 import Home from '../pages/home/Home';
 import Certificates from '../pages/Certificates/Certificates';
@@ -9,33 +9,23 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <BaseLayout />,
-    ErrorBoundary: Pagina404,
     children: [
       {
         path: '',
         element: <Home />,
       },
-    ],
-  },
-  {
-    path: '/certificados',
-    element: <BaseLayout />,
-    ErrorBoundary: Pagina404,
-    children: [
       {
-        path: '',
+        path: 'certificados',
         element: <Certificates />,
       },
-    ],
-  },
-  {
-    path: '/projetos/:id',
-    element: <BaseLayout />,
-    ErrorBoundary: Pagina404,
-    children: [
       {
-        path: '',
+        path: 'projetos/:id',
         element: <ProjectDetails />,
+      },
+      // Adicionando rota curinga para o 404
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
