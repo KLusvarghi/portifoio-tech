@@ -11,7 +11,6 @@ const useOutsideClick = ({
   ref,
   refToDisregard,
 }: IOutsideClickProps) => {
-  console.log(refToDisregard?.current);
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
       if (ref.current) {

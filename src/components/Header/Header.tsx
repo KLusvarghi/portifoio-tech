@@ -195,6 +195,7 @@ export const Header = () => {
                 ref={menuRef}
                 $active={active}
                 onClick={closeMenuMobile}
+                onMouseLeave={closeMenuMobile}
               >
                 <HeaderLinks
                   width={width}
