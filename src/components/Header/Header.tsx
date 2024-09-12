@@ -36,6 +36,7 @@ interface IHeaderLinksProps {
   isHome: boolean;
   isCertificates: boolean;
   isProject: boolean;
+  isNotFound: boolean;
 }
 
 const HeaderLinks = ({
@@ -46,9 +47,10 @@ const HeaderLinks = ({
   isHome,
   isCertificates,
   isProject,
+  isNotFound,
 }: IHeaderLinksProps) => (
   <>
-    {isCertificates || isProject ? (
+    {isCertificates || isProject || isNotFound ? (
       <LiHeader>
         <RouterLink to="/">
           <Button variant="header" width={width}>
@@ -145,7 +147,8 @@ export const Header = () => {
   const location = useLocation();
   const isCertificates = location.pathname.includes('certificados');
   const isProject = location.pathname.includes('projetos');
-  const isHome = isCertificates || isProject;
+  const isNotFound = location.pathname.includes('404');
+  const isHome = isCertificates || isProject || isNotFound;
   const width = UseWindowSize();
   const { theme, setTheme } = useSystemThemeContext();
   const [active, setActive] = useState(false);
@@ -197,6 +200,7 @@ export const Header = () => {
                   isHome={isHome}
                   isCertificates={isCertificates}
                   isProject={isProject}
+                  isNotFound={isNotFound}
                 />
               </UlHeader>
               <HamburguerButton active={active} setActive={setActive} />

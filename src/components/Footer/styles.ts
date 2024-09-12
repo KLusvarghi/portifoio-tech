@@ -6,6 +6,12 @@ export const ContainerFooter = styled.div`
   padding: 0 24px;
 `;
 
+export const Nav = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+`;
+
 export const UlFooter = styled.ul`
   display: flex;
   flex-wrap: wrap;

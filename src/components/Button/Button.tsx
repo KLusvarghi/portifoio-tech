@@ -43,7 +43,6 @@ const StyledButton = styled.button`
   &:focus:not(:focus-visible) {
     outline: none;
   }
-
 `;
 
 const StyledArrow = styled.svg`
@@ -155,6 +154,11 @@ const FooterButton = styled(StyledButton)`
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(1.115);
+  }
 `;
 
 interface IStyledFilterProps {

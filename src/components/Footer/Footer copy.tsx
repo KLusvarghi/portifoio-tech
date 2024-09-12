@@ -65,24 +65,32 @@ const FooterLinks = ({
       {!isHome && (
         <>
           <LiFooter>
-            <ScrollLink to="about" {...options}>
-              <Button variant="footer">Sobre</Button>
-            </ScrollLink>
+            <Button variant="footer">
+              <ScrollLink to="about" {...options}>
+                Sobre
+              </ScrollLink>
+            </Button>
           </LiFooter>
           <LiFooter>
-            <ScrollLink to="stack" {...options}>
-              <Button variant="footer">Stack</Button>
-            </ScrollLink>
+            <Button variant="footer">
+              <ScrollLink to="stack" {...options}>
+                Stack
+              </ScrollLink>
+            </Button>
           </LiFooter>
           <LiFooter>
-            <ScrollLink to="projects" {...options}>
-              <Button variant="footer">Projetos</Button>
-            </ScrollLink>
+            <Button variant="footer">
+              <ScrollLink to="projects" {...options}>
+                Projetos
+              </ScrollLink>
+            </Button>
           </LiFooter>
           <LiFooter>
-            <ScrollLink to="contact" {...options}>
-              <Button variant="footer">Contato</Button>
-            </ScrollLink>
+            <Button variant="footer">
+              <ScrollLink to="contact" {...options}>
+                Contato
+              </ScrollLink>
+            </Button>
           </LiFooter>
         </>
       )}
