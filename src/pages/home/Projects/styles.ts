@@ -8,14 +8,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1180px) {
-    gap: 28px;
-  }
-
-  @media (max-width: 680px) {
-    margin-bottom: 80px;
-  }
-
   @media (max-width: 840px) {
     margin-top: 36px;
   }
@@ -97,5 +89,15 @@ export const ContainerButton = styled.div`
   }
   @media (max-width: 702px) {
     max-width: 72%;
+  }
+`;
+
+export const MoreProjects = styled.div`
+  text-align: center;
+  margin-top: 80px;
+
+  @media (max-width: 680px) {
+  margin-top: 28px;
+  margin-bottom: 80px;
   }
 `;

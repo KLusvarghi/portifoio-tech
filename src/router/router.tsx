@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <Navigate to={'/404'} />,
+        element: <Navigate to={'/404'} replace/>,
       },
     ],
   },

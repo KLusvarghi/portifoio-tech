@@ -15,6 +15,7 @@ import {
   ContainerContent,
   ContainerListTech,
   ContainerButton,
+  MoreProjects,
 } from './styles';
 
 export const Projects = () => {
@@ -63,12 +64,14 @@ export const Projects = () => {
             </ContainerContent>
           </ContainerProject>
         ))}
-        {visibleItems < data.length && (
+      </Wrapper>
+      {visibleItems < data.length && (
+        <MoreProjects>
           <Button variant="project" onClick={showMoreItems}>
             Ver mais projetos 💻
           </Button>
-        )}
-      </Wrapper>
+        </MoreProjects>
+      )}
     </Main>
   );
 };
