@@ -3,9 +3,15 @@ import React, { useCallback, useEffect } from 'react';
 interface IOutsideClickProps {
   onClose: () => void;
   ref: React.MutableRefObject<HTMLImageElement | HTMLUListElement | null>;
+  refToDisregard?: React.RefObject<HTMLDivElement>;
 }
 
-const useOutsideClick = ({ onClose, ref }: IOutsideClickProps) => {
+const useOutsideClick = ({
+  onClose,
+  ref,
+  refToDisregard,
+}: IOutsideClickProps) => {
+  console.log(refToDisregard?.current);
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
       if (ref.current) {
@@ -17,11 +23,24 @@ const useOutsideClick = ({ onClose, ref }: IOutsideClickProps) => {
           clientY < rect.top ||
           clientY > rect.bottom
         ) {
-          onClose();
+          if (refToDisregard?.current) {
+            const disregardedRect =
+              refToDisregard.current.getBoundingClientRect();
+            if (
+              clientX >= disregardedRect.left &&
+              clientX <= disregardedRect.right &&
+              clientY >= disregardedRect.top &&
+              clientY <= disregardedRect.bottom
+            ) {
+              return;
+            } else {
+              onClose();
+            }
+          }
         }
       }
     },
-    [onClose, ref],
+    [onClose, ref, refToDisregard],
   );
 
   useEffect(() => {

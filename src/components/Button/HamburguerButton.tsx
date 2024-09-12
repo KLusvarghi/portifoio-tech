@@ -1,7 +1,7 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { Typography } from '../Typography/Typography';
-import UseWindowSize from '../../hooks/useWindowSize';
 
 const ContainerHamburguer = styled.div`
   cursor: pointer;
@@ -12,10 +12,9 @@ const ContainerHamburguer = styled.div`
   transition: 0.2s ease-in;
   padding: 8px;
   border-radius: 5px;
-  transition: 0.2s ease-in;
   user-select: none;
   background-color: ${(props) => props.theme.colors.menu.bg};
-  
+
   &:hover {
     background-color: ${(props) => props.theme.colors.menu.hover};
     transform: scale(1.05);
@@ -24,20 +23,20 @@ const ContainerHamburguer = styled.div`
 
 interface IStateHambuguerProps {
   active: boolean;
-  onClick: () => void
+  onClick: () => void;
 }
 
-export const HamburguerButton = ({
-  active,
-}: IStateHambuguerProps) => {
+export const HamburguerButton = forwardRef<
+  HTMLDivElement,
+  IStateHambuguerProps
+>(({ active, onClick }, ref) => {
   const { theme } = useSystemThemeContext();
   const fill = theme.title === 'dark' ? '#F4F5F6' : '#121212';
-  const width = UseWindowSize();
 
-  if (width <= 1015) {
-    if (active == true) {
-      return (
-        <ContainerHamburguer >
+  return (
+    <ContainerHamburguer ref={ref} onClick={onClick}>
+      {active ? (
+        <>
           <Typography variant="bodyMenu">Fechar</Typography>
           <svg
             width="24"
@@ -59,11 +58,9 @@ export const HamburguerButton = ({
               strokeLinecap="round"
             />
           </svg>
-        </ContainerHamburguer>
-      );
-    } else {
-      return (
-        <ContainerHamburguer >
+        </>
+      ) : (
+        <>
           <Typography variant="bodyMenu">Menu</Typography>
           <svg
             width="20"
@@ -79,8 +76,12 @@ export const HamburguerButton = ({
               fill={fill}
             />
           </svg>
-        </ContainerHamburguer>
-      );
-    }
-  }
-};
+        </>
+      )}
+    </ContainerHamburguer>
+  );
+
+});
+
+HamburguerButton.displayName = 'HamburguerButton';
+export default HamburguerButton;

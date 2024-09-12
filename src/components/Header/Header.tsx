@@ -10,6 +10,7 @@ import { ToggleThemeButton } from '../../components/Button/ToggleThemeButton';
 import { HamburguerButton } from '../../components/Button/HamburguerButton';
 import { curriculo, github, linkedin } from '../../utils/links';
 import { Col, Container, Row } from '../Grid/Grid';
+import useOutsideClick from '../../hooks/useOutsideClick';
 import {
   Main,
   ContainerLogo,
@@ -19,7 +20,6 @@ import {
   ToggleThemeMobile,
   ContainerButton,
 } from './styles';
-import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface IHeaderLinksProps {
   width: number;
@@ -153,12 +153,17 @@ export const Header = () => {
   const { theme, setTheme } = useSystemThemeContext();
   const [active, setActive] = useState(false);
   const menuRef = useRef<HTMLUListElement | null>(null);
+  const buttonMobileRef = useRef<HTMLDivElement | null>(null);
 
   const closeMenuMobile = () => {
     setActive(!active);
   };
 
-  useOutsideClick({ onClose: closeMenuMobile, ref: menuRef });
+  useOutsideClick({
+    onClose: () => setActive(false),
+    ref: menuRef,
+    refToDisregard: buttonMobileRef,
+  });
 
   const options = {
     onClick: () => setActive(false),
@@ -203,7 +208,11 @@ export const Header = () => {
                 />
               </UlHeader>
               {width <= 1015 && (
-                <HamburguerButton onClick={closeMenuMobile} active={active} />
+                <HamburguerButton
+                  ref={buttonMobileRef}
+                  onClick={closeMenuMobile}
+                  active={active}
+                />
               )}
               {width > 429 && <ToggleThemeButton fixed={width > 680} />}
             </Nav>
