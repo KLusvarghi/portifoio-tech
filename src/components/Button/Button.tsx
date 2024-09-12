@@ -35,6 +35,15 @@ const StyledButton = styled.button`
   border: 1px solid transparent;
   padding: 0.75em 1.5em;
   white-space: nowrap;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
 `;
 
 const StyledArrow = styled.svg`
@@ -190,6 +199,10 @@ export const Button = ({
 }: IButtonProps) => {
   const [stroke, setStroke] = useState('#E8EBED');
   const { theme } = useSystemThemeContext();
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.blur();
+    if (onClick) onClick();
+  };
 
   const renderButton = () => (
     <PrimaryButton
@@ -199,7 +212,7 @@ export const Button = ({
       onMouseEnter={() => setStroke('#225E84')}
       onMouseLeave={() => setStroke('#E8EBED')}
       onKeyUp={onClick}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {children}
       {icon && (
@@ -213,33 +226,37 @@ export const Button = ({
   switch (variant) {
     case 'secondary':
       return (
-        <SecondaryButton $theme={theme.title} onClick={onClick}>
+        <SecondaryButton $theme={theme.title} onClick={handleClick}>
           {children}
         </SecondaryButton>
       );
     case 'outline':
-      return <OutlineButton onClick={onClick}>{children}</OutlineButton>;
+      return <OutlineButton onClick={handleClick}>{children}</OutlineButton>;
     case 'filter':
       return (
-        <FilterButton $active={active} $theme={theme.title} onClick={onClick}>
+        <FilterButton
+          $active={active}
+          $theme={theme.title}
+          onClick={handleClick}
+        >
           {children}
         </FilterButton>
       );
     case 'project':
-      return <ProjectButton onClick={onClick}>{children}</ProjectButton>;
+      return <ProjectButton onClick={handleClick}>{children}</ProjectButton>;
     case 'transparent':
       return (
         <TransparentButton onClick={onClick}>{children}</TransparentButton>
       );
     case 'header':
       return (
-        <HeaderButton onClick={onClick} $width={width}>
+        <HeaderButton onClick={handleClick} $width={width}>
           {children}
         </HeaderButton>
       );
     case 'footer':
       return (
-        <FooterButton onKeyUp={onClick} onClick={onClick}>
+        <FooterButton onKeyUp={onClick} onClick={handleClick}>
           {children}
         </FooterButton>
       );

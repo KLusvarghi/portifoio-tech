@@ -8,12 +8,16 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 1180px) {
+    gap: 28px;
+  }
+
   @media (max-width: 680px) {
     margin-bottom: 80px;
   }
 
-  @media (max-width: 431px) {
-    margin-top: 32px;
+  @media (max-width: 840px) {
+    margin-top: 36px;
   }
 `;
 

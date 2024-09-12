@@ -6,13 +6,19 @@ export const Wrapper = styled.div`
   position: relative;
   margin: 60px 0 120px;
   display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 88px;
+  /* flex-wrap: wrap-reverse; */
+  gap: 120px;
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 960px) {
+    flex-direction: column-reverse;
+    gap: 60px;
+  }
+
   @media (max-width: 431px) {
     margin-top: 32px;
+    margin-bottom: 80px;
   }
 `;
 
