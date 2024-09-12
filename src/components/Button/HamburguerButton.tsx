@@ -24,24 +24,20 @@ const ContainerHamburguer = styled.div`
 
 interface IStateHambuguerProps {
   active: boolean;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  onClick: () => void
 }
 
 export const HamburguerButton = ({
   active,
-  setActive,
 }: IStateHambuguerProps) => {
   const { theme } = useSystemThemeContext();
   const fill = theme.title === 'dark' ? '#F4F5F6' : '#121212';
   const width = UseWindowSize();
 
-  const toggleSvg = () => {
-    setActive(!active);
-  };
   if (width <= 1015) {
     if (active == true) {
       return (
-        <ContainerHamburguer onClick={() => toggleSvg()}>
+        <ContainerHamburguer >
           <Typography variant="bodyMenu">Fechar</Typography>
           <svg
             width="24"
@@ -67,7 +63,7 @@ export const HamburguerButton = ({
       );
     } else {
       return (
-        <ContainerHamburguer onClick={() => toggleSvg()}>
+        <ContainerHamburguer >
           <Typography variant="bodyMenu">Menu</Typography>
           <svg
             width="20"

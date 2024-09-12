@@ -155,7 +155,7 @@ export const Header = () => {
   const menuRef = useRef<HTMLUListElement | null>(null);
 
   const closeMenuMobile = () => {
-    setActive(false);
+    setActive(!active);
   };
 
   useOutsideClick({ onClose: closeMenuMobile, ref: menuRef });
@@ -189,7 +189,6 @@ export const Header = () => {
               <UlHeader
                 ref={menuRef}
                 $active={active}
-                onMouseLeave={closeMenuMobile}
                 onClick={closeMenuMobile}
               >
                 <HeaderLinks
@@ -203,7 +202,9 @@ export const Header = () => {
                   isNotFound={isNotFound}
                 />
               </UlHeader>
-              <HamburguerButton active={active} setActive={setActive} />
+              {width <= 1015 && (
+                <HamburguerButton onClick={closeMenuMobile} active={active} />
+              )}
               {width > 429 && <ToggleThemeButton fixed={width > 680} />}
             </Nav>
           </Col>
