@@ -35,6 +35,8 @@ const useOutsideClick = ({
             } else {
               onClose();
             }
+          } else {
+            onClose();
           }
         }
       }
