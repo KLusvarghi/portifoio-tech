@@ -175,8 +175,10 @@ const FilterButton = styled(StyledButton)<IStyledFilterProps>`
   line-height: 1.5em;
   font-weight: 500;
 
-  &:hover {
-    background: ${(props) => props.theme.colors.filter.activebg};
+  @media (min-width: 1024px) { 
+    &:hover {
+      background: ${(props) => props.theme.colors.filter.activebg};
+    }
   }
 
   ${(props) =>
