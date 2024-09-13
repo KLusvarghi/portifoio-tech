@@ -348,5 +348,15 @@
       "id": [1, 4, 5],
       "label": "React"
     }
+  },
+  {
+    "id": 36,
+    "name": "react_criando-um_design_system_com_tailwindcss",
+    "institution": "alura",
+    "tech": "react",
+    "category": {
+      "id": [1, 4, 6, 9],
+      "label": "React"
+    }
   }
 ]
