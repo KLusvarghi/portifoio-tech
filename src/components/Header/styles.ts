@@ -25,7 +25,7 @@ export const Main = styled.header<{ $isHome: boolean }>`
       height: 82px;
     `}
 
-  @media (max-width: 1015px) {
+  @media (max-width: 1016px) {
     height: 82px;
     padding: 0 44px;
   }
@@ -123,7 +123,7 @@ export const LiHeader = styled.li`
     transform-origin: right;
   }
 
-  @media (min-width: 1015px) {
+  @media (min-width: 1016px) {
     &:hover::after {
       transform: scaleX(1);
       transform-origin: left;

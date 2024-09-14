@@ -108,7 +108,7 @@ const HeaderLinks = ({
         </RouterLink>
       </LiHeader>
     )}
-    {width <= 1016 && (
+    {width < 1015 && (
       <>
         <LiHeader>
           <Link href={linkedin}>
@@ -133,7 +133,7 @@ const HeaderLinks = ({
         )}
       </>
     )}
-    {width >= 1200 && (
+    {width >= 1064 && (
       <ContainerButton>
         <Link href={curriculo}>
           <Button variant="secondary">Baixar CV</Button>
@@ -208,7 +208,7 @@ export const Header = () => {
                   isNotFound={isNotFound}
                 />
               </UlHeader>
-              {width <= 1015 && (
+              {width < 1015 && (
                 <HamburguerButton
                   ref={buttonMobileRef}
                   onClick={closeMenuMobile}

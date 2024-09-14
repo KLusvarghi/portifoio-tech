@@ -133,13 +133,13 @@ interface IStyledHeaderButton {
 const HeaderButton = styled(StyledButton)<IStyledHeaderButton>`
   background: transparent;
   color: ${(props) => props.theme.colors.btnHeader};
-  padding: 0 0.2em;
+  padding: 0 0.875em;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;
 
   ${(props) =>
-    props.$width <= 1015
+    props.$width <= 1014
       ? css`
           text-align: start;
           width: 100%;
