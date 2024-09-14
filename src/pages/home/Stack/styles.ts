@@ -60,13 +60,15 @@ export const ContainerImg = styled.div<IStyledStackProps>`
     flex-direction: column-reverse;
   }
 
-  ${(props) =>
-    props.$active &&
-    css`
-      animation-play-state: paused;
-      filter: grayscale(1);
-      cursor: pointer;
-    `}
+  @media (min-width: 1100px) {
+    ${(props) =>
+      props.$active &&
+      css`
+        animation-play-state: paused;
+        filter: grayscale(1);
+        cursor: pointer;
+      `}
+  }
 `;
 
 export const Tag = styled.span`
