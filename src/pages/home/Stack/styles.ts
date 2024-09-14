@@ -1,22 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { autoRunStack } from '../../../styles/keyframes/keyframes';
 
 interface IStyledStackProps {
   $length: number;
   $delay: number;
+  $active: boolean;
 }
 
 export const Container = styled.div`
   @media (min-width: 1100px) {
     &:hover {
       .item {
-        animation-play-state: paused;
-        filter: grayscale(1);
-
         &:hover {
           filter: grayscale(0) !important;
-          cursor: pointer;
-
           img {
             transition: 0.2s ease-in;
             transform: scale(1.2);
@@ -63,6 +59,14 @@ export const ContainerImg = styled.div<IStyledStackProps>`
   @media (max-width: 1100px) {
     flex-direction: column-reverse;
   }
+
+  ${(props) =>
+    props.$active &&
+    css`
+      animation-play-state: paused;
+      filter: grayscale(1);
+      cursor: pointer;
+    `}
 `;
 
 export const Tag = styled.span`

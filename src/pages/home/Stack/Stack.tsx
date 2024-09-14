@@ -27,6 +27,7 @@ import {
 
 export const Stack = ({ width }: IUseWindoSizeProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [active, setActive] = useState<boolean>(false);
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
     { index: 2, path: figmaSvg, name: 'Figma' },
@@ -43,6 +44,10 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
     { index: 13, path: vscodeSvg, name: 'Vscode' },
   ];
 
+  const toogleState = () => {
+    setActive(!active);
+  };
+
   return (
     <Main id="stack">
       <AnimatedSection direction="toDown">
@@ -56,6 +61,7 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
         <ContainerCarrosel>
           {svgFiles.map(({ index, path, name }) => (
             <ContainerImg
+              $active={active}
               className="item"
               key={index}
               $delay={index}
@@ -73,7 +79,12 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
                   <Typography variant="body">{name}</Typography>
                 </Tag>
               )}
-              <StackImg src={path} alt={`SVG ${name}`} />
+              <StackImg
+                onMouseEnter={toogleState}
+                onMouseLeave={toogleState}
+                src={path}
+                alt={`SVG ${name}`}
+              />
             </ContainerImg>
           ))}
         </ContainerCarrosel>
