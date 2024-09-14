@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 import { Typography } from '../Typography/Typography';
+import { snake } from '../../styles/keyframes/keyframes';
 
 interface ITagProps {
   children: ReactNode;
@@ -27,6 +28,10 @@ const StyledTag = styled.span<IStyledTagProps>`
     p {
       font-size: 0.875em;
     }
+  }
+
+  &:hover {
+    animation: ${snake} 0.8s ease-in-out;
   }
 `;
 

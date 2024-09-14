@@ -71,3 +71,38 @@ export const spinner = keyframes`
     transform: rotate(360deg);
   }
 `;
+
+export const snake = keyframes`
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: rotate(-10deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: rotate(10deg);
+  }
+`;
+
+export const rotate = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const flight = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-1000px);
+  }
+`;

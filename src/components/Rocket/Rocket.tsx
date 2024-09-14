@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import { RefProps } from '../../types/auxProps';
+import styled, { css } from 'styled-components';
 import UseWindowSize from '../../hooks/useWindowSize';
+import { RefProps } from '../../types/auxProps';
 import { Link as LinkScroll } from 'react-scroll';
+import { flight, rotate } from '../../styles/keyframes/keyframes';
 
 interface IStyledRocketProps {
   $visible: boolean;
+  $started: boolean;
 }
 
 const StyledRocket = styled.div<IStyledRocketProps>`
@@ -15,6 +17,14 @@ const StyledRocket = styled.div<IStyledRocketProps>`
   right: 20px;
   bottom: 30px;
   display: ${({ $visible }) => ($visible ? 'block' : 'none')};
+  animation: ${({ $started }) =>
+    $started
+      ? css`
+          ${flight} .5s ease-in forwards
+        `
+      : css`
+          ${rotate} .5s ease-out
+        `};
 
   &:hover {
     transform: scale(1.125);
@@ -25,6 +35,7 @@ export const Rocket = ({ refContainer }: RefProps) => {
   const width = UseWindowSize();
   const rocketRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [animationStarted, setAnimationStarted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +43,7 @@ export const Rocket = ({ refContainer }: RefProps) => {
       if (window.scrollY >= introContainerHeight) {
         setVisible(true);
       } else {
+        setAnimationStarted(false);
         setVisible(false);
       }
     };
@@ -45,15 +57,20 @@ export const Rocket = ({ refContainer }: RefProps) => {
 
   if (width >= 670) {
     return (
-      <LinkScroll
-        to="intro"
-        spy={true}
-        smooth={true}
-        offset={0}
-        duration={360}
-        isDynamic={true}
+      <StyledRocket
+        $started={animationStarted}
+        $visible={visible}
+        ref={rocketRef}
       >
-        <StyledRocket $visible={visible} ref={rocketRef}>
+        <LinkScroll
+          to="intro"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={360}
+          isDynamic={true}
+          onClick={() => setAnimationStarted(true)}
+        >
           <svg
             width="42"
             height="42"
@@ -73,8 +90,8 @@ export const Rocket = ({ refContainer }: RefProps) => {
               fill="#225E84"
             />
           </svg>
-        </StyledRocket>
-      </LinkScroll>
+        </LinkScroll>
+      </StyledRocket>
     );
   }
 };

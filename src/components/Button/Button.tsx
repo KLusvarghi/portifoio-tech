@@ -97,6 +97,7 @@ const OutlineButton = styled(StyledButton)`
   background: transparent;
   border: 2px solid ${(props) => props.theme.colors.primaries.a};
   color: ${(props) => props.theme.colors.primaries.a};
+  font-weight: 600;
   &:hover {
     box-shadow: inset 700px 0 0 0 ${(props) => props.theme.colors.primaries.a};
     color: ${(props) => props.theme.colors.neutral.c2};
@@ -132,7 +133,7 @@ interface IStyledHeaderButton {
 const HeaderButton = styled(StyledButton)<IStyledHeaderButton>`
   background: transparent;
   color: ${(props) => props.theme.colors.btnHeader};
-  padding: 0 1.2em 0.2em;
+  padding: 0 0.2em;
   font-size: 1em;
   line-height: 1.5em;
   font-weight: 500;
