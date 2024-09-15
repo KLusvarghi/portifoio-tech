@@ -13,11 +13,11 @@ export default {
     },
     freela: {
       bg: '#0A1628',
-      border: '#5D616B'
+      border: '#5D616B',
     },
     btnSecondary: {
       bg: '#225E84',
-      font: '#E8EBED',
+      color: '#E8EBED',
       colorHover: '#E8EBED',
       boxShadow: '#F4F5F6',
     },
