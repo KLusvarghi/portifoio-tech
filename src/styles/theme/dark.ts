@@ -19,7 +19,7 @@ export default {
       bg: '#225E84',
       color: '#E8EBED',
       colorHover: '#E8EBED',
-      boxShadow: '#F4F5F6',
+      boxShadow: '#999CA4',
     },
     form: {
       a: '#11213F',
