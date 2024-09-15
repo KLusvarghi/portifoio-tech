@@ -11,6 +11,7 @@ interface IStyledRocketProps {
 }
 
 const StyledRocket = styled.div<IStyledRocketProps>`
+  z-index: 1001;
   cursor: pointer;
   transition: 0.2s ease-in;
   position: fixed;
