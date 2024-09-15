@@ -11,6 +11,7 @@ import {
   FooterButton,
   FilterButton,
 } from './buttonStyles';
+import useSystemThemeContext from '../../hooks/useSystemThemeContext';
 
 interface IButtonProps {
   children: ReactNode;
@@ -40,6 +41,7 @@ export const Button = ({
   active,
   ...props
 }: IButtonProps) => {
+  const { theme } = useSystemThemeContext();
   const [stroke, setStroke] = useState('#E8EBED');
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.blur();
@@ -67,7 +69,9 @@ export const Button = ({
   switch (variant) {
     case 'secondary':
       return (
-        <SecondaryButton onClick={handleClick}>{children}</SecondaryButton>
+        <SecondaryButton $theme={theme.title} onClick={handleClick}>
+          {children}
+        </SecondaryButton>
       );
     case 'outline':
       return <OutlineButton onClick={handleClick}>{children}</OutlineButton>;

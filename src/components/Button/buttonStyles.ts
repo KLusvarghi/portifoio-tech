@@ -42,16 +42,29 @@ export const PrimaryButton = styled(StyledButton)`
   }
 `;
 
-export const SecondaryButton = styled(StyledButton)`
+export const SecondaryButton = styled(StyledButton)<{ $theme: string }>`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.btnSecondary.color};
-  background: ${(props) => props.theme.colors.btnSecondary.bg};
+  color: ${(props) => props.theme.colors.neutral.c2};
+  background: ${(props) => props.theme.colors.primaries.a};
 
   &:hover {
     background: transparent;
-    color: ${(props) => props.theme.colors.btnSecondary.colorHover};
-    box-shadow: 0 0 6px ${(props) => props.theme.colors.btnSecondary.boxShadow};
+    box-shadow: 0 0 6px ${(props) => props.theme.colors.menu.shadow};
+    color: ${(props) => props.theme.colors.neutral.c10};
   }
+
+  ${(props) =>
+    props.$theme === 'dark'
+      ? css`
+          &:hover {
+            color: ${(props) => props.theme.colors.btnSecondary.colorHover};
+          }
+        `
+      : css`
+          &:hover {
+            color: ${(props) => props.theme.colors.neutral.c10};
+          }
+        `}
 `;
 
 export const OutlineButton = styled(StyledButton)`
