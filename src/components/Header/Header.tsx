@@ -53,17 +53,13 @@ const HeaderLinks = ({
     {isCertificates || isProject || isNotFound ? (
       <LiHeader>
         <RouterLink to="/">
-          <Button variant="header" width={width}>
-            Home
-          </Button>
+          <Button variant="header">Home</Button>
         </RouterLink>
       </LiHeader>
     ) : (
       <LiHeader>
         <ScrollLink to="intro" {...options}>
-          <Button variant="header" width={width}>
-            Home
-          </Button>
+          <Button variant="header">Home</Button>
         </ScrollLink>
       </LiHeader>
     )}
@@ -71,30 +67,22 @@ const HeaderLinks = ({
       <>
         <LiHeader>
           <ScrollLink to="about" {...options}>
-            <Button variant="header" width={width}>
-              Sobre
-            </Button>
+            <Button variant="header">Sobre</Button>
           </ScrollLink>
         </LiHeader>
         <LiHeader>
           <ScrollLink to="stack" {...options}>
-            <Button variant="header" width={width}>
-              Stack
-            </Button>
+            <Button variant="header">Stack</Button>
           </ScrollLink>
         </LiHeader>
         <LiHeader>
           <ScrollLink to="projects" {...options}>
-            <Button variant="header" width={width}>
-              Projetos
-            </Button>
+            <Button variant="header">Projetos</Button>
           </ScrollLink>
         </LiHeader>
         <LiHeader>
           <ScrollLink to="contact" {...options}>
-            <Button variant="header" width={width}>
-              Contato
-            </Button>
+            <Button variant="header">Contato</Button>
           </ScrollLink>
         </LiHeader>
       </>
@@ -102,9 +90,7 @@ const HeaderLinks = ({
     {!isCertificates && (
       <LiHeader>
         <RouterLink to="/certificados">
-          <Button variant="header" width={width}>
-            Certificados
-          </Button>
+          <Button variant="header">Certificados</Button>
         </RouterLink>
       </LiHeader>
     )}
@@ -112,16 +98,12 @@ const HeaderLinks = ({
       <>
         <LiHeader>
           <Link href={linkedin}>
-            <Button variant="header" width={width}>
-              Linkedin
-            </Button>
+            <Button variant="header">Linkedin</Button>
           </Link>
         </LiHeader>
         <LiHeader>
           <Link href={github}>
-            <Button variant="header" width={width}>
-              GitHub
-            </Button>
+            <Button variant="header">GitHub</Button>
           </Link>
         </LiHeader>
         {width < 430 && (

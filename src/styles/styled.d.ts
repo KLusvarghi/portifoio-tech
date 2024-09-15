@@ -21,6 +21,12 @@ declare module 'styled-components' {
         bg: string;
         border: string;
       };
+      btnSecondary: {
+        bg: string;
+        color: string;
+        colorHover: string;
+        boxShadow: string;
+      };
       form: {
         a: string;
         b: string;

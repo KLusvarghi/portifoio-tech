@@ -15,6 +15,12 @@ export default {
       bg: '#0A1628',
       border: '#5D616B'
     },
+    btnSecondary: {
+      bg: '#225E84',
+      color: '#E8EBED',
+      colorHover: '#E8EBED',
+      boxShadow: '#F4F5F6',
+    },
     form: {
       a: '#11213F',
       b: '#13264A',
