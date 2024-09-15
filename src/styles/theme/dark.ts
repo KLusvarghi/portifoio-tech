@@ -17,7 +17,7 @@ export default {
     },
     btnSecondary: {
       bg: '#225E84',
-      color: '#E8EBED',
+      font: '#E8EBED',
       colorHover: '#E8EBED',
       boxShadow: '#F4F5F6',
     },

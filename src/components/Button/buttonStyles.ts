@@ -44,7 +44,7 @@ export const PrimaryButton = styled(StyledButton)`
 
 export const SecondaryButton = styled(StyledButton)`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.btnSecondary.color};
+  color: ${(props) => props.theme.colors.btnSecondary.font};
   background: ${(props) => props.theme.colors.btnSecondary.bg};
 
   &:hover {

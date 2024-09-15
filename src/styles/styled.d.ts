@@ -23,7 +23,7 @@ declare module 'styled-components' {
       };
       btnSecondary: {
         bg: string;
-        color: string;
+        font: string;
         colorHover: string;
         boxShadow: string;
       };
