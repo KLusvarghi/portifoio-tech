@@ -27,6 +27,14 @@ export const Projects = () => {
     setVisibleItems((prev) => Math.min(prev + increment, data.length));
   };
 
+  const capitalizeName = (name: string) => {
+    const capitalizeName = name
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    return capitalizeName;
+  };
+
   return (
     <Main id="projects">
       <AnimatedSection direction="toDown">
@@ -44,7 +52,9 @@ export const Projects = () => {
             />
             <ContainerContent>
               <AnimatedSection direction="toUp">
-                <Typography variant="h4">{project.name}</Typography>
+                <Typography variant="h4">
+                  {capitalizeName(project.name)}
+                </Typography>
                 <Typography variant="body">{project.preDescription}</Typography>
               </AnimatedSection>
               <AnimatedSection direction="toLeft">
