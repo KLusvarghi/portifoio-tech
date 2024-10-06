@@ -4,7 +4,7 @@ import euImg from './assets/eu.png';
 import { useEffect, useState } from 'react';
 import { Link } from '../../../components/Link/Link';
 import { Button } from '../../../components/Button/Button';
-import { instagram, linkedin, urlgitHub } from '../../../utils/links';
+import { curriculo, instagram, linkedin, urlgitHub } from '../../../utils/links';
 import useFetchData from '../../../hooks/useFetchData';
 import { Main } from '../../../styles/mainContainer';
 import { IUseWindoSizeProps } from '../../../types/auxProps';
@@ -125,7 +125,7 @@ const About = ({ width }: IUseWindoSizeProps) => {
                   </Typography>
                 </ContaienrAttribute>
               </ContainerXp>
-              <Link href="https://drive.google.com/file/d/1Ow7l0_n6wV1JiQGT4tGGrep7QPssfVTC/view">
+              <Link href={curriculo}>
                 <Button>Baixar CV</Button>
               </Link>
             </ContainerInformations>
