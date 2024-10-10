@@ -1,4 +1,4 @@
-export const linkedin = 'https://www.linkedin.com/in/kau%C3%A3-ortolani-lusvarghi-422b141b4/'
+export const linkedin = 'https://www.linkedin.com/in/kaua-ortolani-frontend-jr/'
 export const github = 'https://github.com/KLusvarghi'
 export const curriculo = 'https://drive.google.com/file/d/1ds-2xGDxr5BolPXt38DmJ1F9vTQ-YarT/view?usp=sharing'
 export const instagram = 'https://www.instagram.com/lusvarghikaua/'
