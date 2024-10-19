@@ -1,4 +1,7 @@
 import { Title } from '../../../components/Typography/Title';
+// import redux from './assets/redux.svg';
+import styledcomponent from './assets/styledcomponents.svg';
+import storybookSvg from './assets/storybook.svg';
 import cssSvg from './assets/css.svg';
 import figmaSvg from './assets/figma-border.svg';
 import gitSvg from './assets/git.svg';
@@ -30,18 +33,21 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
   const [active, setActive] = useState<boolean>(false);
   const svgFiles = [
     { index: 1, path: cssSvg, name: 'CSS' },
-    { index: 2, path: figmaSvg, name: 'Figma' },
-    { index: 3, path: gitSvg, name: 'Git' },
-    { index: 4, path: githubSvg, name: 'Github' },
-    { index: 5, path: htmlSvg, name: 'Html' },
-    { index: 6, path: javascriptSvg, name: 'Javascript' },
-    { index: 7, path: nextjsSvg, name: 'NextJs' },
-    { index: 8, path: reactSvg, name: 'React' },
-    { index: 9, path: sapSvg, name: 'SAP' },
-    { index: 10, path: sassSvg, name: 'SASS' },
-    { index: 11, path: tailwindSvg, name: 'Tailwind' },
-    { index: 12, path: typescriptSvg, name: 'Typescript' },
-    { index: 13, path: vscodeSvg, name: 'Vscode' },
+    { index: 2, path: htmlSvg, name: 'Html' },
+    { index: 3, path: javascriptSvg, name: 'Javascript' },
+    { index: 4, path: typescriptSvg, name: 'Typescript' },
+    { index: 5, path: reactSvg, name: 'React' },
+    // { index: 10, path: redux, name: 'Redux' },
+    { index: 6, path: nextjsSvg, name: 'NextJs' },
+    { index: 7, path: tailwindSvg, name: 'TailwindCSS' },
+    { index: 8, path: sassSvg, name: 'SASS' },
+    { index: 9, path: styledcomponent, name: 'Styled-Component' },
+    { index: 10, path: storybookSvg, name: 'Storybook' },
+    { index: 11, path: sapSvg, name: 'SAP' },
+    { index: 12, path: gitSvg, name: 'Git' },
+    { index: 13, path: githubSvg, name: 'Github' },
+    { index: 14, path: vscodeSvg, name: 'Vscode' },
+    { index: 15, path: figmaSvg, name: 'Figma' },
   ];
 
   const toogleState = () => {
