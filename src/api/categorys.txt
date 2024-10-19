@@ -1,0 +1,10 @@
+1 - Typescript
+2 - Javacript
+3 - Next.js
+4 - React
+5 - SASS
+6 - Tailwindcss
+7 - Styled-Component
+8 - SQL
+9 - Outros
+10 - Design System

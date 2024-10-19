@@ -34,5 +34,9 @@
   {
     "label": "Outros",
     "id": 9
+  },
+  {
+    "label": "Design System",
+    "id": 10
   }
 ]

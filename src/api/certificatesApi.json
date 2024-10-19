@@ -358,5 +358,15 @@
       "id": [1, 4, 6, 9],
       "label": "React"
     }
+  },
+  {
+    "id": 37,
+    "name": "react_evolua_o_seu_design_system_com_tailwindcss",
+    "institution": "alura",
+    "tech": "react",
+    "category": {
+      "id": [1, 3, 6, 10],
+      "label": "React"
+    }
   }
 ]
