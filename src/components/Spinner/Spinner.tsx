@@ -1,17 +1,30 @@
 import styled from 'styled-components';
-import { spinner } from '../../styles/keyframes/keyframes';
+import { loader, loaderInner } from '../../styles/keyframes/keyframes';
 
-const ContaienrSpinner = styled.span`
-  width: 52px;
-  height: 52px;
-  border: 6px solid ${(props) => props.theme.colors.neutral.c3};
-  border-top-color: ${(props) => props.theme.colors.primaries.a};
-  border-radius: 50%;
-  animation: ${spinner} 1s linear infinite;
+const Square = styled.div`
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  top: 50%;
+  animation: ${loader} 2s infinite ease;
+`;
+
+const Inner = styled.svg`
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: ${loaderInner} 2s infinite ease-in;
 `;
 
 const Spinner = () => {
-  return <ContaienrSpinner />;
+  return (
+    <Square>
+      <Inner></Inner>
+    </Square>
+  );
 };
 
 export default Spinner;

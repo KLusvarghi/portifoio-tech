@@ -38,7 +38,7 @@ export const Itens = ({ filter, onSelectedPhoto }: IItensProps) => {
     setTimeout(() => {
       setList(newList);
       setIsLoading(false);
-    }, 500);
+    }, 1500);
   }, [filterTest]);
 
   return (

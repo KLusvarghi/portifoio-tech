@@ -66,12 +66,6 @@ export const scrolling = keyframes`
   }
 `;
 
-export const spinner = keyframes`
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
 export const snake = keyframes`
   0%,
   100% {
@@ -104,5 +98,87 @@ export const flight = keyframes`
   }
   100% {
     transform: translateY(-1000px);
+  }
+`;
+
+export const spinner = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const dash = keyframes`
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+`;
+
+export const color = keyframes`
+100%,
+  0% {
+    stroke: #122442;
+  }
+  40% {
+    stroke: #225E84;
+  }
+  66% {
+    stroke: #122442;
+  }
+  80%,
+  90% {
+    stroke: #225E84;
+  }
+`;
+
+export const loader = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  25% {
+    transform: rotate(180deg);
+  }
+  
+  50% {
+    transform: rotate(180deg);
+  }
+  
+  75% {
+    transform: rotate(360deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const loaderInner = keyframes`
+  0% {
+    height: 0%;
+  }
+  
+  25% {
+    height: 0%;
+  }
+  
+  50% {
+    height: 100%;
+  }
+  
+  75% {
+    height: 100%;
+  }
+  
+  100% {
+    height: 0%;
   }
 `;
