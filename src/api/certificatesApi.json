@@ -355,7 +355,7 @@
     "institution": "alura",
     "tech": "react",
     "category": {
-      "id": [1, 4, 6, 9],
+      "id": [1, 4, 6, 10],
       "label": "React"
     }
   },
