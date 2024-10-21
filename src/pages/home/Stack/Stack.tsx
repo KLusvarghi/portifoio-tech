@@ -3,6 +3,7 @@ import { Title } from '../../../components/Typography/Title';
 import styledcomponent from './assets/styledcomponents.svg';
 import storybookSvg from './assets/storybook.svg';
 import cssSvg from './assets/css.svg';
+import viteSvg from './assets/vite.svg';
 import figmaSvg from './assets/figma-border.svg';
 import gitSvg from './assets/git.svg';
 import githubSvg from './assets/github.svg';
@@ -48,6 +49,7 @@ export const Stack = ({ width }: IUseWindoSizeProps) => {
     { index: 13, path: githubSvg, name: 'Github' },
     { index: 14, path: vscodeSvg, name: 'Vscode' },
     { index: 15, path: figmaSvg, name: 'Figma' },
+    { index: 16, path: viteSvg, name: 'Vite' },
   ];
 
   const toogleState = () => {
