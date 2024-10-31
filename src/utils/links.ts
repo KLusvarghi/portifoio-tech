@@ -4,3 +4,4 @@ export const curriculo = 'https://drive.google.com/file/d/1ds-2xGDxr5BolPXt38DmJ
 export const instagram = 'https://www.instagram.com/lusvarghikaua/'
 export const whatsapp = 'https://web.whatsapp.com/send?phone=5513996068207&text='
 export const urlgitHub = 'https://api.github.com/users/KLusvarghi/repos?per_page=100&page=1'
+export const linkedinImage = 'https://media.licdn.com/dms/image/v2/D4D03AQEzV3n7bf7QNQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729533621148?e=1735776000&v=beta&t=Quq2OeSn_sTsnOSPc05bXT7qF6fsfjLN3gqMBG4FLL4'
