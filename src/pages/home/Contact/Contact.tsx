@@ -27,7 +27,7 @@ const Contact = () => {
     {
       index: 2,
       path: <Linkedin />,
-      text: '/kauã-ortolani-lusvarghi',
+      text: '/kaua-ortolani-frontend-jr/',
     },
     {
       index: 3,
