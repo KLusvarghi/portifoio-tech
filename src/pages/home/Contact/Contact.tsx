@@ -23,16 +23,16 @@ const Contact = () => {
   const [textCopy, setTextCopy] = useState(false);
   const [sucessForm, setSuccesForm] = useState(false);
   const info = [
-    { index: 1, path: <GitHub />, text: '/klusvarghi' },
+    { index: 1, path: <GitHub />, display: 'https://github.com/KLusvarghi' },
     {
       index: 2,
       path: <Linkedin />,
-      text: '/kaua-ortolani-frontend-jr/',
+      display: 'https://www.linkedin.com/in/kaua-ortolani-frontend-jr/',
     },
     {
       index: 3,
       path: <Email />,
-      text: '/kauaolusvarghi@gmail.com',
+      display: 'kauaolusvarghi@gmail.com',
     },
   ];
 
@@ -51,7 +51,7 @@ const Contact = () => {
         }, 2300);
       });
   };
-  
+
   return (
     <Main id="contact">
       <AnimatedSection direction="toDown">
@@ -64,13 +64,13 @@ const Contact = () => {
       <Wrapper>
         <AnimatedSection direction="toUp">
           <ContainerInformations>
-            {info.map(({ index, path, text }) => (
+            {info.map(({ index, path, display }) => (
               <ContainerInfo
                 key={index}
-                onClick={() => handleCopy(text.replace('/', ''))}
+                onClick={() => handleCopy(display)}
               >
                 <ContainerIcone $theme={theme.title}>{path}</ContainerIcone>
-                <Typography variant="body">{text}</Typography>
+                <Typography variant="body">/{display.split('/').filter(Boolean).pop()}</Typography>
               </ContainerInfo>
             ))}
           </ContainerInformations>
